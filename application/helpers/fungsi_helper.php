@@ -30,7 +30,7 @@ function is_karyawan()
 
     $status = true;
 
-    if ($role != 'sales') {
+    if ($role != 'karyawan') {
         $status = false;
     }
 
@@ -51,7 +51,7 @@ function is_finance()
     return $status;
 }
 
-function is_kacab()
+function is_hr()
 {
     $ci = get_instance();
     $role = $ci->session->userdata('login_session')['role'];

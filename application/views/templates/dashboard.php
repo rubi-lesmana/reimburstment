@@ -196,7 +196,7 @@
                 </li>
             <?php endif; ?>
 
-            <?php if (is_kacab()) : ?>
+            <?php if (is_hr()) : ?>
                 <!-- Nav Item - Dashboard -->
                 <div class="sidebar-heading">
                     Transaksi
