@@ -128,7 +128,7 @@
                 </li>
             <?php endif; ?>
 
-            <?php if (is_sales()) : ?>
+            <?php if (is_karyawan()) : ?>
                 <!-- Nav Item - Dashboard -->
                 <div class="sidebar-heading">
                     Transaksi
@@ -137,7 +137,7 @@
                 <li class="nav-item">
                     <a class="nav-link text-primary" href="<?= base_url('customer/add'); ?>">
                         <i class="fas fa-fw fa-edit"></i>
-                        <span>Create Customer</span>
+                        <span>Create Klaim</span>
                     </a>
                 </li>
                 <!-- Divider -->
@@ -150,13 +150,13 @@
                 <li class="nav-item">
                     <a class="nav-link text-primary pb-0" href="<?= base_url('customer'); ?>">
                         <i class="fas fa-list-ul"></i>
-                        <span>List Customer</span>
+                        <span>List Klaim</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-primary" href="<?= base_url('customer'); ?>">
                         <i class="fas fa-history"></i>
-                        <span>Histori Customer</span>
+                        <span>Histori Klaim</span>
                     </a>
                 </li>
             <?php endif; ?>

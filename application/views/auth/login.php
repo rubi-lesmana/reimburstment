@@ -19,7 +19,7 @@
                             <div class="text-center">
                                 <img class="m-auto" src="<?= base_url(); ?>assets/img/logo_surteckariya1.png" width="70%" alt="">
                                 <h1 class="h4 text-gray-900 font-weight-bold mt-4">Login</h1>
-                                <span class="text-muted">Aplikasi Reimburstment Test</span>
+                                <span class="text-muted">Aplikasi Reimburstment</span>
                             </div>
                             <?= $this->session->flashdata('pesan'); ?>
                             <?= form_open('', ['class' => 'user']); ?>

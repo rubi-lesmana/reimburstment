@@ -23,7 +23,7 @@ function is_admin()
     return $status;
 }
 
-function is_sales()
+function is_karyawan()
 {
     $ci = get_instance();
     $role = $ci->session->userdata('login_session')['role'];
