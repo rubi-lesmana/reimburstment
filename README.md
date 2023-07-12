@@ -7,7 +7,3 @@
 - SB Admin 2 Template
 - Datatables
 - Chart.js
-
-### Keterangan <br/>
-Database : <code>ci_barang</code><br/>
-<br/>
