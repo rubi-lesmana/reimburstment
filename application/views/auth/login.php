@@ -20,7 +20,7 @@
                             <img class="m-auto" src="<?= base_url(); ?>assets/img/logo_surteckariya1.png" width="70%"
                                 alt="">
                             <h1 class="h4 text-gray-900 font-weight-bold mt-4">Login</h1>
-                            <span class="text-muted">Aplikasi Reimburstment Test</span>
+                            <span class="text-muted">Aplikasi Reimburstment</span>
                         </div>
                         <?= $this->session->flashdata('pesan'); ?>
                         <?= form_open('', ['class' => 'user']); ?>
@@ -38,9 +38,13 @@
                         <button type="submit" class="btn btn-primary btn-user btn-block">
                             Login
                         </button>
-                        <div class="text-center mt-4">
+                        <!-- <div class="text-center mt-4">
                             <a class="small" href="<?= base_url('register') ?>">Buat Akun!</a>
+                        </div> -->
+                        <div class="text-center mt-4">
+                            <span class="small">Copyright &copy; PT. Surteckariya</span>
                         </div>
+                        
                         <?= form_close(); ?>
                     </div>
                 </div>

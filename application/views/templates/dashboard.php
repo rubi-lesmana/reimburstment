@@ -135,7 +135,7 @@
                 </div>
 
                 <li class="nav-item">
-                    <a class="nav-link text-primary" href="<?= base_url('customer/add'); ?>">
+                    <a class="nav-link text-primary" href="<?= base_url('klaim/add'); ?>">
                         <i class="fas fa-fw fa-edit"></i>
                         <span>Create Klaim</span>
                     </a>
