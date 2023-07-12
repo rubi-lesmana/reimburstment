@@ -38,9 +38,9 @@
                         <button type="submit" class="btn btn-primary btn-user btn-block">
                             Login
                         </button>
-                        <!-- <div class="text-center mt-4">
-                                <a class="small" href="<?= base_url('register') ?>">Buat Akun!</a>
-                            </div> -->
+                        <div class="text-center mt-4">
+                            <a class="small" href="<?= base_url('register') ?>">Buat Akun!</a>
+                        </div>
                         <?= form_close(); ?>
                     </div>
                 </div>

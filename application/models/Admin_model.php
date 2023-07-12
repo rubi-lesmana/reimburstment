@@ -61,6 +61,12 @@ class Admin_model extends CI_Model
         return $this->db->get('unit')->result_array();
     }
 
+    public function getKlaim()
+    {
+        $this->db->order_by('id_klaim');
+        return $this->db->get('klaim')->result_array();
+    }
+
     public function getLeasing()
     {
         $this->db->order_by('id_leasing');
@@ -92,45 +98,6 @@ class Admin_model extends CI_Model
         $this->db->order_by('no_surat');
         return $this->db->get('spp s')->result_array();
     }
-
-    public function getRo($limit = null, $id_ro = null)
-    {
-        $this->db->select('*');
-        $this->db->join('divisi d', 'r.divisi_id = d.id_divisi');
-        $this->db->join('barang b', 'r.barang_id = b.id_barang');
-        // $this->db->join('tb_requistion t', 'r.requistion_id = t.id_requistion');
-        // $this->db->join('satuan s', 'r.satuan_id = s.id_satuan');
-        if ($limit != null) {
-            $this->db->limit($limit);
-        }
-
-        if ($id_ro != null) {
-            $this->db->where('id_barang', $id_ro);
-        }
-
-        $this->db->order_by('id_ro', 'DESC');
-        return $this->db->get('request_order r')->result_array();
-    }
-
-    public function getPo($limit = null, $id_po = null)
-    {
-        $this->db->select('*');
-        // $this->db->join('divisi d', 'p.divisi_id = d.id_divisi');
-        // $this->db->join('barang b', 'p.barang_id = b.id_barang');
-        $this->db->join('request_order r', 'p.ro_id = r.id_ro');
-        $this->db->join('tb_requistion t', 'p.requistion_id = t.id_requistion');
-        if ($limit != null) {
-            $this->db->limit($limit);
-        }
-
-        if ($id_po != null) {
-            $this->db->where('id_ro', $id_po);
-        }
-
-        $this->db->order_by('id_po', 'DESC');
-        return $this->db->get('purchase_order p')->result_array();
-    }
-
 
     public function getRequistion($limit = null, $id_req = null)
     {
