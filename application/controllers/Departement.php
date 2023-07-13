@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Unit extends CI_Controller
+class Departement extends CI_Controller
 {
     public function __construct()
     {
@@ -14,9 +14,9 @@ class Unit extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Unit";
+        $data['title'] = "Departement";
         $data['unit'] = $this->admin->getUnit();
-        $this->template->load('templates/dashboard', 'unit/data', $data);
+        $this->template->load('templates/dashboard', 'departement/data', $data);
     }
 
     private function _validasi()

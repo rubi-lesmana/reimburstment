@@ -22,14 +22,15 @@
     <link href="" rel="">
     <link href="<?= base_url(); ?>assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="<?= base_url(); ?>assets/vendor/datatables/buttons/css/buttons.bootstrap4.min.css" rel="stylesheet">
-    <link href="<?= base_url(); ?>assets/vendor/datatables/responsive/css/responsive.bootstrap4.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets/vendor/datatables/responsive/css/responsive.bootstrap4.min.css"
+        rel="stylesheet">
     <link href="<?= base_url(); ?>assets/vendor/gijgo/css/gijgo.min.css" rel="stylesheet">
 
     <style>
-        #accordionSidebar,
-        .topbar {
-            z-index: 1;
-        }
+    #accordionSidebar,
+    .topbar {
+        z-index: 1;
+    }
     </style>
 </head>
 
@@ -61,202 +62,202 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             <?php if (is_admin()) : ?>
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    Data Master
-                </div>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Data Master
+            </div>
 
-                <!-- Nav Item - Dashboard -->
-                <li class="nav-item">
-                    <a class="nav-link text-primary pb-0" href="<?= base_url('unit'); ?>">
-                        <!-- <i class="fas fa-fw fa-users"></i> -->
-                        <i class="fas fa-car-side"></i>
-                        <span>Unit</span>
-                    </a>
-                </li>
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('departement'); ?>">
+                    <!-- <i class="fas fa-fw fa-users"></i> -->
+                    <i class="fas fa-car-side"></i>
+                    <span>Departement</span>
+                </a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link text-primary pb-0" href="<?= base_url('leasing'); ?>">
-                        <i class="fas fa-fw fa-users"></i>
-                        <span>Leasing</span>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('leasing'); ?>">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Karyawan</span>
+                </a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link text-primary pb" href="<?= base_url('LeasingNumber'); ?>">
-                        <i class="fas fa-fw fa-folder-open"></i>
-                        <span>Leasing Number</span>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link text-primary pb" href="<?= base_url('LeasingNumber'); ?>">
+                    <i class="fas fa-fw fa-folder-open"></i>
+                    <span>Leasing Number</span>
+                </a>
+            </li>
 
-                <!-- Divider -->
-                <hr class="sidebar-divider">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                <div class="sidebar-heading">
-                    Transaksi
-                </div>
+            <div class="sidebar-heading">
+                Transaksi
+            </div>
 
-                <li class="nav-item">
-                    <a class="nav-link text-primary pb-0" href="<?= base_url('customer'); ?>">
-                        <i class="fas fa-user-friends"></i>
-                        <span>Cutomer</span>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('customer'); ?>">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Klaim Reimburse</span>
+                </a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link text-primary pb" href="<?= base_url('spp'); ?>">
-                        <!-- <i class="fas fa-fw fa-folder-open"></i> -->
-                        <i class="fas fa-book-reader"></i>
-                        <span>Surat Perintah Pembayaran</span>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link text-primary pb" href="<?= base_url('spp'); ?>">
+                    <!-- <i class="fas fa-fw fa-folder-open"></i> -->
+                    <i class="fas fa-book-reader"></i>
+                    <span>Reimburstment</span>
+                </a>
+            </li>
 
-                <!-- Divider -->
-                <hr class="sidebar-divider">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    Settings
-                </div>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Settings
+            </div>
 
-                <!-- Nav Item -->
-                <li class="nav-item">
-                    <a class="nav-link text-primary" href="<?= base_url('user'); ?>">
-                        <i class="fas fa-fw fa-user-plus"></i>
-                        <span>User Management</span>
-                    </a>
-                </li>
+            <!-- Nav Item -->
+            <li class="nav-item">
+                <a class="nav-link text-primary" href="<?= base_url('user'); ?>">
+                    <i class="fas fa-fw fa-user-plus"></i>
+                    <span>User Management</span>
+                </a>
+            </li>
             <?php endif; ?>
 
             <?php if (is_karyawan()) : ?>
-                <!-- Nav Item - Dashboard -->
-                <div class="sidebar-heading">
-                    Transaksi
-                </div>
+            <!-- Nav Item - Dashboard -->
+            <div class="sidebar-heading">
+                Transaksi
+            </div>
 
-                <li class="nav-item">
-                    <a class="nav-link text-primary" href="<?= base_url('klaim/add'); ?>">
-                        <i class="fas fa-fw fa-edit"></i>
-                        <span>Create Klaim</span>
-                    </a>
-                </li>
-                <!-- Divider -->
-                <hr class="sidebar-divider">
+            <li class="nav-item">
+                <a class="nav-link text-primary" href="<?= base_url('klaim/add'); ?>">
+                    <i class="fas fa-fw fa-edit"></i>
+                    <span>Create Klaim</span>
+                </a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                <div class="sidebar-heading">
-                    Data
-                </div>
+            <div class="sidebar-heading">
+                Data
+            </div>
 
-                <li class="nav-item">
-                    <a class="nav-link text-primary pb-0" href="<?= base_url('customer'); ?>">
-                        <i class="fas fa-list-ul"></i>
-                        <span>List Klaim</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-primary" href="<?= base_url('customer'); ?>">
-                        <i class="fas fa-history"></i>
-                        <span>Histori Klaim</span>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('customer'); ?>">
+                    <i class="fas fa-list-ul"></i>
+                    <span>List Klaim</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-primary" href="<?= base_url('customer'); ?>">
+                    <i class="fas fa-history"></i>
+                    <span>Histori Klaim</span>
+                </a>
+            </li>
             <?php endif; ?>
 
             <?php if (is_finance()) : ?>
-                <!-- Nav Item - Dashboard -->
-                <div class="sidebar-heading">
-                    Transaksi
-                </div>
+            <!-- Nav Item - Dashboard -->
+            <div class="sidebar-heading">
+                Transaksi
+            </div>
 
-                <li class="nav-item">
-                    <a class="nav-link text-primary" href="<?= base_url('spp/add'); ?>">
-                        <i class="fas fa-fw fa-edit"></i>
-                        <span>Create Perintah Pembayaran</span>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link text-primary" href="<?= base_url('spp/add'); ?>">
+                    <i class="fas fa-fw fa-edit"></i>
+                    <span>Create Perintah Pembayaran</span>
+                </a>
+            </li>
 
-                <!-- Divider -->
-                <hr class="sidebar-divider">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                <div class="sidebar-heading">
-                    Data
-                </div>
+            <div class="sidebar-heading">
+                Data
+            </div>
 
-                <li class="nav-item">
-                    <a class="nav-link text-primary pb-0" href="<?= base_url('spp'); ?>">
-                        <i class="fas fa-list-ul"></i>
-                        <span>List Surat Perintah Pembayaran</span>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('spp'); ?>">
+                    <i class="fas fa-list-ul"></i>
+                    <span>List Surat Perintah Pembayaran</span>
+                </a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link text-primary" href="<?= base_url('spp/histori'); ?>">
-                        <i class="fas fa-history"></i>
-                        <span>Histori Surat Pembayaran</span>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link text-primary" href="<?= base_url('spp/histori'); ?>">
+                    <i class="fas fa-history"></i>
+                    <span>Histori Surat Pembayaran</span>
+                </a>
+            </li>
             <?php endif; ?>
 
             <?php if (is_hr()) : ?>
-                <!-- Nav Item - Dashboard -->
-                <div class="sidebar-heading">
-                    Transaksi
-                </div>
+            <!-- Nav Item - Dashboard -->
+            <div class="sidebar-heading">
+                Transaksi
+            </div>
 
-                <li class="nav-item">
-                    <a class="nav-link text-primary" href="<?= base_url('kacab'); ?>">
-                        <i class="fas fa-fw fa-edit"></i>
-                        <span>Approve SPP</span>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link text-primary" href="<?= base_url('kacab'); ?>">
+                    <i class="fas fa-fw fa-edit"></i>
+                    <span>Approve SPP</span>
+                </a>
+            </li>
 
-                <!-- Divider -->
-                <hr class="sidebar-divider">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                <div class="sidebar-heading">
-                    Data
-                </div>
+            <div class="sidebar-heading">
+                Data
+            </div>
 
-                <li class="nav-item">
-                    <a class="nav-link text-primary pb-0" href="<?= base_url('kacab/list_spp'); ?>">
-                        <i class="fas fa-list-ul"></i>
-                        <span>List SPP</span>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('kacab/list_spp'); ?>">
+                    <i class="fas fa-list-ul"></i>
+                    <span>List SPP</span>
+                </a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link text-primary" href="<?= base_url('kacab/history'); ?>">
-                        <i class="fas fa-history"></i>
-                        <span>Histori SPP</span>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link text-primary" href="<?= base_url('kacab/history'); ?>">
+                    <i class="fas fa-history"></i>
+                    <span>Histori SPP</span>
+                </a>
+            </li>
             <?php endif; ?>
             <!-- Divider -->
 
 
             <?php if (is_divisi()) : ?>
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    Report
-                </div>
-                <li class="nav-item">
-                    <a class="nav-link text-primary" href="<?= base_url('request_order/report_ro'); ?>">
-                        <i class="fas fa-fw fa-print"></i>
-                        <span>Cetak Laporan</span>
-                    </a>
-                </li>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Report
+            </div>
+            <li class="nav-item">
+                <a class="nav-link text-primary" href="<?= base_url('request_order/report_ro'); ?>">
+                    <i class="fas fa-fw fa-print"></i>
+                    <span>Cetak Laporan</span>
+                </a>
+            </li>
             <?php endif; ?>
 
             <?php if (is_purchasing()) : ?>
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    Report
-                </div>
-                <li class="nav-item">
-                    <a class="nav-link text-primary" href="<?= base_url('purchase_order/report_po'); ?>">
-                        <i class="fas fa-fw fa-print"></i>
-                        <span>Cetak Laporan</span>
-                    </a>
-                </li>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Report
+            </div>
+            <li class="nav-item">
+                <a class="nav-link text-primary" href="<?= base_url('purchase_order/report_po'); ?>">
+                    <i class="fas fa-fw fa-print"></i>
+                    <span>Cetak Laporan</span>
+                </a>
+            </li>
             <?php endif; ?>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -288,14 +289,17 @@
 
                         <!-- Nav Item - User primaryrmation -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline small text-capitalize">
                                     <?= userdata('nama'); ?>
                                 </span>
-                                <img class="img-profile rounded-circle" src="<?= base_url() ?>assets/img/avatar/<?= userdata('foto'); ?>">
+                                <img class="img-profile rounded-circle"
+                                    src="<?= base_url() ?>assets/img/avatar/<?= userdata('foto'); ?>">
                             </a>
                             <!-- Dropdown - User primaryrmation -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="<?= base_url('profile'); ?>">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
@@ -357,7 +361,8 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -406,39 +411,41 @@
     <script src="<?= base_url(); ?>assets/vendor/gijgo/js/gijgo.min.js"></script>
 
     <script type="text/javascript">
-        $(function() {
-            $('.date').datepicker({
-                uiLibrary: 'bootstrap4',
-                format: 'yyyy-mm-dd'
-            });
-
-            var start = moment().subtract(29, 'days');
-            var end = moment();
-
-            function cb(start, end) {
-                $('#tangal').val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
-            }
-
-            $('#tanggal').daterangepicker({
-                startDate: start,
-                endDate: end,
-                ranges: {
-                    'Hari ini': [moment(), moment()],
-                    'Kemarin': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                    '7 hari terakhir': [moment().subtract(6, 'days'), moment()],
-                    '30 hari terakhir': [moment().subtract(29, 'days'), moment()],
-                    'Bulan ini': [moment().startOf('month'), moment().endOf('month')],
-                    'Bulan lalu': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
-                    'Tahun ini': [moment().startOf('year'), moment().endOf('year')],
-                    'Tahun lalu': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')]
-                }
-            }, cb);
-
-            cb(start, end);
+    $(function() {
+        $('.date').datepicker({
+            uiLibrary: 'bootstrap4',
+            format: 'yyyy-mm-dd'
         });
 
-        $(document).ready(function() {
-            <?php
+        var start = moment().subtract(29, 'days');
+        var end = moment();
+
+        function cb(start, end) {
+            $('#tangal').val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
+        }
+
+        $('#tanggal').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+                'Hari ini': [moment(), moment()],
+                'Kemarin': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                '7 hari terakhir': [moment().subtract(6, 'days'), moment()],
+                '30 hari terakhir': [moment().subtract(29, 'days'), moment()],
+                'Bulan ini': [moment().startOf('month'), moment().endOf('month')],
+                'Bulan lalu': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1,
+                    'month').endOf('month')],
+                'Tahun ini': [moment().startOf('year'), moment().endOf('year')],
+                'Tahun lalu': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1,
+                    'year').endOf('year')]
+            }
+        }, cb);
+
+        cb(start, end);
+    });
+
+    $(document).ready(function() {
+        <?php
             $image = base_url('assets/img/suzuki.png');
 
             // Read image path, convert to base64 encoding
@@ -450,37 +457,37 @@
             // Format the image SRC:  data:{mime};base64,{data};
             $src = 'data:image/' . $type . ';base64,' . $imgData;
             ?>
-            var table = $('#dataTable').DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    'copy', 'csv', 'print', 'excel',
-                    {
-                        extend: 'pdfHtml5',
-                        customize: function(doc) {
-                            doc.content.splice(0, 0, {
-                                margin: [0, 0, 0, 12],
-                                alignment: 'center',
-                                image: '<?= $src ?>'
-                            });
-                        }
+        var table = $('#dataTable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'print', 'excel',
+                {
+                    extend: 'pdfHtml5',
+                    customize: function(doc) {
+                        doc.content.splice(0, 0, {
+                            margin: [0, 0, 0, 12],
+                            alignment: 'center',
+                            image: '<?= $src ?>'
+                        });
                     }
-                ],
-                dom: "<'row px-2 px-md-4 pt-2'<'col-md-3'l><'col-md-5 text-center'B><'col-md-4'f>>" +
-                    "<'row'<'col-md-12'tr>>" +
-                    "<'row px-2 px-md-4 py-3'<'col-md-5'i><'col-md-7'p>>",
-                lengthMenu: [
-                    [5, 10, 25, 50, 100, -1],
-                    [5, 10, 25, 50, 100, "All"]
-                ],
-                columnDefs: [{
-                    targets: -1,
-                    orderable: false,
-                    searchable: false
-                }]
-            });
-
-            table.buttons().container().appendTo('#dataTable_wrapper .col-md-5:eq(0)');
+                }
+            ],
+            dom: "<'row px-2 px-md-4 pt-2'<'col-md-3'l><'col-md-5 text-center'B><'col-md-4'f>>" +
+                "<'row'<'col-md-12'tr>>" +
+                "<'row px-2 px-md-4 py-3'<'col-md-5'i><'col-md-7'p>>",
+            lengthMenu: [
+                [5, 10, 25, 50, 100, -1],
+                [5, 10, 25, 50, 100, "All"]
+            ],
+            columnDefs: [{
+                targets: -1,
+                orderable: false,
+                searchable: false
+            }]
         });
+
+        table.buttons().container().appendTo('#dataTable_wrapper .col-md-5:eq(0)');
+    });
     </script>
 
     <!-- Contoh export image -->
@@ -637,249 +644,250 @@
 
     <!-- Untuk modal select RO di bikin PO -->
     <script>
-        let satuan = $('#satuan');
-        let stok = $('#stok');
-        let total = $('#total_stok')
+    let satuan = $('#satuan');
+    let stok = $('#stok');
+    let total = $('#total_stok')
 
-        $(document).ready(function() {
-            $(document).on('click', '#select', function() {
-                var customer_id = $(this).data('id');
-                var nama_customer = $(this).data('nama_customer');
-                var unit_id = $(this).data('unit_id');
-                var downpayment = $(this).data('downpayment');
-                $('#customer_id').val(customer_id);
-                $('#nama_customer').val(nama_customer);
-                $('#unit_id').val(unit_id);
-                $('#downpayment').val(downpayment);
-                $('#pilihro').modal('hide');
-            });
+    $(document).ready(function() {
+        $(document).on('click', '#select', function() {
+            var customer_id = $(this).data('id');
+            var nama_customer = $(this).data('nama_customer');
+            var unit_id = $(this).data('unit_id');
+            var downpayment = $(this).data('downpayment');
+            $('#customer_id').val(customer_id);
+            $('#nama_customer').val(nama_customer);
+            $('#unit_id').val(unit_id);
+            $('#downpayment').val(downpayment);
+            $('#pilihro').modal('hide');
         });
+    });
 
-        $(document).ready(function() {
-            $(document).on('click', '#selectsup', function() {
-                var ln_id = $(this).data('id');
-                var leasing_id = $(this).data('leasing_id');
-                var harga = $(this).data('harga');
-                var pelunasan = 0;
-                // var total = parseInt(harga) * parseInt(jumlah);
-                $('#ln_id').val(ln_id);
-                $('#leasing_id').val(leasing_id);
-                $('#harga').val(harga);
-                var dp = document.getElementById('downpayment').value;
-                pelunasan = harga - dp;
-                document.getElementById('pelunasan').value = pelunasan;
-                $('#pilihsup').modal('hide');
-            });
+    $(document).ready(function() {
+        $(document).on('click', '#selectsup', function() {
+            var ln_id = $(this).data('id');
+            var leasing_id = $(this).data('leasing_id');
+            var harga = $(this).data('harga');
+            var pelunasan = 0;
+            // var total = parseInt(harga) * parseInt(jumlah);
+            $('#ln_id').val(ln_id);
+            $('#leasing_id').val(leasing_id);
+            $('#harga').val(harga);
+            var dp = document.getElementById('downpayment').value;
+            pelunasan = harga - dp;
+            document.getElementById('pelunasan').value = pelunasan;
+            $('#pilihsup').modal('hide');
         });
+    });
 
-        // $(document).ready(function() {
-        //     $("#quantity, #harga").keyup(function() {
-        //         var harga = $("#harga").val();
-        //         var jumlah = $("#jumlah").val();
+    // $(document).ready(function() {
+    //     $("#quantity, #harga").keyup(function() {
+    //         var harga = $("#harga").val();
+    //         var jumlah = $("#jumlah").val();
 
-        //         var total = parseInt(harga) * parseInt(jumlah);
-        //         $("#total").val(total);
-        //     });
-        // });
+    //         var total = parseInt(harga) * parseInt(jumlah);
+    //         $("#total").val(total);
+    //     });
+    // });
     </script>
 
     <script type="text/javascript">
-        let hal = '<?= $this->uri->segment(1); ?>';
+    let hal = '<?= $this->uri->segment(1); ?>';
 
-        let satuan = $('#satuan');
-        let stok = $('#stok');
-        let total = $('#total_stok');
-        let jumlah = hal == 'barangmasuk' ? $('#jumlah_masuk') : $('#jumlah_keluar');
+    let satuan = $('#satuan');
+    let stok = $('#stok');
+    let total = $('#total_stok');
+    let jumlah = hal == 'barangmasuk' ? $('#jumlah_masuk') : $('#jumlah_keluar');
 
-        $(document).on('change', '#barang_id', function() {
-            let url = '<?= base_url('barang/getstok/'); ?>' + this.value;
-            $.getJSON(url, function(data) {
-                satuan.html(data.nama_satuan);
-                stok.val(data.stok);
-                total.val(data.stok);
-                jumlah.focus();
-            });
+    $(document).on('change', '#barang_id', function() {
+        let url = '<?= base_url('barang/getstok/'); ?>' + this.value;
+        $.getJSON(url, function(data) {
+            satuan.html(data.nama_satuan);
+            stok.val(data.stok);
+            total.val(data.stok);
+            jumlah.focus();
         });
+    });
 
-        $(document).on('keyup', '#jumlah_masuk', function() {
-            let totalStok = parseInt(stok.val()) + parseInt(this.value);
-            total.val(Number(totalStok));
-        });
+    $(document).on('keyup', '#jumlah_masuk', function() {
+        let totalStok = parseInt(stok.val()) + parseInt(this.value);
+        total.val(Number(totalStok));
+    });
 
-        $(document).on('keyup', '#jumlah_keluar', function() {
-            let totalStok = parseInt(stok.val()) - parseInt(this.value);
-            total.val(Number(totalStok));
-        });
+    $(document).on('keyup', '#jumlah_keluar', function() {
+        let totalStok = parseInt(stok.val()) - parseInt(this.value);
+        total.val(Number(totalStok));
+    });
     </script>
 
 
     <?php if ($this->uri->segment(1) == 'dashboard') : ?>
-        <!-- Chart -->
-        <script src="<?= base_url(); ?>assets/vendor/chart.js/Chart.min.js"></script>
+    <!-- Chart -->
+    <script src="<?= base_url(); ?>assets/vendor/chart.js/Chart.min.js"></script>
 
-        <script type="text/javascript">
-            // Set new default font family and font color to mimic Bootstrap's default styling
-            Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-            Chart.defaults.global.defaultFontColor = '#858796';
+    <script type="text/javascript">
+    // Set new default font family and font color to mimic Bootstrap's default styling
+    Chart.defaults.global.defaultFontFamily = 'Nunito',
+        '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+    Chart.defaults.global.defaultFontColor = '#858796';
 
-            function number_format(number, decimals, dec_point, thousands_sep) {
-                // *     example: number_format(1234.56, 2, ',', ' ');
-                // *     return: '1 234,56'
-                number = (number + '').replace(',', '').replace(' ', '');
-                var n = !isFinite(+number) ? 0 : +number,
-                    prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
-                    sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
-                    dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
-                    s = '',
-                    toFixedFix = function(n, prec) {
-                        var k = Math.pow(10, prec);
-                        return '' + Math.round(n * k) / k;
-                    };
-                // Fix for IE parseFloat(0.55).toFixed(0) = 0;
-                s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
-                if (s[0].length > 3) {
-                    s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
-                }
-                if ((s[1] || '').length < prec) {
-                    s[1] = s[1] || '';
-                    s[1] += new Array(prec - s[1].length + 1).join('0');
-                }
-                return s.join(dec);
-            }
+    function number_format(number, decimals, dec_point, thousands_sep) {
+        // *     example: number_format(1234.56, 2, ',', ' ');
+        // *     return: '1 234,56'
+        number = (number + '').replace(',', '').replace(' ', '');
+        var n = !isFinite(+number) ? 0 : +number,
+            prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+            sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+            dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+            s = '',
+            toFixedFix = function(n, prec) {
+                var k = Math.pow(10, prec);
+                return '' + Math.round(n * k) / k;
+            };
+        // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+        s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+        if (s[0].length > 3) {
+            s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+        }
+        if ((s[1] || '').length < prec) {
+            s[1] = s[1] || '';
+            s[1] += new Array(prec - s[1].length + 1).join('0');
+        }
+        return s.join(dec);
+    }
 
-            // Area Chart Example
-            var ctx = document.getElementById("myAreaChart");
-            var myLineChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
-                    datasets: [{
-                            label: "Total Barang Masuk",
-                            lineTension: 0.3,
-                            backgroundColor: "rgba(78, 115, 223, 0.05)",
-                            borderColor: "rgba(78, 115, 223, 1)",
-                            pointRadius: 3,
-                            pointBackgroundColor: "rgba(78, 115, 223, 1)",
-                            pointBorderColor: "rgba(78, 115, 223, 1)",
-                            pointHoverRadius: 3,
-                            pointHoverBackgroundColor: "#5a5c69",
-                            pointHoverBorderColor: "#5a5c69",
-                            pointHitRadius: 10,
-                            pointBorderWidth: 2,
-                            data: <?= json_encode($cbm); ?>,
-                        },
-                        {
-                            label: "Total Barang Keluar",
-                            lineTension: 0.3,
-                            backgroundColor: "rgba(231, 74, 59, 0.05)",
-                            borderColor: "#e74a3b",
-                            pointRadius: 3,
-                            pointBackgroundColor: "#e74a3b",
-                            pointBorderColor: "#e74a3b",
-                            pointHoverRadius: 3,
-                            pointHoverBackgroundColor: "#5a5c69",
-                            pointHoverBorderColor: "#5a5c69",
-                            pointHitRadius: 10,
-                            pointBorderWidth: 2,
-                            data: <?= json_encode($cbk); ?>,
-                        }
-                    ],
+    // Area Chart Example
+    var ctx = document.getElementById("myAreaChart");
+    var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
+            datasets: [{
+                    label: "Total Barang Masuk",
+                    lineTension: 0.3,
+                    backgroundColor: "rgba(78, 115, 223, 0.05)",
+                    borderColor: "rgba(78, 115, 223, 1)",
+                    pointRadius: 3,
+                    pointBackgroundColor: "rgba(78, 115, 223, 1)",
+                    pointBorderColor: "rgba(78, 115, 223, 1)",
+                    pointHoverRadius: 3,
+                    pointHoverBackgroundColor: "#5a5c69",
+                    pointHoverBorderColor: "#5a5c69",
+                    pointHitRadius: 10,
+                    pointBorderWidth: 2,
+                    data: <?= json_encode($cbm); ?>,
                 },
-                options: {
-                    maintainAspectRatio: false,
-                    layout: {
-                        padding: 5
+                {
+                    label: "Total Barang Keluar",
+                    lineTension: 0.3,
+                    backgroundColor: "rgba(231, 74, 59, 0.05)",
+                    borderColor: "#e74a3b",
+                    pointRadius: 3,
+                    pointBackgroundColor: "#e74a3b",
+                    pointBorderColor: "#e74a3b",
+                    pointHoverRadius: 3,
+                    pointHoverBackgroundColor: "#5a5c69",
+                    pointHoverBorderColor: "#5a5c69",
+                    pointHitRadius: 10,
+                    pointBorderWidth: 2,
+                    data: <?= json_encode($cbk); ?>,
+                }
+            ],
+        },
+        options: {
+            maintainAspectRatio: false,
+            layout: {
+                padding: 5
+            },
+            scales: {
+                xAxes: [{
+                    time: {
+                        unit: 'date'
                     },
-                    scales: {
-                        xAxes: [{
-                            time: {
-                                unit: 'date'
-                            },
-                            gridLines: {
-                                display: false,
-                                drawBorder: false
-                            },
-                            ticks: {
-                                maxTicksLimit: 7
-                            }
-                        }],
-                        yAxes: [{
-                            ticks: {
-                                maxTicksLimit: 5,
-                                padding: 10,
-                                // Include a dollar sign in the ticks
-                                callback: function(value, index, values) {
-                                    return number_format(value);
-                                }
-                            },
-                            gridLines: {
-                                color: "rgb(234, 236, 244)",
-                                zeroLineColor: "rgb(234, 236, 244)",
-                                drawBorder: false,
-                                borderDash: [2],
-                                zeroLineBorderDash: [2]
-                            }
-                        }],
+                    gridLines: {
+                        display: false,
+                        drawBorder: false
                     },
-                    legend: {
-                        display: false
-                    },
-                    tooltips: {
-                        backgroundColor: "rgb(255,255,255)",
-                        bodyFontColor: "#858796",
-                        titleMarginBottom: 10,
-                        titleFontColor: '#6e707e',
-                        titleFontSize: 14,
-                        borderColor: '#dddfeb',
-                        borderWidth: 1,
-                        xPadding: 15,
-                        yPadding: 15,
-                        displayColors: false,
-                        intersect: false,
-                        mode: 'index',
-                        caretPadding: 10,
-                        callbacks: {
-                            label: function(tooltipItem, chart) {
-                                var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                                return datasetLabel + ': ' + number_format(tooltipItem.yLabel);
-                            }
+                    ticks: {
+                        maxTicksLimit: 7
+                    }
+                }],
+                yAxes: [{
+                    ticks: {
+                        maxTicksLimit: 5,
+                        padding: 10,
+                        // Include a dollar sign in the ticks
+                        callback: function(value, index, values) {
+                            return number_format(value);
                         }
+                    },
+                    gridLines: {
+                        color: "rgb(234, 236, 244)",
+                        zeroLineColor: "rgb(234, 236, 244)",
+                        drawBorder: false,
+                        borderDash: [2],
+                        zeroLineBorderDash: [2]
+                    }
+                }],
+            },
+            legend: {
+                display: false
+            },
+            tooltips: {
+                backgroundColor: "rgb(255,255,255)",
+                bodyFontColor: "#858796",
+                titleMarginBottom: 10,
+                titleFontColor: '#6e707e',
+                titleFontSize: 14,
+                borderColor: '#dddfeb',
+                borderWidth: 1,
+                xPadding: 15,
+                yPadding: 15,
+                displayColors: false,
+                intersect: false,
+                mode: 'index',
+                caretPadding: 10,
+                callbacks: {
+                    label: function(tooltipItem, chart) {
+                        var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+                        return datasetLabel + ': ' + number_format(tooltipItem.yLabel);
                     }
                 }
-            });
+            }
+        }
+    });
 
-            // Pie Chart Example
-            var ctx = document.getElementById("myPieChart");
-            var myPieChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ["Barang Masuk", "Barang Keluar"],
-                    datasets: [{
-                        data: [<?= $barang_masuk; ?>, <?= $barang_keluar; ?>],
-                        backgroundColor: ['#4e73df', '#e74a3b'],
-                        hoverBackgroundColor: ['#5a5c69', '#5a5c69'],
-                        hoverBorderColor: "rgba(234, 236, 244, 1)",
-                    }],
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    tooltips: {
-                        backgroundColor: "rgb(255,255,255)",
-                        bodyFontColor: "#858796",
-                        borderColor: '#dddfeb',
-                        borderWidth: 1,
-                        xPadding: 15,
-                        yPadding: 15,
-                        displayColors: false,
-                        caretPadding: 10,
-                    },
-                    legend: {
-                        display: false
-                    },
-                    cutoutPercentage: 80,
-                },
-            });
-        </script>
+    // Pie Chart Example
+    var ctx = document.getElementById("myPieChart");
+    var myPieChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ["Barang Masuk", "Barang Keluar"],
+            datasets: [{
+                data: [<?= $barang_masuk; ?>, <?= $barang_keluar; ?>],
+                backgroundColor: ['#4e73df', '#e74a3b'],
+                hoverBackgroundColor: ['#5a5c69', '#5a5c69'],
+                hoverBorderColor: "rgba(234, 236, 244, 1)",
+            }],
+        },
+        options: {
+            maintainAspectRatio: false,
+            tooltips: {
+                backgroundColor: "rgb(255,255,255)",
+                bodyFontColor: "#858796",
+                borderColor: '#dddfeb',
+                borderWidth: 1,
+                xPadding: 15,
+                yPadding: 15,
+                displayColors: false,
+                caretPadding: 10,
+            },
+            legend: {
+                display: false
+            },
+            cutoutPercentage: 80,
+        },
+    });
+    </script>
     <?php endif; ?>
 </body>
 
