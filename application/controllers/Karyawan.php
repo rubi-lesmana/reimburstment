@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Leasing extends CI_Controller
+class Karyawan extends CI_Controller
 {
     public function __construct()
     {
@@ -14,9 +14,9 @@ class Leasing extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Leasing";
+        $data['title'] = "Karyawan";
         $data['leasing'] = $this->admin->getLeasing();
-        $this->template->load('templates/dashboard', 'leasing/data', $data);
+        $this->template->load('templates/dashboard', 'karyawan/data', $data);
     }
 
     private function _validasi()

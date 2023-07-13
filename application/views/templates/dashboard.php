@@ -71,13 +71,13 @@
             <li class="nav-item">
                 <a class="nav-link text-primary pb-0" href="<?= base_url('departement'); ?>">
                     <!-- <i class="fas fa-fw fa-users"></i> -->
-                    <i class="fas fa-car-side"></i>
+                    <i class="fas fa-user-tag"></i>
                     <span>Departement</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-primary pb-0" href="<?= base_url('leasing'); ?>">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('karyawan'); ?>">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Karyawan</span>
                 </a>
@@ -99,7 +99,7 @@
 
             <li class="nav-item">
                 <a class="nav-link text-primary pb-0" href="<?= base_url('customer'); ?>">
-                    <i class="fas fa-user-friends"></i>
+                    <i class="fas fa-funnel-dollar"></i>
                     <span>Klaim Reimburse</span>
                 </a>
             </li>
@@ -107,7 +107,7 @@
             <li class="nav-item">
                 <a class="nav-link text-primary pb" href="<?= base_url('spp'); ?>">
                     <!-- <i class="fas fa-fw fa-folder-open"></i> -->
-                    <i class="fas fa-book-reader"></i>
+                    <i class="fas fa-hand-holding-usd"></i>
                     <span>Reimburstment</span>
                 </a>
             </li>
