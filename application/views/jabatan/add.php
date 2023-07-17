@@ -5,11 +5,11 @@
                 <div class="row">
                     <div class="col">
                         <h4 class="h5 align-middle m-0 font-weight-bold text-primary">
-                            Form Tambah Leasing
+                            Form Tambah Jabatan
                         </h4>
                     </div>
                     <div class="col-auto">
-                        <a href="<?= base_url('leasing') ?>" class="btn btn-sm btn-secondary btn-icon-split">
+                        <a href="<?= base_url('jabatan') ?>" class="btn btn-sm btn-secondary btn-icon-split">
                             <span class="icon">
                                 <i class="fa fa-arrow-left"></i>
                             </span>
@@ -24,26 +24,19 @@
                 <?= $this->session->flashdata('pesan'); ?>
                 <?= form_open(); ?>
                 <div class="row form-group">
-                    <label class="col-md-3 text-md-right" for="id_leasing">ID Leasing</label>
+                    <label class="col-md-3 text-md-right" for="id_jabatan">ID jabatan</label>
                     <div class="col-md-9">
-                        <input readonly value="<?= set_value('id_leasing', $id_leasing); ?>" name="id_leasing" id="id_leasing" type="text" class="form-control" placeholder="ID Leasing ...">
-                        <?= form_error('id_leasing', '<small class="text-danger">', '</small>'); ?>
+                        <input readonly value="<?= set_value('id_jabatan', $id_jabatan); ?>" name="id_jabatan"
+                            id="id_jabatan" type="text" class="form-control" placeholder="ID jabatan ...">
+                        <?= form_error('id_jabatan', '<small class="text-danger">', '</small>'); ?>
                     </div>
                 </div>
                 <div class="row form-group">
-                    <label class="col-md-3 text-md-right" for="nama_leasing">Nama Leasing</label>
+                    <label class="col-md-3 text-md-right" for="nama_jabatan">Nama jabatan</label>
                     <div class="col-md-9">
-                        <input value="<?= set_value('nama_leasing'); ?>" name="nama_leasing" id="nama_leasing" type="text" class="form-control" placeholder="Nama Leasing...">
-                        <?= form_error('nama_leasing', '<small class="text-danger">', '</small>'); ?>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <label class="col-md-3 text-md-right" for="alamat">Alamat</label>
-                    <div class="col-md-9">
-                        <div class="input-group">
-                            <textarea value="<?= set_value('alamat'); ?>" name="alamat" id="alamat" class="form-control" rows="3" placeholder="alamat..."><?= set_value('alamat'); ?></textarea>
-                        </div>
-                        <?= form_error('alamat', '<small class="text-danger">', '</small>'); ?>
+                        <input value="<?= set_value('nama_jabatan'); ?>" name="nama_jabatan" id="nama_jabatan"
+                            type="text" class="form-control" placeholder="Nama jabatan...">
+                        <?= form_error('nama_jabatan', '<small class="text-danger">', '</small>'); ?>
                     </div>
                 </div>
                 <div class="row form-group">
