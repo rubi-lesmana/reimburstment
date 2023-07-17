@@ -67,10 +67,16 @@ class Admin_model extends CI_Model
         return $this->db->get('klaim')->result_array();
     }
 
-    public function getLeasing()
+    public function getJabatan()
     {
-        $this->db->order_by('id_leasing');
-        return $this->db->get('leasing')->result_array();
+        $this->db->order_by('id_jabatan');
+        return $this->db->get('jabatan')->result_array();
+    }
+
+    public function getDepartement()
+    {
+        $this->db->order_by('id_departement');
+        return $this->db->get('departement')->result_array();
     }
 
     public function getLn()

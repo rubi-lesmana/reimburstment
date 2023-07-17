@@ -15,41 +15,39 @@ class Departement extends CI_Controller
     public function index()
     {
         $data['title'] = "Departement";
-        $data['unit'] = $this->admin->getUnit();
+        $data['departement'] = $this->admin->getDepartement();
         $this->template->load('templates/dashboard', 'departement/data', $data);
     }
 
     private function _validasi()
     {
-        $this->form_validation->set_rules('nama_unit', 'Nama Unit', 'required|trim');
+        $this->form_validation->set_rules('nama_departement', 'Nama Departement', 'required|trim');
     }
 
     public function add()
     {
         $this->_validasi();
         if ($this->form_validation->run() == false) {
-            $data['title']  = "Unit";
-            // $data['jenis']  = $this->admin->get('jenis');
-            // $data['satuan'] = $this->admin->get('satuan');
+            $data['title']  = "Departement";
 
-            // Mengenerate ID Unit
-            $kode_terakhir  = $this->admin->getMax('unit', 'id_unit');
-            $kode_tambah    = substr($kode_terakhir, -6, 6);
+            // Mengenerate ID Departement
+            $kode_terakhir  = $this->admin->getMax('departement', 'id_departement');
+            $kode_tambah    = substr($kode_terakhir, -3, 3);
             $kode_tambah++;
-            $number         = str_pad($kode_tambah, 6, '0', STR_PAD_LEFT);
-            $data['id_unit'] = 'U' . $number;
+            $number         = str_pad($kode_tambah, 3, '0', STR_PAD_LEFT);
+            $data['id_departement'] = 'DEPT' . $number;
 
-            $this->template->load('templates/dashboard', 'unit/add', $data);
+            $this->template->load('templates/dashboard', 'departement/add', $data);
         } else {
             $input  = $this->input->post(null, true);
-            $insert = $this->admin->insert('unit', $input);
+            $insert = $this->admin->insert('departement', $input);
 
             if ($insert) {
                 set_pesan('data berhasil disimpan');
-                redirect('unit');
+                redirect('departement');
             } else {
                 set_pesan('gagal menyimpan data');
-                redirect('unit/add');
+                redirect('departement/add');
             }
         }
     }
@@ -60,19 +58,19 @@ class Departement extends CI_Controller
         $this->_validasi();
 
         if ($this->form_validation->run() == false) {
-            $data['title']  = "Unit";
-            $data['unit'] = $this->admin->get('unit', ['id_unit' => $id]);
-            $this->template->load('templates/dashboard', 'unit/edit', $data);
+            $data['title']  = "Departement";
+            $data['departement'] = $this->admin->get('Departement', ['id_departement' => $id]);
+            $this->template->load('templates/dashboard', 'Departement/edit', $data);
         } else {
             $input  = $this->input->post(null, true);
-            $update = $this->admin->update('unit', 'id_unit', $id, $input);
+            $update = $this->admin->update('Departement', 'id_departement', $id, $input);
 
             if ($update) {
                 set_pesan('data berhasil disimpan');
-                redirect('unit');
+                redirect('Departement');
             } else {
                 set_pesan('gagal menyimpan data');
-                redirect('unit/edit/' . $id);
+                redirect('Departement/edit/' . $id);
             }
         }
     }
@@ -80,11 +78,11 @@ class Departement extends CI_Controller
     public function delete($getId)
     {
         $id = encode_php_tags($getId);
-        if ($this->admin->delete('unit', 'id_unit', $id)) {
+        if ($this->admin->delete('Departement', 'id_departement', $id)) {
             set_pesan('data berhasil dihapus.');
         } else {
             set_pesan('data gagal dihapus.', false);
         }
-        redirect('unit');
+        redirect('Departement');
     }
 }

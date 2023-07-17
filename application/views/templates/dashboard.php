@@ -77,9 +77,9 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-primary pb-0" href="<?= base_url('karyawan'); ?>">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('jabatan'); ?>">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>Karyawan</span>
+                    <span>Jabatan</span>
                 </a>
             </li>
 

@@ -32,10 +32,10 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <label class="col-md-3 text-md-right" for="nama_jabatan">Nama Barang</label>
+                    <label class="col-md-3 text-md-right" for="nama_jabatan">Nama Jabatan</label>
                     <div class="col-md-9">
                         <input value="<?= set_value('nama_jabatan', $jabatan['nama_jabatan']); ?>" name="nama_jabatan"
-                            id="nama_jabatan" type="text" class="form-control" placeholder="Nama Barang...">
+                            id="nama_jabatan" type="text" class="form-control" placeholder="Nama Jabatan...">
                         <?= form_error('nama_jabatan', '<small class="text-danger">', '</small>'); ?>
                     </div>
                 </div>

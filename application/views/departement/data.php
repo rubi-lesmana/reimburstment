@@ -32,18 +32,18 @@
             <tbody>
                 <?php
                 $no = 1;
-                if ($unit) :
-                    foreach ($unit as $u) :
+                if ($departement) :
+                    foreach ($departement as $ls) :
                 ?>
                 <tr>
                     <td><?= $no++; ?></td>
-                    <td><?= $u['id_unit']; ?></td>
-                    <td><?= $u['nama_unit']; ?></td>
+                    <td><?= $ls['id_departement']; ?></td>
+                    <td><?= $ls['nama_departement']; ?></td>
                     <td>
-                        <a href="<?= base_url('unit/edit/') . $u['id_unit'] ?>"
+                        <a href="<?= base_url('departement/edit/') . $ls['id_departement'] ?>"
                             class="btn btn-warning btn-circle btn-sm"><i class="fa fa-edit"></i></a>
                         <a onclick="return confirm('Yakin ingin hapus?')"
-                            href="<?= base_url('unit/delete/') . $u['id_unit'] ?>"
+                            href="<?= base_url('departement/delete/') . $ls['id_departement'] ?>"
                             class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
