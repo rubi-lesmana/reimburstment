@@ -72,20 +72,21 @@ class Klaim extends CI_Controller
         $this->_validasi();
 
         if ($this->form_validation->run() == false) {
-            $data['title']  = "Edit Request Order";
-            $data['divisi'] = $this->admin->get('divisi');
-            $data['barang'] = $this->admin->get('barang');
-            $data['ro']     = $this->admin->get('klaim', ['id_ro' => $id]);
+            $data['title']          = "Edit Klaim";
+            $data['departement']    = $this->admin->get('departement');
+            $data['jabatan']        = $this->admin->get('jabatan');
+            $data['jenis_klaim']    = $this->admin->get('jenis_klaim');
+            $data['klaim']          = $this->admin->get('klaim', ['id_klaim' => $id]);
             $this->template->load('templates/dashboard', 'klaim/edit', $data);
         } else {
             $input = $this->input->post(null, true);
-            $update = $this->admin->update('klaim', 'id_ro', $id, $input);
+            $update = $this->admin->update('klaim', 'id_klaim', $id, $input);
 
             if ($update) {
-                set_pesan('Request Order berhasil di Perbaharui');
+                set_pesan('Klaim Reimburse berhasil di Perbaharui');
                 redirect('klaim');
             } else {
-                set_pesan('Request Order gagal di perbaharui');
+                set_pesan('Klaim Reimburse gagal di perbaharui');
                 redirect('klaim/edit/' . $id);
             }
         }

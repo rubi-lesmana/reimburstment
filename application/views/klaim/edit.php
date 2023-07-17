@@ -26,6 +26,14 @@
                 <div class="row form-group">
                     <label class="col-md-4 text-md-right" for="tanggal">Tanggal</label>
                     <div class="col-md-6">
+                        <input value="<?= set_value('id_klaim', $klaim['id_klaim']); ?>" name="id_klaim" id="id_klaim"
+                            readonly="readonly" type="text" class="form-control" placeholder="ID Jenis Klaim">
+                        <?= form_error('id_klaim', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-md-4 text-md-right" for="tanggal">Tanggal</label>
+                    <div class="col-md-6">
                         <input value="<?= set_value('tanggal', date('Y-m-d')); ?>" name="tanggal" type="text"
                             class="form-control date" placeholder="Tanggal">
                         <?= form_error('tanggal', '<small class="text-danger">', '</small>'); ?>
@@ -35,7 +43,7 @@
                 <div class="row form-group">
                     <label class="col-md-4 text-md-right" for="nama">Nama</label>
                     <div class="col-md-6">
-                        <input value="<?= set_value('nama', $user['nama']); ?>" type="text" id="nama" name="nama"
+                        <input value="<?= set_value('nama', $klaim['nama']); ?>" type="text" id="nama" name="nama"
                             class="form-control" placeholder="Nama">
                         <?= form_error('nama', '<span class="text-danger small">', '</span>'); ?>
                     </div>
@@ -80,9 +88,8 @@
                             <select name="jenis_klaim_id" id="jenis_klaim_id" class="custom-select">
                                 <option value="" selected disabled>Pilih Departement</option>
                                 <?php foreach ($jenis_klaim as $d) : ?>
-                                <option <?= $ro['jenis_klaim_id'] == $d['id_jenis_klaim'] ? 'selected' : ''; ?>
-                                    <?= set_select('jenis_klaim_id', $d['id_jenis_klaim']) ?>
-                                    value="<?= $d['id_jabatan'] ?>">
+                                <option <?= $ro['jenis_klaim_id'] == $d['id_klaim'] ? 'selected' : ''; ?>
+                                    <?= set_select('jenis_klaim_id', $d['id_klaim']) ?> value="<?= $d['id_jabatan'] ?>">
                                     <?= $d['nama_jenis_klaim'] ?></option>
                                 <?php endforeach; ?>
                             </select>
