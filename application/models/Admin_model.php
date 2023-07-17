@@ -82,7 +82,8 @@ class Admin_model extends CI_Model
     public function getKlaim()
     {
         $this->db->join('jabatan j', 'k.jabatan_id = j.id_jabatan');
-        $this->db->join('departement d', 'k.deaprtement_id = d.id_departement');
+        $this->db->join('departement d', 'k.departement_id = d.id_departement');
+        $this->db->join('jenis_klaim jk', 'k.jenis_klaim_id = jk.id_jenis_klaim');
         $this->db->order_by('id_klaim');
         return $this->db->get('klaim k')->result_array();
     }

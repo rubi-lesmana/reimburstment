@@ -3,7 +3,7 @@
     <div class="col-xl-10 col-lg-12 col-md-9">
         <!-- <div class="card"> -->
 
-        <div class="card-body p-lg-5 p-0">
+        <div class="card-body p-lg-2 p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
                 <!-- <div class="col-lg-6 m-auto">

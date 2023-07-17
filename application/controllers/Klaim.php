@@ -14,93 +14,188 @@ class Klaim extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Klaim";
-        $data['klaim'] = $this->admin->getKlaim();
+        $data['title']  = "Klaim Reimburstment";
+        $data['ro']     = $this->admin->getRo();
         $this->template->load('templates/dashboard', 'klaim/data', $data);
+    }
+
+    public function histori()
+    {
+        $data['title']  = "Klaim Reimburstment";
+        $data['ro']     = $this->admin->getRo();
+        $this->template->load('templates/dashboard', 'klaim/histori', $data);
     }
 
     private function _validasi()
     {
-        $this->form_validation->set_rules('nama_customer', 'Nama Supplier', 'required|trim');
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
-        $this->form_validation->set_rules('no_telp', 'No Telp', 'required|trim');
-        $this->form_validation->set_rules('unit_id', 'Nama Unit', 'required|trim');
-        $this->form_validation->set_rules('warna_id', 'Warna', 'required|trim');
-        $this->form_validation->set_rules('no_rangka', 'No. Rangka', 'required|trim|numeric');
-        $this->form_validation->set_rules('no_mesin', 'No. Mesin', 'required|trim|numeric');
-        $this->form_validation->set_rules('downpayment', 'DP', 'required|trim|numeric');
+        $this->form_validation->set_rules('tanggal', 'Tanggal', 'required|trim');
+        $this->form_validation->set_rules('departement_id', 'Departement', 'required|trim');
+        $this->form_validation->set_rules('jabatan_id', 'Jabatan', 'required|trim');
+        $this->form_validation->set_rules('jenis_klaim_id', 'Jenis Klaim', 'required|trim');
+        $this->form_validation->set_rules('dokumen', 'Dokumen', 'required');
     }
 
     public function add()
     {
         $this->_validasi();
         if ($this->form_validation->run() == false) {
-            $data['title']      = "Create Klaim Reimburstment";
-            $data['klaim']      = $this->admin->getKlaim();
-            
+            $data['title']          = "Klaim Reimburstment";
+            $data['klaim']          = $this->admin->getKlaim();
+            $data['departement']    = $this->admin->get('departement');
+            $data['jabatan']        = $this->admin->get('jabatan');
+            $data['jenis_klaim']    = $this->admin->get('jenis_klaim');
 
             // Mengenerate ID Barang
             $kode_terakhir  = $this->admin->getMax('klaim', 'id_klaim');
             $kode_tambah    = substr($kode_terakhir, -3, 3);
             $kode_tambah++;
             $number         = str_pad($kode_tambah, 3, '0', STR_PAD_LEFT);
-            $data['id_klaim']  = 'Klaim' . $number;
+            $data['id_klaim']  = 'KLM' . $number;
 
-            $this->template->load('templates/dashboard', 'customer/add', $data);
+            $this->template->load('templates/dashboard', 'klaim/add', $data);
         } else {
             $input  = $this->input->post(null, true);
             $insert = $this->admin->insert('klaim', $input);
 
             if ($insert) {
-                set_pesan('Klaim Reimburstment Berhasil dibuat');
+                set_pesan('Klaim Berhasil dibuat');
                 redirect('klaim');
             } else {
-                set_pesan('Gagal membuat Klaim Reimburstment');
+                set_pesan('Gagal membuat Klaim');
                 redirect('klaim/add');
             }
         }
     }
 
-    // public function edit($getId)
-    // {
-    //     $id = encode_php_tags($getId);
-    //     $this->_validasi();
+    public function edit($getId)
+    {
+        $id = encode_php_tags($getId);
+        $this->_validasi();
 
-    //     if ($this->form_validation->run() == false) {
-    //         $data['title']  = "Barang";
-    //         $data['jenis']  = $this->admin->get('jenis');
-    //         $data['satuan'] = $this->admin->get('satuan');
-    //         $data['barang'] = $this->admin->get('barang', ['id_barang' => $id]);
-    //         $this->template->load('templates/dashboard', 'barang/edit', $data);
-    //     } else {
-    //         $input  = $this->input->post(null, true);
-    //         $update = $this->admin->update('barang', 'id_barang', $id, $input);
+        if ($this->form_validation->run() == false) {
+            $data['title']  = "Edit Request Order";
+            $data['divisi'] = $this->admin->get('divisi');
+            $data['barang'] = $this->admin->get('barang');
+            $data['ro']     = $this->admin->get('klaim', ['id_ro' => $id]);
+            $this->template->load('templates/dashboard', 'klaim/edit', $data);
+        } else {
+            $input = $this->input->post(null, true);
+            $update = $this->admin->update('klaim', 'id_ro', $id, $input);
 
-    //         if ($update) {
-    //             set_pesan('data berhasil disimpan');
-    //             redirect('barang');
-    //         } else {
-    //             set_pesan('gagal menyimpan data');
-    //             redirect('barang/edit/' . $id);
-    //         }
-    //     }
-    // }
+            if ($update) {
+                set_pesan('Request Order berhasil di Perbaharui');
+                redirect('klaim');
+            } else {
+                set_pesan('Request Order gagal di perbaharui');
+                redirect('klaim/edit/' . $id);
+            }
+        }
+    }
 
-    // public function delete($getId)
-    // {
-    //     $id = encode_php_tags($getId);
-    //     if ($this->admin->delete('barang', 'id_barang', $id)) {
-    //         set_pesan('data berhasil dihapus.');
-    //     } else {
-    //         set_pesan('data gagal dihapus.', false);
-    //     }
-    //     redirect('barang');
-    // }
+    public function detail($getId)
+    {
+        $id = encode_php_tags($getId);
+        $data['title']  = "Detail Request Order";
+        $data['divisi'] = $this->admin->get('divisi');
+        $data['barang'] = $this->admin->get('barang');
+        $data['ro']     = $this->admin->get('klaim', ['id_ro' => $id]);
+        $this->template->load('templates/dashboard', 'klaim/detail', $data);
+    }
 
-    // public function getstok($getId)
-    // {
-    //     $id     = encode_php_tags($getId);
-    //     $query  = $this->admin->cekStok($id);
-    //     output_json($query);
-    // }
+
+    public function delete($getId)
+    {
+        $id = encode_php_tags($getId);
+        if ($this->admin->delete('klaim', 'id_ro', $id)) {
+            set_pesan('data berhasil dihapus.');
+        } else {
+            set_pesan('data gagal dihapus.', false);
+        }
+        redirect('klaim');
+    }
+
+    public function report_ro()
+    {
+        $data['title']  = "Report Request Order";
+        $data['ro']     = $this->admin->getRo();
+        $this->template->load('templates/dashboard', 'klaim/report', $data);
+    }
+
+    public function cetak_ro($getId)
+    {
+        $id = encode_php_tags($getId);
+        $data['divisi'] = $this->admin->get('divisi');
+        $data['barang'] = $this->admin->get('barang');
+        $data['ro']     = $this->admin->get('klaim', ['id_ro' => $id]);
+        $sql = $this->db->query("SELECT a.`id_ro`, a.`tanggal`,a.`divisi_id`,a.`barang_id`,a.`keterangan`,a.`quantity`,a.`status`, b.nama_divisi, c.nama_barang 
+        FROM `klaim` a 
+        INNER JOIN divisi b ON a.`divisi_id`=b.id_divisi
+        INNER JOIN barang c ON a.`barang_id`=c.id_barang WHERE id_ro ='$id' ");
+        $no = $sql->row();
+        $data = '
+        <style type="text/css">
+		
+		.table1 {
+			font-family: sans-serif;
+			color: black;
+			border-collapse: collapse;
+			margin-top:20px;
+		}
+
+		.table1, th,td {
+			border: 1px solid #999;
+			padding: 8px 20px;
+
+		}
+		.label{
+			border-style: solid;
+			line-height: 20px;
+
+		}
+
+		div.ttd{
+			float:right;
+			
+		}
+		
+
+		</style>
+
+		
+		<div>
+		
+		<h1 style="text-align:center">REQUEST ORDER</h1>
+        <h2 style="text-align:center">No : ' . $no->id_ro . ' / ' . $no->nama_divisi . '  </h2>
+        <h3 style="text-align:center">Tanggal : ' . $no->tanggal . '  </h3>
+		
+		</div>
+		<table class="table1" width="100%">
+		<tr>
+            <th>Kode Barang</th>
+			<th>Nama Barang</th>
+			<th>Quantity</th>
+			<th>Keterangan</th>
+		</tr> 
+		';
+
+        // $sql = $this->db->query("SELECT a.`id_ro`, a.`tanggal`,a.`divisi_id`,a.`barang_id`,a.`keterangan`,a.`quantity`,a.`status`, b.nama_divisi, c.nama_barang 
+        // FROM `klaim` a 
+        // INNER JOIN divisi b ON a.`divisi_id`=b.id_divisi
+        // INNER JOIN barang c ON a.`barang_id`=c.id_barang WHERE id_ro ='$id' ");
+        foreach ($sql->result() as $view) {
+            $data .= '<tr>
+			<td style="text-align:center">' . $view->barang_id . '</td>
+            <td style="text-align:center">' . $view->nama_barang . '</td>
+			<td style="text-align:center">' . $view->quantity . '</td>
+			<td style="text-align:center">' . $view->keterangan . '</td>
+			</tr>';
+        }
+        $data .= '</table>';
+
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->AddPage('L');
+        // $data = $this->load->view('klaim/hasil_cetak', [], TRUE);
+        $mpdf->WriteHTML($data);
+        $mpdf->Output();
+    }
 }
