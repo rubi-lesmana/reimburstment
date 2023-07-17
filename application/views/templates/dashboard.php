@@ -149,13 +149,13 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link text-primary pb-0" href="<?= base_url('customer'); ?>">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('Klaim'); ?>">
                     <i class="fas fa-list-ul"></i>
                     <span>List Klaim</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-primary" href="<?= base_url('customer'); ?>">
+                <a class="nav-link text-primary" href="<?= base_url('Klaim'); ?>">
                     <i class="fas fa-history"></i>
                     <span>Histori Klaim</span>
                 </a>

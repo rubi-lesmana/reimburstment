@@ -15,7 +15,7 @@ class Klaim extends CI_Controller
     public function index()
     {
         $data['title']  = "Klaim Reimburstment";
-        $data['ro']     = $this->admin->getRo();
+        $data['klaim']     = $this->admin->getKlaim();
         $this->template->load('templates/dashboard', 'klaim/data', $data);
     }
 
@@ -32,7 +32,6 @@ class Klaim extends CI_Controller
         $this->form_validation->set_rules('departement_id', 'Departement', 'required|trim');
         $this->form_validation->set_rules('jabatan_id', 'Jabatan', 'required|trim');
         $this->form_validation->set_rules('jenis_klaim_id', 'Jenis Klaim', 'required|trim');
-        $this->form_validation->set_rules('dokumen', 'Dokumen', 'required');
     }
 
     public function add()
