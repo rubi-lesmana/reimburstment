@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Karyawan extends CI_Controller
+class Jabatan extends CI_Controller
 {
     public function __construct()
     {
@@ -14,41 +14,40 @@ class Karyawan extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Karyawan";
-        $data['leasing'] = $this->admin->getLeasing();
-        $this->template->load('templates/dashboard', 'karyawan/data', $data);
+        $data['title'] = "Jabatan";
+        $data['jabatan'] = $this->admin->getJabatan();
+        $this->template->load('templates/dashboard', 'jabatan/data', $data);
     }
 
     private function _validasi()
     {
-        $this->form_validation->set_rules('nama_leasing', 'Nama Leasing', 'required|trim');
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        $this->form_validation->set_rules('nama_jabatan', 'Nama Jabatan', 'required|trim');
     }
 
     public function add()
     {
         $this->_validasi();
         if ($this->form_validation->run() == false) {
-            $data['title']  = "Leasing";
+            $data['title']  = "Jabatan";
 
-            // Mengenerate ID leasing
-            $kode_terakhir  = $this->admin->getMax('leasing', 'id_leasing');
+            // Mengenerate ID Jabatan
+            $kode_terakhir  = $this->admin->getMax('jabatan', 'id_jabatan');
             $kode_tambah    = substr($kode_terakhir, -6, 6);
             $kode_tambah++;
             $number         = str_pad($kode_tambah, 6, '0', STR_PAD_LEFT);
-            $data['id_leasing'] = 'L' . $number;
+            $data['id_jabatan'] = 'J' . $number;
 
-            $this->template->load('templates/dashboard', 'leasing/add', $data);
+            $this->template->load('templates/dashboard', 'jabatan/add', $data);
         } else {
             $input  = $this->input->post(null, true);
-            $insert = $this->admin->insert('leasing', $input);
+            $insert = $this->admin->insert('jabatan', $input);
 
             if ($insert) {
                 set_pesan('data berhasil disimpan');
-                redirect('leasing');
+                redirect('jabatan');
             } else {
                 set_pesan('gagal menyimpan data');
-                redirect('leasing/add');
+                redirect('jabatan/add');
             }
         }
     }
@@ -59,19 +58,19 @@ class Karyawan extends CI_Controller
         $this->_validasi();
 
         if ($this->form_validation->run() == false) {
-            $data['title']  = "leasing";
-            $data['leasing'] = $this->admin->get('leasing', ['id_leasing' => $id]);
-            $this->template->load('templates/dashboard', 'leasing/edit', $data);
+            $data['title']  = "jabatan";
+            $data['jabatan'] = $this->admin->get('jabatan', ['id_jabatan' => $id]);
+            $this->template->load('templates/dashboard', 'jabatan/edit', $data);
         } else {
             $input  = $this->input->post(null, true);
-            $update = $this->admin->update('leasing', 'id_leasing', $id, $input);
+            $update = $this->admin->update('jabatan', 'id_jabatan', $id, $input);
 
             if ($update) {
                 set_pesan('data berhasil disimpan');
-                redirect('leasing');
+                redirect('jabatan');
             } else {
                 set_pesan('gagal menyimpan data');
-                redirect('leasing/edit/' . $id);
+                redirect('jabatan/edit/' . $id);
             }
         }
     }
@@ -79,11 +78,11 @@ class Karyawan extends CI_Controller
     public function delete($getId)
     {
         $id = encode_php_tags($getId);
-        if ($this->admin->delete('leasing', 'id_leasing', $id)) {
+        if ($this->admin->delete('jabatan', 'id_jabatan', $id)) {
             set_pesan('data berhasil dihapus.');
         } else {
             set_pesan('data gagal dihapus.', false);
         }
-        redirect('leasing');
+        redirect('jabatan');
     }
 }
