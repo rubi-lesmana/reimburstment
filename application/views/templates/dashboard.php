@@ -77,16 +77,9 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-primary pb-0" href="<?= base_url('jabatan'); ?>">
+                <a class="nav-link text-primary pb" href="<?= base_url('jabatan'); ?>">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Jabatan</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link text-primary pb" href="<?= base_url('LeasingNumber'); ?>">
-                    <i class="fas fa-fw fa-folder-open"></i>
-                    <span>Leasing Number</span>
                 </a>
             </li>
 
@@ -96,6 +89,13 @@
             <div class="sidebar-heading">
                 Transaksi
             </div>
+
+            <li class="nav-item">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('JenisKlaim'); ?>">
+                    <i class="fas fa-comment-dollar"></i>
+                    <span>Jenis Klaim</span>
+                </a>
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link text-primary pb-0" href="<?= base_url('customer'); ?>">

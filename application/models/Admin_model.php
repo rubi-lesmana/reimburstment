@@ -61,12 +61,6 @@ class Admin_model extends CI_Model
         return $this->db->get('unit')->result_array();
     }
 
-    public function getKlaim()
-    {
-        $this->db->order_by('id_klaim');
-        return $this->db->get('klaim')->result_array();
-    }
-
     public function getJabatan()
     {
         $this->db->order_by('id_jabatan');
@@ -79,12 +73,18 @@ class Admin_model extends CI_Model
         return $this->db->get('departement')->result_array();
     }
 
-    public function getLn()
+    public function getJenisKlaim()
     {
-        $this->db->join('leasing l', 'ln.leasing_id = l.id_leasing');
-        $this->db->join('unit u', 'ln.unit_id = u.id_unit');
-        $this->db->order_by('id_ln');
-        return $this->db->get('leasing_number ln')->result_array();
+        $this->db->order_by('id_jenis_klaim');
+        return $this->db->get('jenis_klaim')->result_array();
+    }
+
+    public function getKlaim()
+    {
+        $this->db->join('jabatan j', 'k.jabatan_id = j.id_jabatan');
+        $this->db->join('departement d', 'k.deaprtement_id = d.id_departement');
+        $this->db->order_by('id_klaim');
+        return $this->db->get('klaim k')->result_array();
     }
 
     public function getCust()
