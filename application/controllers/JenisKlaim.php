@@ -44,10 +44,10 @@ class JenisKlaim extends CI_Controller
 
             if ($insert) {
                 set_pesan('data berhasil disimpan');
-                redirect('jenis_klaim');
+                redirect('JenisKlaim');
             } else {
                 set_pesan('gagal menyimpan data');
-                redirect('jenis_klaim/add');
+                redirect('JenisKlaim/add');
             }
         }
     }
@@ -67,10 +67,10 @@ class JenisKlaim extends CI_Controller
 
             if ($update) {
                 set_pesan('data berhasil disimpan');
-                redirect('jenis_klaim');
+                redirect('JenisKlaim');
             } else {
                 set_pesan('gagal menyimpan data');
-                redirect('jenis_klaim/edit/' . $id);
+                redirect('JenisKlaim/edit/' . $id);
             }
         }
     }
@@ -78,11 +78,11 @@ class JenisKlaim extends CI_Controller
     public function delete($getId)
     {
         $id = encode_php_tags($getId);
-        if ($this->admin->delete('Departement', 'id_jenis_klaim', $id)) {
+        if ($this->admin->delete('jenis_klaim', 'id_jenis_klaim', $id)) {
             set_pesan('data berhasil dihapus.');
         } else {
             set_pesan('data gagal dihapus.', false);
         }
-        redirect('Departement');
+        redirect('JenisKlaim');
     }
 }
