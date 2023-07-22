@@ -32,6 +32,7 @@ class Klaim extends CI_Controller
         $this->form_validation->set_rules('departement_id', 'Departement', 'required|trim');
         $this->form_validation->set_rules('jabatan_id', 'Jabatan', 'required|trim');
         $this->form_validation->set_rules('jenis_klaim_id', 'Jenis Klaim', 'required|trim');
+        $this->form_validation->set_rules('dokumen', 'Dokumen', 'required|trim');
     }
 
     public function add()
@@ -44,16 +45,38 @@ class Klaim extends CI_Controller
             $data['jabatan']        = $this->admin->get('jabatan');
             $data['jenis_klaim']    = $this->admin->get('jenis_klaim');
 
-            // Mengenerate ID Barang
-            $kode_terakhir  = $this->admin->getMax('klaim', 'id_klaim');
-            $kode_tambah    = substr($kode_terakhir, -3, 3);
+            // Mengenerate ID Klaim
+            $kode_terakhir      = $this->admin->getMax('klaim', 'id_klaim');
+            $kode_tambah        = substr($kode_terakhir, -3, 3);
             $kode_tambah++;
-            $number         = str_pad($kode_tambah, 3, '0', STR_PAD_LEFT);
-            $data['id_klaim']  = 'KLM' . $number;
+            $number             = str_pad($kode_tambah, 3, '0', STR_PAD_LEFT);
+            $data['id_klaim']   = 'KLM' . $number;
 
             $this->template->load('templates/dashboard', 'klaim/add', $data);
         } else {
             $input  = $this->input->post(null, true);
+            $input_data = [
+                'tanggal' => $input['tanggal'],
+                'nama' => $input['nama'],
+                'departement_id' => $input['departement_id'],
+                'jabatan_id' => $input['jabatan_id'],
+                'jenis_kalaim_id' => $input['jenis_kalaim_id'],
+            ];
+            // Upload Dokumen
+            $config['upload_path']          = './uploads/klaim';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 2048;
+            $this->load->library('upload', $config);
+            if(@$_FILES['dokumen']['name' != NULL]){
+                if($this->upload->do_upload('dokumen')){
+                    $post['dokumen'] = $this->upload->data('file_name');
+                    set_pesan('Klaim Berhasil dibuat');
+                    redirect('klaim');
+                }else{
+                    set_pesan('Gagal membuat Klaim');
+                    redirect('klaim/add');
+                }
+            }
             $insert = $this->admin->insert('klaim', $input);
 
             if ($insert) {

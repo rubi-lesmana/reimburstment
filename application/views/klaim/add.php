@@ -22,7 +22,7 @@
             </div>
             <div class="card-body pb-2">
                 <?= $this->session->flashdata('pesan'); ?>
-                <?= form_open(); ?>
+                <?= form_open_multipart(); ?>
                 <div class="row form-group">
                     <label class="col-md-4 text-md-right" for="username">ID Klaim</label>
                     <div class="col-md-6">
