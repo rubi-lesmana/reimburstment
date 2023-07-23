@@ -55,37 +55,54 @@ class Klaim extends CI_Controller
             $this->template->load('templates/dashboard', 'klaim/add', $data);
         } else {
             $input  = $this->input->post(null, true);
-            $input_data = [
-                'tanggal' => $input['tanggal'],
-                'nama' => $input['nama'],
-                'departement_id' => $input['departement_id'],
-                'jabatan_id' => $input['jabatan_id'],
-                'jenis_kalaim_id' => $input['jenis_kalaim_id'],
-            ];
-            // Upload Dokumen
-            $config['upload_path']          = './uploads/klaim';
-            $config['allowed_types']        = 'gif|jpg|png';
-            $config['max_size']             = 2048;
+            $config = array(
+                'upload_path' => './assets/images/',
+                'allowed_types' => 'gif|jpg|png',
+                'max_size' => 1024000, 
+            );
             $this->load->library('upload', $config);
-            if(@$_FILES['dokumen']['name' != NULL]){
-                if($this->upload->do_upload('dokumen')){
-                    $post['dokumen'] = $this->upload->data('file_name');
+
+            if($this->upload->do_upload('dokumen')){
+                $data['dokumen']   = $this->upload->data()['file_name'];
+                $insert = $this->admin->insert('klaim', $data);
+                if ($insert) {
                     set_pesan('Klaim Berhasil dibuat');
-                    redirect('klaim');
-                }else{
+                }else {
                     set_pesan('Gagal membuat Klaim');
                     redirect('klaim/add');
                 }
             }
-            $insert = $this->admin->insert('klaim', $input);
 
-            if ($insert) {
-                set_pesan('Klaim Berhasil dibuat');
-                redirect('klaim');
-            } else {
+            if (!$this->upload->do_upload()) //jika gagal upload
+            {
+                // $error = array('error' => $this->upload->display_errors()); //tampilkan error
+                // $this->load->view('produk/input', $error);
                 set_pesan('Gagal membuat Klaim');
                 redirect('klaim/add');
+            } else
+            //jika berhasil upload
+            {
+                $file = $this->upload->data();
+                $input_data = [
+                    'tanggal'           => $input['tanggal'],
+                    'nama'              => $input['nama'],
+                    'departement_id'    => $input['departement_id'],
+                    'jabatan_id'        => $input['jabatan_id'],
+                    'jenis_kalaim_id'   => $input['jenis_kalaim_id'],
+                    'dokumen'           => $file['dokumen']
+                ];
+                $insert = $this->admin->insert('klaim', $input);
+                set_pesan('Klaim Berhasil dibuat');
+                redirect('klaim');
             }
+    
+                // if ($insert) {
+                //     set_pesan('Klaim Berhasil dibuat');
+                //     redirect('klaim');
+                // } else {
+                //     set_pesan('Gagal membuat Klaim');
+                //     redirect('klaim/add');
+                // }
         }
     }
 
