@@ -100,11 +100,8 @@
                 <div class="row form-group">
                     <label class="col-md-4 text-md-right" for="dokumen">Dokumen</label>
                     <div class="col-md-6">
-                        <input value="<?= set_value('dokumen'); ?>" type="file" name="dokumen" class="form-control"
-                            id="dokumen">
-                        <!-- <label class="custom-file-label" for="dokumen">Choose file</label> -->
-                        <!-- <input value="<?= set_value('dokumen'); ?>" type="file" id="dokumen" name="dokumen"
-                            class="form-control" placeholder="Dokumen"> -->
+                        <input value="<?= set_value('dokumen'); ?>" type="file" id="dokumen" name="dokumen"
+                            class="form-control" placeholder="dokumen">
                         <?= form_error('dokumen', '<span class="text-danger small">', '</span>'); ?>
                     </div>
                 </div>
