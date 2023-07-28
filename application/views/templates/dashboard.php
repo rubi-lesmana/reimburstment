@@ -197,7 +197,7 @@
             </li>
             <?php endif; ?>
 
-            <?php if (is_hr()) : ?>
+            <?php if (is_hrga()) : ?>
             <!-- Nav Item - Dashboard -->
             <div class="sidebar-heading">
                 Transaksi

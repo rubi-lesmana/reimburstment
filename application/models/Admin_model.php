@@ -28,7 +28,9 @@ class Admin_model extends CI_Model
         return $this->db->insert($table, $data);
     }
 
-
+    function insert_klaim($data){
+        $this->db->insert('klaim', $data);
+    }
 
     public function delete($table, $pk, $id)
     {

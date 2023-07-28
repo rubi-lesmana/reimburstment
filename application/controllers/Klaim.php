@@ -22,7 +22,7 @@ class Klaim extends CI_Controller
     public function histori()
     {
         $data['title']  = "Klaim Reimburstment";
-        $data['ro']     = $this->admin->getRo();
+        $data['klaim']     = $this->admin->getKlaim();
         $this->template->load('templates/dashboard', 'klaim/histori', $data);
     }
 
@@ -32,7 +32,6 @@ class Klaim extends CI_Controller
         $this->form_validation->set_rules('departement_id', 'Departement', 'required|trim');
         $this->form_validation->set_rules('jabatan_id', 'Jabatan', 'required|trim');
         $this->form_validation->set_rules('jenis_klaim_id', 'Jenis Klaim', 'required|trim');
-        $this->form_validation->set_rules('dokumen', 'Dokumen', 'required|trim');
     }
 
     public function add()
@@ -51,28 +50,28 @@ class Klaim extends CI_Controller
             $kode_tambah++;
             $number             = str_pad($kode_tambah, 3, '0', STR_PAD_LEFT);
             $data['id_klaim']   = 'KLM' . $number;
-
-            //konfigurasi upload
-            $config = array(
-                'upload_path' => './uploads/klaim/',
-                'allowed_types' => 'gif|jpg|png',
-                'max_size' => 1024000, 
-            );
-            $this->load->library('upload', $config);
-
+            
             $this->template->load('templates/dashboard', 'klaim/add', $data);
         } else {           
             $input = $this->input->post(null, true);
-            $file = $this->upload->data();
+            //konfigurasi upload
+            $ori_name = $_FILES['dokumen']['name'];
+            $config = [
+                'upload_path'   => './uploads/',
+                'allowed_types' => 'gif|jpg|png',
+                'file_name'     => $ori_name, 
+            ];
+            $this->load->library('upload', $config);
+            $dokumen = $this->upload->data('file_name');
             $input_data = [
+                'id_klaim'          => $input['id_klaim'],
                 'tanggal'           => $input['tanggal'],
                 'nama'              => $input['nama'],
                 'departement_id'    => $input['departement_id'],
                 'jabatan_id'        => $input['jabatan_id'],
-                'jenis_kklaim_id'   => $input['jenis_klaim_id'],
-                'dokumen'           => $file['dokumen'],
+                'jenis_klaim_id'    => $input['jenis_klaim_id'],
+                'dokumen'           => $dokumen,
             ];
-
             if ($this->admin->insert('klaim', $input_data)) {
                 set_pesan('data berhasil disimpan.');
                 redirect('klaim');
@@ -82,6 +81,58 @@ class Klaim extends CI_Controller
             }
         }
     }
+
+    // public function add()
+    // {
+    //     $this->_validasi();
+    //     if ($this->form_validation->run() == false) {
+    //         $data['title']          = "Klaim Reimburstment";
+    //         $data['klaim']          = $this->admin->getKlaim();
+    //         $data['departement']    = $this->admin->get('departement');
+    //         $data['jabatan']        = $this->admin->get('jabatan');
+    //         $data['jenis_klaim']    = $this->admin->get('jenis_klaim');
+
+    //         // Mengenerate ID Klaim
+    //         $kode_terakhir      = $this->admin->getMax('klaim', 'id_klaim');
+    //         $kode_tambah        = substr($kode_terakhir, -3, 3);
+    //         $kode_tambah++;
+    //         $number             = str_pad($kode_tambah, 3, '0', STR_PAD_LEFT);
+    //         $data['id_klaim']   = 'KLM' . $number;
+
+            
+    //         $this->template->load('templates/dashboard', 'klaim/add', $data);
+    //     } else {
+    //         //konfigurasi upload
+    //         $config = array(
+    //             'upload_path' => './uploads/klaim/',
+    //             'allowed_types' => 'gif|jpg|png',
+    //             'max_size' => 1024000, 
+    //         );
+    //         $this->load->library('upload', $config);
+    //         $this->load->initialize($config);
+    //         // $this->upload->do_upload('dokumen');
+    //         $data = $this->upload->data();
+    //         $file_name = $data['dokumen'];
+
+    //         $input = $this->input->post(null, true);
+    //         $input_data = [
+    //             'tanggal'           => $input['tanggal'],
+    //             'nama'              => $input['nama'],
+    //             'departement_id'    => $input['departement_id'],
+    //             'jabatan_id'        => $input['jabatan_id'],
+    //             'jenis_kklaim_id'   => $input['jenis_klaim_id'],
+    //             'dokumen'           => $file_name,
+    //         ];
+
+    //         if ($this->admin->insert('klaim', $input_data)) {
+    //             set_pesan('data berhasil disimpan.');
+    //             redirect('klaim');
+    //         } else {
+    //             set_pesan('data gagal disimpan', false);
+    //             redirect('klaim/add');
+    //         }
+    //     }
+    // }
 
     public function edit($getId)
     {

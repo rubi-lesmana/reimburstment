@@ -51,14 +51,14 @@ function is_finance()
     return $status;
 }
 
-function is_hr()
+function is_hrga()
 {
     $ci = get_instance();
     $role = $ci->session->userdata('login_session')['role'];
 
     $status = true;
 
-    if ($role != 'kacab') {
+    if ($role != 'Human Resource') {
         $status = false;
     }
 
