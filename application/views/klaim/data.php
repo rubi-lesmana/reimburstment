@@ -33,6 +33,7 @@
                     INNER JOIN departement b ON a.`departement_id` = b.id_departement
                     INNER JOIN jabatan c ON a.`jabatan_id`= c.id_jabatan 
                     INNER JOIN jenis_klaim d ON a.jenis_klaim_id = d.id_jenis_klaim
+                    ORDER BY a.id_klaim DESC
                 ");
                 $no = 1;
                 if ($klaim) :
@@ -53,7 +54,7 @@
                         <a onclick="return confirm('Yakin ingin hapus?')"
                             href="<?= base_url('klaim/delete/') . $kl->id_klaim ?>"
                             class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
-                        <a href="<?= base_url('klaim/cetak_ro/') . $kl->id_klaim ?>"
+                        <a href="<?= base_url('klaim/cetak_klaim/') . $kl->id_klaim ?>"
                             class="btn btn-success btn-circle btn-sm"><i class="fas fa-print"></i></a>
                     </td>
                 </tr>

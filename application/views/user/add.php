@@ -26,21 +26,24 @@
                 <div class="row form-group">
                     <label class="col-md-4 text-md-right" for="username">Username</label>
                     <div class="col-md-6">
-                        <input value="<?= set_value('username'); ?>" type="text" id="username" name="username" class="form-control" placeholder="Username">
+                        <input value="<?= set_value('username'); ?>" type="text" id="username" name="username"
+                            class="form-control" placeholder="Username">
                         <?= form_error('username', '<span class="text-danger small">', '</span>'); ?>
                     </div>
                 </div>
                 <div class="row form-group">
                     <label class="col-md-4 text-md-right" for="password">Password</label>
                     <div class="col-md-6">
-                        <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                        <input type="password" id="password" name="password" class="form-control"
+                            placeholder="Password">
                         <?= form_error('password', '<span class="text-danger small">', '</span>'); ?>
                     </div>
                 </div>
                 <div class="row form-group">
                     <label class="col-md-4 text-md-right" for="password2">Konfirmasi Password</label>
                     <div class="col-md-6">
-                        <input type="password" id="password2" name="password2" class="form-control" placeholder="Konfirmasi Password">
+                        <input type="password" id="password2" name="password2" class="form-control"
+                            placeholder="Konfirmasi Password">
                         <?= form_error('password2', '<span class="text-danger small">', '</span>'); ?>
                     </div>
                 </div>
@@ -48,21 +51,24 @@
                 <div class="row form-group">
                     <label class="col-md-4 text-md-right" for="nama">Nama</label>
                     <div class="col-md-6">
-                        <input value="<?= set_value('nama'); ?>" type="text" id="nama" name="nama" class="form-control" placeholder="Nama">
+                        <input value="<?= set_value('nama'); ?>" type="text" id="nama" name="nama" class="form-control"
+                            placeholder="Nama">
                         <?= form_error('nama', '<span class="text-danger small">', '</span>'); ?>
                     </div>
                 </div>
                 <div class="row form-group">
                     <label class="col-md-4 text-md-right" for="email">Email</label>
                     <div class="col-md-6">
-                        <input value="<?= set_value('email'); ?>" type="text" id="email" name="email" class="form-control" placeholder="Email">
+                        <input value="<?= set_value('email'); ?>" type="text" id="email" name="email"
+                            class="form-control" placeholder="Email">
                         <?= form_error('email', '<span class="text-danger small">', '</span>'); ?>
                     </div>
                 </div>
                 <div class="row form-group">
                     <label class="col-md-4 text-md-right" for="no_telp">Nomor Telepon</label>
                     <div class="col-md-6">
-                        <input value="<?= set_value('no_telp'); ?>" type="text" id="no_telp" name="no_telp" class="form-control" placeholder="Nomor Telepon">
+                        <input value="<?= set_value('no_telp'); ?>" type="text" id="no_telp" name="no_telp"
+                            class="form-control" placeholder="Nomor Telepon">
                         <?= form_error('no_telp', '<span class="text-danger small">', '</span>'); ?>
                     </div>
                 </div>
@@ -70,19 +76,23 @@
                     <label class="col-md-4 text-md-right" for="role">Role</label>
                     <div class="col-md-6">
                         <div class="custom-control custom-radio">
-                            <input <?= set_radio('role', 'admin'); ?> value="admin" type="radio" id="admin" name="role" class="custom-control-input">
+                            <input <?= set_radio('role', 'admin'); ?> value="admin" type="radio" id="admin" name="role"
+                                class="custom-control-input">
                             <label class="custom-control-label" for="admin">Admin</label>
                         </div>
                         <div class="custom-control custom-radio">
-                            <input <?= set_radio('role', 'karyawan'); ?> value="karyawan" type="radio" id="karyawan" name="role" class="custom-control-input">
+                            <input <?= set_radio('role', 'karyawan'); ?> value="karyawan" type="radio" id="karyawan"
+                                name="role" class="custom-control-input">
                             <label class="custom-control-label" for="karyawan">Karyawan</label>
                         </div>
                         <div class="custom-control custom-radio">
-                            <input <?= set_radio('role', 'finance'); ?> value="finance" type="radio" id="finance" name="role" class="custom-control-input">
+                            <input <?= set_radio('role', 'finance'); ?> value="finance" type="radio" id="finance"
+                                name="role" class="custom-control-input">
                             <label class="custom-control-label" for="finance">Finance</label>
                         </div>
                         <div class="custom-control custom-radio">
-                            <input <?= set_radio('role', 'human_resource'); ?> value="human_resource" type="radio" id="human_resource" name="role" class="custom-control-input">
+                            <input <?= set_radio('role', 'hr'); ?> value="hr" type="radio" id="human_resource"
+                                name="role" class="custom-control-input">
                             <label class="custom-control-label" for="human_resource">Human Resource</label>
                         </div>
                         <?= form_error('role', '<span class="text-danger small">', '</span>'); ?>

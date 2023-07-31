@@ -98,14 +98,14 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-primary pb-0" href="<?= base_url('customer'); ?>">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('reimburstment'); ?>">
                     <i class="fas fa-funnel-dollar"></i>
                     <span>Klaim Reimburse</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-primary pb" href="<?= base_url('spp'); ?>">
+                <a class="nav-link text-primary pb" href="<?= base_url('reimburstment'); ?>">
                     <!-- <i class="fas fa-fw fa-folder-open"></i> -->
                     <i class="fas fa-hand-holding-usd"></i>
                     <span>Reimburstment</span>
@@ -169,9 +169,16 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link text-primary" href="<?= base_url('spp/add'); ?>">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('reimburstment'); ?>">
+                    <i class="fas fa-funnel-dollar"></i>
+                    <span>Klaim Reimburse</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-primary" href="<?= base_url('reimburstment/add'); ?>">
                     <i class="fas fa-fw fa-edit"></i>
-                    <span>Create Perintah Pembayaran</span>
+                    <span>Create Reimburstment</span>
                 </a>
             </li>
 
@@ -183,16 +190,16 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link text-primary pb-0" href="<?= base_url('spp'); ?>">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('reimburstment'); ?>">
                     <i class="fas fa-list-ul"></i>
-                    <span>List Surat Perintah Pembayaran</span>
+                    <span>List Klaim Reimburstment</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-primary" href="<?= base_url('spp/histori'); ?>">
+                <a class="nav-link text-primary" href="<?= base_url('reimburstment/histori'); ?>">
                     <i class="fas fa-history"></i>
-                    <span>Histori Surat Pembayaran</span>
+                    <span>Histori Klaim Reimburstment</span>
                 </a>
             </li>
             <?php endif; ?>
@@ -204,9 +211,16 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link text-primary" href="<?= base_url('kacab'); ?>">
-                    <i class="fas fa-fw fa-edit"></i>
-                    <span>Approve SPP</span>
+                <a class="nav-link text-primary pb-0" href="<?= base_url('Proses'); ?>">
+                    <i class="fas fa-list-alt"></i>
+                    <span>Data Klaim</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-primary" href="<?= base_url('Proses'); ?>">
+                    <i class="fas fa-recycle"></i>
+                    <span>Process Klaim</span>
                 </a>
             </li>
 
@@ -220,14 +234,14 @@
             <li class="nav-item">
                 <a class="nav-link text-primary pb-0" href="<?= base_url('kacab/list_spp'); ?>">
                     <i class="fas fa-list-ul"></i>
-                    <span>List SPP</span>
+                    <span>List Proses Klaim</span>
                 </a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link text-primary" href="<?= base_url('kacab/history'); ?>">
                     <i class="fas fa-history"></i>
-                    <span>Histori SPP</span>
+                    <span>Histori Klaim</span>
                 </a>
             </li>
             <?php endif; ?>

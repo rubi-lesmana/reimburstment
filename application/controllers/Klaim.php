@@ -53,13 +53,13 @@ class Klaim extends CI_Controller
             
             $this->template->load('templates/dashboard', 'klaim/add', $data);
         } else {           
-            $input = $this->input->post(null, true);
+            $input              = $this->input->post(null, true);
             //konfigurasi upload
-            $ori_name = $_FILES['dokumen']['name'];
+            $file_dokumen       = $_FILES['dokumen']['name'];
             $config = [
-                'upload_path'   => './uploads/',
+                'upload_path'   => 'uploads/',
                 'allowed_types' => 'gif|jpg|png',
-                'file_name'     => $ori_name, 
+                'file_name'     => $file_dokumen, 
             ];
             $this->load->library('upload', $config);
             $dokumen = $this->upload->data('file_name');
@@ -82,58 +82,6 @@ class Klaim extends CI_Controller
         }
     }
 
-    // public function add()
-    // {
-    //     $this->_validasi();
-    //     if ($this->form_validation->run() == false) {
-    //         $data['title']          = "Klaim Reimburstment";
-    //         $data['klaim']          = $this->admin->getKlaim();
-    //         $data['departement']    = $this->admin->get('departement');
-    //         $data['jabatan']        = $this->admin->get('jabatan');
-    //         $data['jenis_klaim']    = $this->admin->get('jenis_klaim');
-
-    //         // Mengenerate ID Klaim
-    //         $kode_terakhir      = $this->admin->getMax('klaim', 'id_klaim');
-    //         $kode_tambah        = substr($kode_terakhir, -3, 3);
-    //         $kode_tambah++;
-    //         $number             = str_pad($kode_tambah, 3, '0', STR_PAD_LEFT);
-    //         $data['id_klaim']   = 'KLM' . $number;
-
-            
-    //         $this->template->load('templates/dashboard', 'klaim/add', $data);
-    //     } else {
-    //         //konfigurasi upload
-    //         $config = array(
-    //             'upload_path' => './uploads/klaim/',
-    //             'allowed_types' => 'gif|jpg|png',
-    //             'max_size' => 1024000, 
-    //         );
-    //         $this->load->library('upload', $config);
-    //         $this->load->initialize($config);
-    //         // $this->upload->do_upload('dokumen');
-    //         $data = $this->upload->data();
-    //         $file_name = $data['dokumen'];
-
-    //         $input = $this->input->post(null, true);
-    //         $input_data = [
-    //             'tanggal'           => $input['tanggal'],
-    //             'nama'              => $input['nama'],
-    //             'departement_id'    => $input['departement_id'],
-    //             'jabatan_id'        => $input['jabatan_id'],
-    //             'jenis_kklaim_id'   => $input['jenis_klaim_id'],
-    //             'dokumen'           => $file_name,
-    //         ];
-
-    //         if ($this->admin->insert('klaim', $input_data)) {
-    //             set_pesan('data berhasil disimpan.');
-    //             redirect('klaim');
-    //         } else {
-    //             set_pesan('data gagal disimpan', false);
-    //             redirect('klaim/add');
-    //         }
-    //     }
-    // }
-
     public function edit($getId)
     {
         $id = encode_php_tags($getId);
@@ -148,7 +96,25 @@ class Klaim extends CI_Controller
             $this->template->load('templates/dashboard', 'klaim/edit', $data);
         } else {
             $input = $this->input->post(null, true);
-            $update = $this->admin->update('klaim', 'id_klaim', $id, $input);
+            //konfigurasi upload
+            $file_dokumen       = $_FILES['dokumen']['name'];
+            $config = [
+                'upload_path'   => './uploads/',
+                'allowed_types' => 'gif|jpg|png',
+                'file_name'     => $file_dokumen, 
+            ];
+            $this->load->library('upload', $config);
+            $dokumen = $this->upload->data('file_name');
+            $input_data = [
+                'id_klaim'          => $input['id_klaim'],
+                'tanggal'           => $input['tanggal'],
+                'nama'              => $input['nama'],
+                'departement_id'    => $input['departement_id'],
+                'jabatan_id'        => $input['jabatan_id'],
+                'jenis_klaim_id'    => $input['jenis_klaim_id'],
+                'dokumen'           => $dokumen,
+            ];
+            $update = $this->admin->update('klaim', 'id_klaim', $id, $input_data);
 
             if ($update) {
                 set_pesan('Klaim Reimburse berhasil di Perbaharui');
@@ -164,17 +130,17 @@ class Klaim extends CI_Controller
     {
         $id = encode_php_tags($getId);
         $data['title']  = "Detail Request Order";
-        $data['divisi'] = $this->admin->get('divisi');
-        $data['barang'] = $this->admin->get('barang');
-        $data['ro']     = $this->admin->get('klaim', ['id_ro' => $id]);
+        $data['departement']    = $this->admin->get('departement');
+        $data['jabatan']        = $this->admin->get('jabatan');
+        $data['jenis_klaim']    = $this->admin->get('jenis_klaim');
+        $data['klaim']     = $this->admin->get('klaim', ['id_klaim' => $id]);
         $this->template->load('templates/dashboard', 'klaim/detail', $data);
     }
-
 
     public function delete($getId)
     {
         $id = encode_php_tags($getId);
-        if ($this->admin->delete('klaim', 'id_ro', $id)) {
+        if ($this->admin->delete('klaim', 'id_klaim', $id)) {
             set_pesan('data berhasil dihapus.');
         } else {
             set_pesan('data gagal dihapus.', false);
@@ -185,7 +151,7 @@ class Klaim extends CI_Controller
     public function report_ro()
     {
         $data['title']  = "Report Request Order";
-        $data['ro']     = $this->admin->getRo();
+        $data['klaim']     = $this->admin->getKlaim();
         $this->template->load('templates/dashboard', 'klaim/report', $data);
     }
 
@@ -194,11 +160,11 @@ class Klaim extends CI_Controller
         $id = encode_php_tags($getId);
         $data['divisi'] = $this->admin->get('divisi');
         $data['barang'] = $this->admin->get('barang');
-        $data['ro']     = $this->admin->get('klaim', ['id_ro' => $id]);
-        $sql = $this->db->query("SELECT a.`id_ro`, a.`tanggal`,a.`divisi_id`,a.`barang_id`,a.`keterangan`,a.`quantity`,a.`status`, b.nama_divisi, c.nama_barang 
+        $data['ro']     = $this->admin->get('klaim', ['id_klaim' => $id]);
+        $sql = $this->db->query("SELECT a.`id_klaim`, a.`tanggal`,a.`divisi_id`,a.`barang_id`,a.`keterangan`,a.`quantity`,a.`status`, b.nama_divisi, c.nama_barang 
         FROM `klaim` a 
         INNER JOIN divisi b ON a.`divisi_id`=b.id_divisi
-        INNER JOIN barang c ON a.`barang_id`=c.id_barang WHERE id_ro ='$id' ");
+        INNER JOIN barang c ON a.`barang_id`=c.id_barang WHERE id_klaim ='$id' ");
         $no = $sql->row();
         $data = '
         <style type="text/css">
@@ -233,7 +199,7 @@ class Klaim extends CI_Controller
 		<div>
 		
 		<h1 style="text-align:center">REQUEST ORDER</h1>
-        <h2 style="text-align:center">No : ' . $no->id_ro . ' / ' . $no->nama_divisi . '  </h2>
+        <h2 style="text-align:center">No : ' . $no->id_klaim . ' / ' . $no->nama_divisi . '  </h2>
         <h3 style="text-align:center">Tanggal : ' . $no->tanggal . '  </h3>
 		
 		</div>
@@ -246,10 +212,10 @@ class Klaim extends CI_Controller
 		</tr> 
 		';
 
-        // $sql = $this->db->query("SELECT a.`id_ro`, a.`tanggal`,a.`divisi_id`,a.`barang_id`,a.`keterangan`,a.`quantity`,a.`status`, b.nama_divisi, c.nama_barang 
+        // $sql = $this->db->query("SELECT a.`id_klaim`, a.`tanggal`,a.`divisi_id`,a.`barang_id`,a.`keterangan`,a.`quantity`,a.`status`, b.nama_divisi, c.nama_barang 
         // FROM `klaim` a 
         // INNER JOIN divisi b ON a.`divisi_id`=b.id_divisi
-        // INNER JOIN barang c ON a.`barang_id`=c.id_barang WHERE id_ro ='$id' ");
+        // INNER JOIN barang c ON a.`barang_id`=c.id_barang WHERE id_klaim ='$id' ");
         foreach ($sql->result() as $view) {
             $data .= '<tr>
 			<td style="text-align:center">' . $view->barang_id . '</td>

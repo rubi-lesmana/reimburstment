@@ -23,15 +23,6 @@ class Admin_model extends CI_Model
         return $batch ? $this->db->insert_batch($table, $data) : $this->db->insert($table, $data);
     }
 
-    public function insertpo($data, $table)
-    {
-        return $this->db->insert($table, $data);
-    }
-
-    function insert_klaim($data){
-        $this->db->insert('klaim', $data);
-    }
-
     public function delete($table, $pk, $id)
     {
         return $this->db->delete($table, [$pk => $id]);
@@ -90,6 +81,14 @@ class Admin_model extends CI_Model
         return $this->db->get('klaim k')->result_array();
     }
 
+    public function getProses()
+    {
+        $this->db->join('jabatan j', 'k.jabatan_id = j.id_jabatan');
+        $this->db->join('departement d', 'k.departement_id = d.id_departement');
+        $this->db->join('jenis_klaim jk', 'k.jenis_klaim_id = jk.id_jenis_klaim');
+        $this->db->order_by('id_request_reimburse');
+        return $this->db->get('request_reimburse s')->result_array();
+    }
     public function getCust()
     {
         $this->db->join('unit u', 'c.unit_id = u.id_unit');
@@ -97,6 +96,7 @@ class Admin_model extends CI_Model
         $this->db->order_by('id_customer');
         return $this->db->get('customer c')->result_array();
     }
+
 
     public function getSpp()
     {

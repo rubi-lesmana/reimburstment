@@ -58,7 +58,7 @@ function is_hrga()
 
     $status = true;
 
-    if ($role != 'Human Resource') {
+    if ($role != 'hr') {
         $status = false;
     }
 
