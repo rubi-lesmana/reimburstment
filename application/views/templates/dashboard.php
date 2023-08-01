@@ -211,14 +211,14 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link text-primary pb-0" href="<?= base_url('Proses'); ?>">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('Klaim'); ?>">
                     <i class="fas fa-list-alt"></i>
                     <span>Data Klaim</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-primary" href="<?= base_url('Proses'); ?>">
+                <a class="nav-link text-primary" href="<?= base_url('RequestReimburse/add'); ?>">
                     <i class="fas fa-recycle"></i>
                     <span>Process Klaim</span>
                 </a>
@@ -232,14 +232,14 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link text-primary pb-0" href="<?= base_url('kacab/list_spp'); ?>">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('RequestReimburse/list_spp'); ?>">
                     <i class="fas fa-list-ul"></i>
                     <span>List Proses Klaim</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-primary" href="<?= base_url('kacab/history'); ?>">
+                <a class="nav-link text-primary" href="<?= base_url('RequestReimburse/history'); ?>">
                     <i class="fas fa-history"></i>
                     <span>Histori Klaim</span>
                 </a>

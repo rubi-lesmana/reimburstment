@@ -81,13 +81,14 @@ class Admin_model extends CI_Model
         return $this->db->get('klaim k')->result_array();
     }
 
-    public function getProses()
+    public function getRequestReimburse()
     {
-        $this->db->join('jabatan j', 'k.jabatan_id = j.id_jabatan');
-        $this->db->join('departement d', 'k.departement_id = d.id_departement');
-        $this->db->join('jenis_klaim jk', 'k.jenis_klaim_id = jk.id_jenis_klaim');
-        $this->db->order_by('id_request_reimburse');
-        return $this->db->get('request_reimburse s')->result_array();
+        $this->db->join('klaim k', 'r.klaim_id = k.id_klaim');
+        $this->db->join('jabatan j', 'r.jabatan_id = j.id_jabatan');
+        $this->db->join('departement d', 'r.departement_id = d.id_departement');
+        $this->db->join('jenis_klaim jk', 'r.jenis_klaim_id = jk.id_jenis_klaim');
+        $this->db->order_by('no_acc');
+        return $this->db->get('request_reimburse r')->result_array();
     }
     public function getCust()
     {

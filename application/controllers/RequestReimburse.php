@@ -14,52 +14,53 @@ class RequestReimburse extends CI_Controller
 
     public function index()
     {
-        $data['title']  = "Proses";
-        $data['spp']     = $this->admin->getProses();
-        $this->template->load('templates/dashboard', 'spp/data', $data);
+        $data['title']  = "Request Reimburse";
+        $data['spp']     = $this->admin->getRequestReimburse();
+        $this->template->load('templates/dashboard', 'request_reimburse/data', $data);
     }
 
     private function _validasi()
     {
-        $this->form_validation->set_rules('no_surat', 'No Surat', 'required|trim');
+        $this->form_validation->set_rules('no_acc', 'No Surat', 'required|trim');
         $this->form_validation->set_rules('tanggal', 'Tanggal', 'required|trim');
-        $this->form_validation->set_rules('customer_id', 'ID Cust', 'required|trim');
-        $this->form_validation->set_rules('ln_id', 'ID Requistion', 'required|trim');
-        $this->form_validation->set_rules('pelunasan', 'pelunasan', 'required|trim|numeric|greater_than[0]');
-
-        //$this->form_validation->set_rules('status', 'Status', 'required');
+        $this->form_validation->set_rules('klaim_id', 'ID Klaim', 'required|trim');
+        $this->form_validation->set_rules('nama_karyawan', 'Nama Karyawan', 'required|trim');
+        $this->form_validation->set_rules('departement_id', 'Departement', 'required|trim');
+        $this->form_validation->set_rules('jabatan_id', 'jabatan', 'required|trim');
+        $this->form_validation->set_rules('jenis_klaim_id', 'Jenis Klaim', 'required|trim');
+        $this->form_validation->set_rules('amount', 'pelunasan', 'required|trim|numeric|greater_than[0]');
     }
 
     public function add()
     {
         $this->_validasi();
         if ($this->form_validation->run() == false) {
-            $data['title']     = "Create Surat Perintah Pembayaran";
-            $data['cust']      = $this->admin->get('customer');
-            $data['ln']        = $this->admin->get('leasing_number');
-            $data['leasing']   = $this->admin->get('leasing');
-            $data['unit']      = $this->admin->get('unit');
-            $data['spp']       = $this->admin->getSpp();
+            $data['title']          = "Request Reimburse";
+            $data['klaim']          = $this->admin->get('klaim');
+            $data['departement']    = $this->admin->get('departement');
+            $data['jabatan']        = $this->admin->get('jabatan');
+            $data['jenis_klaim']    = $this->admin->get('jenis_klaim');
+            $data['req']            = $this->admin->getRequestReimburse();
 
 
             // Mengenerate ID Barang
-            $kode_terakhir  = $this->admin->getMax('spp', 'no_surat');
+            $kode_terakhir  = $this->admin->getMax('request_reimburse', 'no_acc');
             $kode_tambah    = substr($kode_terakhir, -3, 3);
             $kode_tambah++;
             $number = str_pad($kode_tambah, 3, '0', STR_PAD_LEFT);
-            $data['no_surat'] = 'SPP' . $number;
+            $data['no_acc'] = 'ACC' . $number;
 
-            $this->template->load('templates/dashboard', 'spp/add', $data);
+            $this->template->load('templates/dashboard', 'request_reimburse/add', $data);
         } else {
             $input  = $this->input->post(null, true);
-            $insert = $this->admin->insert('spp', $input);
+            $insert = $this->admin->insert('request_reimburse', $input);
 
             if ($insert) {
                 set_pesan('data berhasil disimpan');
-                redirect('spp');
+                redirect('RequestReimburse');
             } else {
                 set_pesan('gagal menyimpan data');
-                redirect('spp/add');
+                redirect('RequestReimburse/add');
             }
         }
     }
