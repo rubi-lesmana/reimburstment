@@ -677,6 +677,23 @@
     });
 
     $(document).ready(function() {
+        $(document).on('click', '#klaim', function() {
+            var klaim_id = $(this).data('id');
+            var nama = $(this).data('nama');
+            var departement_id = $(this).data('departement_id');
+            var jabatan_id = $(this).data('jabatan_id');
+            var jenis_klaim_id = $(this).data('jenis_klaim_id');
+            // var total = parseInt(harga) * parseInt(jumlah);
+            $('#klaim_id').val(klaim_id);
+            $('#nama').val(nama);
+            $('#departement_id').val('departement_id');
+            $('#jabatan_id').val('jabatan_id');
+            $('#jenis_klaim_id').val('jenis_klaim_id');
+            $('#select_klaim').modal('hide');
+        });
+    });
+
+    $(document).ready(function() {
         $(document).on('click', '#selectsup', function() {
             var ln_id = $(this).data('id');
             var leasing_id = $(this).data('leasing_id');

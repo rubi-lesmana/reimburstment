@@ -42,12 +42,11 @@ class RequestReimburse extends CI_Controller
             $data['jenis_klaim']    = $this->admin->get('jenis_klaim');
             $data['req']            = $this->admin->getRequestReimburse();
 
-
             // Mengenerate ID Barang
             $kode_terakhir  = $this->admin->getMax('request_reimburse', 'no_acc');
             $kode_tambah    = substr($kode_terakhir, -3, 3);
             $kode_tambah++;
-            $number = str_pad($kode_tambah, 3, '0', STR_PAD_LEFT);
+            $number         = str_pad($kode_tambah, 3, '0', STR_PAD_LEFT);
             $data['no_acc'] = 'ACC' . $number;
 
             $this->template->load('templates/dashboard', 'request_reimburse/add', $data);
