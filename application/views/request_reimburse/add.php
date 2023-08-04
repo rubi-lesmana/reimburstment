@@ -32,11 +32,11 @@
                             type="text" class="form-control" placeholder="No. Acc">
                         <?= form_error('no_acc', '<small class="text-danger">', '</small>'); ?>
                     </div>
-                    <label class="col-md-2 text-md-right" for="customer_id">ID Klaim</label>
+                    <label class="col-md-2 text-md-right" for="klaim_id">ID Klaim</label>
                     <div class="col-md-4">
                         <div class="input-group">
-                            <input value="<?= set_value('customer_id'); ?>" name="customer_id" id="customer_id"
-                                type="text" class="form-control" placeholder="Pilih ID Klaim ...">
+                            <input value="<?= set_value('klaim_id'); ?>" name="klaim_id" id="klaim_id" type="text"
+                                class="form-control" placeholder="Pilih ID Klaim ...">
                             <div class="input-group-append">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#klaim">
                                     <i class="fa fa-search"></i>
@@ -63,7 +63,7 @@
                                 <option <?= $this->uri->segment(3) == $d['id_departement'] ? 'selected' : '';  ?>
                                     <?= set_select('departement_id', $d['id_departement']) ?>
                                     value="<?= $d['id_departement'] ?>">
-                                    <?= $d['nama_departement'] ?></option>
+                                    <?= $d['id_departement'] . ' | ' . $d['nama_departement'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -89,7 +89,7 @@
                                 <?php foreach ($jabatan as $j) : ?>
                                 <option <?= $this->uri->segment(3) == $j['id_jabatan'] ? 'selected' : '';  ?>
                                     <?= set_select('jabatan_id', $j['id_jabatan']) ?> value="<?= $j['id_jabatan'] ?>">
-                                    <?= $j['nama_jabatan'] ?></option>
+                                    <?= $jabatan_id . ' | ' . $j['nama_jabatan'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -116,7 +116,7 @@
                                 <option <?= $this->uri->segment(3) == $jk['id_jenis_klaim'] ? 'selected' : '';  ?>
                                     <?= set_select('jenis_klaim_id', $jk['id_jenis_klaim']) ?>
                                     value="<?= $jk['id_jenis_klaim'] ?>">
-                                    <?= $jk['nama_jenis_klaim'] ?></option>
+                                    <?= $jk['id_jenis_klaim'] . ' | ' . $jk['nama_jenis_klaim'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

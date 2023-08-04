@@ -677,7 +677,7 @@
     });
 
     $(document).ready(function() {
-        $(document).on('click', '#klaim', function() {
+        $(document).on('click', '#select_klaim', function() {
             var klaim_id = $(this).data('id');
             var nama = $(this).data('nama');
             var departement_id = $(this).data('departement_id');
@@ -689,7 +689,7 @@
             $('#departement_id').val('departement_id');
             $('#jabatan_id').val('jabatan_id');
             $('#jenis_klaim_id').val('jenis_klaim_id');
-            $('#select_klaim').modal('hide');
+            $('#klaim').modal('hide');
         });
     });
 
