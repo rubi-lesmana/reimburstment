@@ -35,7 +35,7 @@
                     <th>Harga</th>
                     <th>Total</th>
                     <th>Status</th>
-                    <th>Aksi</th>
+                    <!-- <th>Aksi</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -45,7 +45,7 @@
                 FROM `purchase_order` b
                 INNER JOIN divisi c ON b.`divisi_id`=c.id_divisi
                 INNER JOIN barang d ON b.`barang_id`=d.id_barang  
-                INNER JOIN supplier f ON b.`supplier_id`=f.id_supplier WHERE b.status=1");
+                INNER JOIN supplier f ON b.`supplier_id`=f.id_supplier");
                 // $sqlin = $this->db->query("SELECT * FROM `purchase_order` ");
                 $no = 1;
                 if ($po) :
@@ -70,13 +70,13 @@
                                 }
                                 ?>
                             </td>
-                            <td>
+                            <!-- <td>
                                 <?php if (is_purchasing()) : ?>
                                     <a href="<?= base_url('purchase_order/edit/') . $p->id_po ?>" class="btn btn-primary btn-circle btn-sm"><i class="fa fa-edit"></i></a>
                                     <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('purchase_order/delete/') . $p->id_po ?>" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
                                     <a href="<?= base_url('purchase_order/cetak_po/') . $p->id_po ?>" class="btn btn-success btn-circle btn-sm"><i class="fas fa-print"></i></a>
                                 <?php endif; ?>
-                            </td>
+                            </td> -->
                         </tr>
                     <?php endforeach; ?>
                 <?php else : ?>

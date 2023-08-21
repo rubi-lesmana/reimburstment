@@ -30,19 +30,23 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-fw fa-user"></i></span>
                             </div>
-                            <input value="<?= set_value('nama_supplier'); ?>" name="nama_supplier" id="nama_supplier" type="text" class="form-control" placeholder="Nama Supplier...">
+                            <input value="<?= set_value('nama_supplier'); ?>" name="nama_supplier" id="nama_supplier"
+                                type="text" class="form-control" placeholder="Nama Supplier...">
                         </div>
                         <?= form_error('nama_supplier', '<small class="text-danger">', '</small>'); ?>
                     </div>
                 </div>
+
                 <div class="row form-group">
                     <label class="col-md-3 text-md-right" for="no_telp">Nomor Telepon</label>
                     <div class="col-md-9">
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-fw fa-phone"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="fa fa-fw fa-phone"></i></span>
                             </div>
-                            <input value="<?= set_value('no_telp'); ?>" name="no_telp" id="no_telp" type="text" class="form-control" placeholder="Nomor Telepon...">
+                            <input value="<?= set_value('no_telp'); ?>" name="no_telp" id="no_telp" type="text"
+                                class="form-control" placeholder="Nomor Telepon...">
                         </div>
                         <?= form_error('no_telp', '<small class="text-danger">', '</small>'); ?>
                     </div>
@@ -54,7 +58,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-fw fa-home"></i></span>
                             </div>
-                            <textarea name="alamat" id="alamat" class="form-control" rows="4" placeholder="Alamat..."><?= set_value('alamat'); ?></textarea>
+                            <textarea name="alamat" id="alamat" class="form-control" rows="4"
+                                placeholder="Alamat..."><?= set_value('alamat'); ?></textarea>
                         </div>
                         <?= form_error('alamat', '<small class="text-danger">', '</small>'); ?>
                     </div>

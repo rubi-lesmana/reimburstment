@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col">
                         <h4 class="h5 align-middle m-0 font-weight-bold text-primary">
-                            <?= $title; ?>
+                            Form Edit SPP
                         </h4>
                     </div>
                     <div class="col-auto">
@@ -24,19 +24,16 @@
                 <?= $this->session->flashdata('pesan'); ?>
 
                 <?= form_open(); ?>
-
                 <div class="row form-group">
                     <label class="col-md-2" for="no_surat">No. Surat</label>
                     <div class="col-md-4">
-                        <input readonly value="<?= set_value('no_surat', $no_surat); ?>" name="no_surat" id="no_surat"
-                            type="text" class="form-control" placeholder="No. Surat ...">
+                        <input value="<?= set_value('no_surat', $spp['no_surat']); ?>" name="no_surat" id="no_surat" type="text" class="form-control" placeholder="No. Surat..." readonly>
                         <?= form_error('no_surat', '<small class="text-danger">', '</small>'); ?>
                     </div>
 
-                    <label class="col-md-2" for="tgl">Tanggal</label>
+                    <label class="col-md-2" for="tanggal">Tanggal</label>
                     <div class="col-md-4">
-                        <input value="<?= set_value('tanggal', date('Y-m-d')); ?>" name="tanggal" id="tgl" type="text"
-                            class="form-control date" placeholder="Tanggal...">
+                        <input value="<?= set_value('tanggal', date('Y-m-d')); ?>" name="tanggal" id="tanggal" type="text" class="form-control date" placeholder="Tanggal...">
                         <?= form_error('tanggal', '<small class="text-danger">', '</small>'); ?>
                     </div>
 
@@ -44,14 +41,12 @@
                 <!-- Row 1 -->
 
                 <div class="row form-group">
-                    <label class="col-md-2" for="customer_id">ID Cust</label>
+                    <label class="col-md-2" for="customer_id">ID Customer</label>
                     <div class="col-md-4">
                         <div class="input-group">
-                            <input value="<?= set_value('customer_id'); ?>" name="customer_id" id="customer_id"
-                                type="text" class="form-control" placeholder="Pilih ID Leasing ...">
+                            <input value="<?= set_value('customer_id', $spp['customer_id']); ?>" name="customer_id" id="customer_id" type="text" class="form-control" placeholder="Pilih ID RO ..." readonly>
                             <div class="input-group-append">
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#pilihro">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pilihro">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </div>
@@ -60,11 +55,9 @@
                     <label class="col-md-2" for="ln_id ">ID Leasing</label>
                     <div class="col-md-4">
                         <div class="input-group">
-                            <input value="<?= set_value('ln_id'); ?>" name="ln_id" id="ln_id" type="text"
-                                class="form-control" placeholder="Pilih Leasing...">
+                            <input value="<?= set_value('ln_id', $spp['ln_id']); ?>" name="ln_id" id="ln_id" type="text" class="form-control" placeholder="Pilih Leasing...">
                             <div class="input-group-append">
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#pilihsup">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pilihsup">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </div>
@@ -78,42 +71,33 @@
                     <label class="col-md-2" for="nama_customer">Nama Customer</label>
                     <div class="col-md-4">
                         <div class="input-group">
-                            <input value="<?= set_value('nama_customer'); ?>" name="nama_customer" id="nama_customer"
-                                type="text" class="form-control" placeholder="Nama Customer...">
+                            <input value="<?= set_value('nama_customer', $spp['nama_customer']); ?>" name="nama_customer" id="nama_customer" type="text" class="form-control" placeholder="Nama Customer...">
                         </div>
                         <?= form_error('nama_customer', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <label class="col-md-2" for="leasing_id">Nama Leasing</label>
                     <div class="col-md-4">
                         <div class="input-group">
-                            <div class="input-group">
-                                <select name="leasing_id" id="leasing_id" class="custom-select">
-                                    <option value="" selected disabled>Pilih Leasing</option>
-                                    <?php foreach ($leasing as $d) : ?>
-                                    <option <?= $this->uri->segment(3) == $d['id_leasing'] ? 'selected' : '';  ?>
-                                        <?= set_select('leasing_id', $d['id_leasing']) ?>
-                                        value="<?= $d['id_leasing'] ?>">
-                                        <?= $d['id_leasing'] . ' | ' . $d['nama_leasing'] ?>
-                                    </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            <?= form_error('leasing_id', '<small class="text-danger">', '</small>'); ?>
+                            <select name="leasing_id" id="leasing_id" class="custom-select">
+                                <option value="" selected disabled>Pilih Supplier</option>
+                                <?php foreach ($leasing as $supp) : ?>
+                                    <option <?= $spp['leasing_id'] == $supp['id_leasing'] ? 'selected' : ''; ?> <?= set_select('leasing_id', $supp['id_leasing']) ?> value="<?= $supp['id_leasing'] ?>"><?= $supp['nama_leasing'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
+                        <?= form_error('leasing_id', '<small class="text-danger">', '</small>'); ?>
                     </div>
+
                 </div>
                 <!-- row 3 -->
-
                 <div class="row form-group">
                     <label class="col-md-2" for="unit_id">Nama Unit</label>
                     <div class="col-md-4">
                         <div class="input-group">
                             <select name="unit_id" id="unit_id" class="custom-select">
-                                <option value="" selected disabled>Nama Unit</option>
-                                <?php foreach ($unit as $sup) : ?>
-                                <option <?= $this->uri->segment(3) == $sup['id_unit'] ? 'selected' : '';  ?>
-                                    <?= set_select('unit_id', $sup['id_unit']) ?> value="<?= $sup['id_unit'] ?>">
-                                    <?= $sup['id_unit'] . ' | ' . $sup['nama_unit'] ?></option>
+                                <option value="" selected disabled>Pilih Unit</option>
+                                <?php foreach ($unit as $b) : ?>
+                                    <option <?= $spp['unit_id'] == $b['id_unit'] ? 'selected' : ''; ?> <?= set_select('unit_id', $b['id_unit']) ?> value="<?= $b['id_unit'] ?>"><?= $b['nama_unit'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -122,36 +106,29 @@
                     <label class="col-md-2" for="harga">Harga</label>
                     <div class="col-md-4">
                         <div class="input-group">
-                            <input value="" name="harga" id="harga" type="text" class="form-control"
-                                placeholder="Harga...">
+                            <input value="<?= set_value('harga', $spp['harga']); ?>" name="harga" id="harga" type="text" class="form-control" placeholder="Harga...">
                         </div>
                         <?= form_error('harga', '<small class="text-danger">', '</small>'); ?>
                     </div>
                 </div>
-                <!-- row 4 -->
 
                 <div class="row form-group">
                     <label class="col-md-2" for="downpayment">Downpayment</label>
                     <div class="col-md-4">
-                        <div class="input-group">
-                            <input value="<?= set_value('downpayment'); ?>" name="downpayment" id="downpayment"
-                                type="number" class="form-control" placeholder="Downpayment ...">
-                        </div>
-                        <?= form_error('downpayment', '<small class="text-danger">', '</small>'); ?>
+                        <input value="<?= set_value('downpayment', $spp['downpayment']); ?>" name="downpayment" id="downpayment" type="number" class="form-control" placeholder="downpayment...">
                     </div>
 
                     <label class="col-md-2" for="pelunasan">Sisa Pelunasan</label>
                     <div class="col-md-4">
                         <div class="input-group">
-                            <input value="<?= set_value('pelunasan'); ?>" name="pelunasan" id="pelunasan" type="number"
-                                class="form-control" placeholder="Sisa Pelunasan ...">
+                            <input value="<?= set_value('pelunasan', $spp['pelunasan']); ?>" name="pelunasan" id="pelunasan" type="number" class="form-control" placeholder="Sisa Pelunasan ...">
                         </div>
                         <?= form_error('pelunasan', '<small class="text-danger">', '</small>'); ?>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col-md-6">
-                        <input type="hidden" name="status" value="0">
+
                     </div>
 
                     <div class="col-md-2"></div>
@@ -216,19 +193,17 @@
                         );
 
                         foreach ($roin->result() as $r) : ?>
-                        <tr>
-                            <td><?= $r->id_customer; ?></td>
-                            <td><?= $r->nama_customer; ?></td>
-                            <td><?= $r->unit_id . ' | ' . $r->nama_unit; ?></td>
-                            <td><?= $r->downpayment; ?></td>
-                            <td class="text-right">
-                                <button class="btn btn-sm btn-primary" id="select" data-id="<?= $r->id_customer; ?>"
-                                    data-nama_customer="<?= $r->nama_customer; ?>" data-unit_id="<?= $r->unit_id; ?>"
-                                    data-downpayment="<?= $r->downpayment; ?>">
-                                    <i class="fa fa-check"></i>Select
-                                </button>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td><?= $r->id_customer; ?></td>
+                                <td><?= $r->nama_customer; ?></td>
+                                <td><?= $r->unit_id . ' | ' . $r->nama_unit; ?></td>
+                                <td><?= $r->downpayment; ?></td>
+                                <td class="text-right">
+                                    <button class="btn btn-sm btn-primary" id="select" data-id="<?= $r->id_customer; ?>" data-nama_customer="<?= $r->nama_customer; ?>" data-unit_id="<?= $r->unit_id; ?>" data-downpayment="<?= $r->downpayment; ?>">
+                                        <i class="fa fa-check"></i>Select
+                                    </button>
+                                </td>
+                            </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
@@ -283,26 +258,24 @@
                                 if ($ln) :
                                     foreach ($sqlin->result() as $req) :
                                 ?>
-                                <tr>
-                                    <td><?= $req->id_ln; ?></td>
-                                    <td><?= $req->leasing_id . ' | ' . $req->nama_leasing; ?></td>
-                                    <td><?= $req->unit_id . ' | ' . $req->nama_unit; ?></td>
-                                    <td><?= number_format($req->harga, 0, '.', '.'); ?></td>
-                                    <td class="text-right">
-                                        <button class="btn btn-sm btn-primary" id="selectsup"
-                                            data-id="<?= $req->id_ln; ?>" data-leasing_id="<?= $req->leasing_id; ?>"
-                                            data-unit_id="<?= $req->unit_id; ?>" data-harga="<?= $req->harga; ?>">
-                                            <i class="fa fa-check"></i>Select
-                                        </button>
-                                    </td>
-                                </tr>
-                                <?php endforeach; ?>
+                                        <tr>
+                                            <td><?= $req->id_ln; ?></td>
+                                            <td><?= $req->leasing_id . ' | ' . $req->nama_leasing; ?></td>
+                                            <td><?= $req->unit_id . ' | ' . $req->nama_unit; ?></td>
+                                            <td><?= number_format($req->harga, 0, '.', '.'); ?></td>
+                                            <td class="text-right">
+                                                <button class="btn btn-sm btn-primary" id="selectsup" data-id="<?= $req->id_ln; ?>" data-leasing_id="<?= $req->leasing_id; ?>" data-unit_id="<?= $req->unit_id; ?>" data-harga="<?= $req->harga; ?>">
+                                                    <i class="fa fa-check"></i>Select
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 <?php else : ?>
-                                <tr>
-                                    <td colspan="7" class="text-center">
-                                        Data Kosong
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td colspan="7" class="text-center">
+                                            Data Kosong
+                                        </td>
+                                    </tr>
                                 <?php endif; ?>
                             </tbody>
                         </table>

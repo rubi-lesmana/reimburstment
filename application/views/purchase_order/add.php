@@ -29,13 +29,15 @@
                 <div class="row form-group">
                     <label class="col-md-2" for="id_po">Kode PO</label>
                     <div class="col-md-4">
-                        <input readonly value="<?= set_value('id_po', $id_po); ?>" name="id_po" id="id_po" type="text" class="form-control" placeholder="ID PO...">
+                        <input readonly value="<?= set_value('id_po', $id_po); ?>" name="id_po" id="id_po" type="text"
+                            class="form-control" placeholder="ID PO...">
                         <?= form_error('id_po', '<small class="text-danger">', '</small>'); ?>
                     </div>
 
                     <label class="col-md-2" for="tgl">Tanggal</label>
                     <div class="col-md-4">
-                        <input value="<?= set_value('tanggal', date('Y-m-d')); ?>" name="tanggal" id="tgl" type="text" class="form-control date" placeholder="Tanggal...">
+                        <input value="<?= set_value('tanggal', date('Y-m-d')); ?>" name="tanggal" id="tgl" type="text"
+                            class="form-control date" placeholder="Tanggal...">
                         <?= form_error('tanggal', '<small class="text-danger">', '</small>'); ?>
                     </div>
 
@@ -46,7 +48,8 @@
                     <label class="col-md-2" for="id_ro">ID RO</label>
                     <div class="col-md-4">
                         <div class="input-group">
-                            <input value="<?= set_value('ro_id'); ?>" name="ro_id" id="id_ro" type="text" class="form-control" placeholder="Pilih ID RO ...">
+                            <input value="<?= set_value('ro_id'); ?>" name="ro_id" id="id_ro" type="text"
+                                class="form-control" placeholder="Pilih ID RO ...">
                             <div class="input-group-append">
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#pilihro">
                                     <i class="fa fa-search"></i>
@@ -57,7 +60,8 @@
                     <label class="col-md-2" for="requistion_id ">ID Supplier</label>
                     <div class="col-md-4">
                         <div class="input-group">
-                            <input value="<?= set_value('requistion_id'); ?>" name="requistion_id" id="requistion_id" type="text" class="form-control" placeholder="Pilih Supplier...">
+                            <input value="<?= set_value('requistion_id'); ?>" name="requistion_id" id="requistion_id"
+                                type="text" class="form-control" placeholder="Pilih Supplier...">
                             <div class="input-group-append">
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#pilihsup">
                                     <i class="fa fa-search"></i>
@@ -77,7 +81,9 @@
                                 <select name="divisi_id" id="divisi_id" class="custom-select">
                                     <option value="" selected disabled>Pilih Divisi</option>
                                     <?php foreach ($divisi as $d) : ?>
-                                        <option <?= $this->uri->segment(3) == $d['id_divisi'] ? 'selected' : '';  ?> <?= set_select('divisi_id', $d['id_divisi']) ?> value="<?= $d['id_divisi'] ?>"><?= $d['id_divisi'] . ' | ' . $d['nama_divisi'] ?></option>
+                                    <option <?= $this->uri->segment(3) == $d['id_divisi'] ? 'selected' : '';  ?>
+                                        <?= set_select('divisi_id', $d['id_divisi']) ?> value="<?= $d['id_divisi'] ?>">
+                                        <?= $d['id_divisi'] . ' | ' . $d['nama_divisi'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -90,7 +96,10 @@
                             <select name="supplier_id" id="supplier_id" class="custom-select">
                                 <option value="" selected disabled>Nama Supplier</option>
                                 <?php foreach ($supplier as $sup) : ?>
-                                    <option <?= $this->uri->segment(3) == $sup['id_supplier'] ? 'selected' : '';  ?> <?= set_select('supplier_id', $sup['id_supplier']) ?> value="<?= $sup['id_supplier'] ?>"><?= $sup['id_supplier'] . ' | ' . $sup['nama_supplier'] ?></option>
+                                <option <?= $this->uri->segment(3) == $sup['id_supplier'] ? 'selected' : '';  ?>
+                                    <?= set_select('supplier_id', $sup['id_supplier']) ?>
+                                    value="<?= $sup['id_supplier'] ?>">
+                                    <?= $sup['id_supplier'] . ' | ' . $sup['nama_supplier'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -106,7 +115,9 @@
                             <select name="barang_id" id="barang_id" class="custom-select">
                                 <option value="barang_id" selected>Pilih Barang</option>
                                 <?php foreach ($barang as $b) : ?>
-                                    <option <?= $this->uri->segment(3) == $b['id_barang'] ? 'selected' : '';  ?> <?= set_select('barang_id', $b['id_barang']) ?> value="<?= $b['id_barang'] ?>"><?= $b['id_barang'] . ' | ' . $b['nama_barang'] ?></option>
+                                <option <?= $this->uri->segment(3) == $b['id_barang'] ? 'selected' : '';  ?>
+                                    <?= set_select('barang_id', $b['id_barang']) ?> value="<?= $b['id_barang'] ?>">
+                                    <?= $b['id_barang'] . ' | ' . $b['nama_barang'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -115,7 +126,8 @@
                     <label class="col-md-2" for="harga">Harga</label>
                     <div class="col-md-4">
                         <div class="input-group">
-                            <input value="" name="harga" id="harga" type="text" class="form-control" placeholder="Harga...">
+                            <input value="" name="harga" id="harga" type="text" class="form-control"
+                                placeholder="Harga...">
                         </div>
                         <?= form_error('harga', '<small class="text-danger">', '</small>'); ?>
                     </div>
@@ -124,13 +136,15 @@
                 <div class="row form-group">
                     <label class="col-md-2" for="quantity">Quantity</label>
                     <div class="col-md-4">
-                        <input value="" name="quantity" id="quantity" type="number" class="form-control" placeholder="Quantity...">
+                        <input value="" name="quantity" id="quantity" type="number" class="form-control"
+                            placeholder="Quantity...">
                     </div>
 
                     <label class="col-md-2" for="total">Total Harga</label>
                     <div class="col-md-4">
                         <div class="input-group">
-                            <input value="<?= set_value('total'); ?>" name="total" id="total" type="number" class="form-control" placeholder="Total Harga...">
+                            <input value="<?= set_value('total'); ?>" name="total" id="total" type="number"
+                                class="form-control" placeholder="Total Harga...">
                         </div>
                         <?= form_error('total_harga', '<small class="text-danger">', '</small>'); ?>
                     </div>
@@ -139,7 +153,8 @@
                     <label class="col-md-2" for="keterangan">Keterangan</label>
                     <div class="col-md-4">
                         <div class="input-group">
-                            <textarea value="" name="" id="keterangan" class="form-control" rows="4" placeholder="Keterangan..."></textarea>
+                            <textarea value="" name="" id="keterangan" class="form-control" rows="4"
+                                placeholder="Keterangan..."></textarea>
                         </div>
                         <?= form_error('keterangan', '<small class="text-danger">', '</small>'); ?>
                     </div>
@@ -207,18 +222,20 @@
                         );
 
                         foreach ($roin->result() as $r) : ?>
-                            <tr>
-                                <td><?= $r->id_ro; ?></td>
-                                <td><?= $r->divisi_id . ' | ' . $r->nama_divisi; ?></td>
-                                <td><?= $r->barang_id . ' | ' . $r->nama_barang; ?></td>
-                                <td><?= $r->quantity; ?></td>
-                                <td><?= $r->keterangan; ?></td>
-                                <td class="text-right">
-                                    <button class="btn btn-sm btn-info" id="select" data-id="<?= $r->id_ro; ?>" data-divisi="<?= $r->divisi_id; ?>" data-barang="<?= $r->barang_id; ?>" data-quantity="<?= $r->quantity; ?>" data-ket="<?= $r->keterangan; ?>">
-                                        <i class="fa fa-check"></i>Select
-                                    </button>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td><?= $r->id_ro; ?></td>
+                            <td><?= $r->divisi_id . ' | ' . $r->nama_divisi; ?></td>
+                            <td><?= $r->barang_id . ' | ' . $r->nama_barang; ?></td>
+                            <td><?= $r->quantity; ?></td>
+                            <td><?= $r->keterangan; ?></td>
+                            <td class="text-right">
+                                <button class="btn btn-sm btn-info" id="select" data-id="<?= $r->id_ro; ?>"
+                                    data-divisi="<?= $r->divisi_id; ?>" data-barang="<?= $r->barang_id; ?>"
+                                    data-quantity="<?= $r->quantity; ?>" data-ket="<?= $r->keterangan; ?>">
+                                    <i class="fa fa-check"></i>Select
+                                </button>
+                            </td>
+                        </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
@@ -249,16 +266,17 @@
                                 </h4>
                             </div>
                             <?php if (is_purchasing()) : ?>
-                                <div class="col-auto">
-                                    <a href="<?= base_url('purchase_order/add') ?>" class="btn btn-sm btn-info btn-icon-split">
-                                        <span class="icon">
-                                            <i class="fa fa-plus"></i>
-                                        </span>
-                                        <span class="text">
-                                            Create Purchase Order
-                                        </span>
-                                    </a>
-                                </div>
+                            <div class="col-auto">
+                                <a href="<?= base_url('purchase_order/add') ?>"
+                                    class="btn btn-sm btn-info btn-icon-split">
+                                    <span class="icon">
+                                        <i class="fa fa-plus"></i>
+                                    </span>
+                                    <span class="text">
+                                        Create Purchase Order
+                                    </span>
+                                </a>
+                            </div>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -283,24 +301,27 @@
                                 if ($po) :
                                     foreach ($sqlin->result() as $req) :
                                 ?>
-                                        <tr>
-                                            <td><?= $req->id_requistion; ?></td>
-                                            <td><?= $req->supplier_id . ' | ' . $req->nama_supplier; ?></td>
-                                            <td><?= $req->barang_id . ' | ' . $req->nama_barang; ?></td>
-                                            <td><?= $req->harga; ?></td>
-                                            <td class="text-right">
-                                                <button class="btn btn-sm btn-info" id="selectsup" data-id="<?= $req->id_requistion; ?>" data-supplier_id="<?= $req->supplier_id; ?>" data-barang="<?= $req->barang_id; ?>" data-harga="<?= $req->harga; ?>">
-                                                    <i class="fa fa-check"></i>Select
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
+                                <tr>
+                                    <td><?= $req->id_requistion; ?></td>
+                                    <td><?= $req->supplier_id . ' | ' . $req->nama_supplier; ?></td>
+                                    <td><?= $req->barang_id . ' | ' . $req->nama_barang; ?></td>
+                                    <td><?= $req->harga; ?></td>
+                                    <td class="text-right">
+                                        <button class="btn btn-sm btn-info" id="selectsup"
+                                            data-id="<?= $req->id_requistion; ?>"
+                                            data-supplier_id="<?= $req->supplier_id; ?>"
+                                            data-barang="<?= $req->barang_id; ?>" data-harga="<?= $req->harga; ?>">
+                                            <i class="fa fa-check"></i>Select
+                                        </button>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
                                 <?php else : ?>
-                                    <tr>
-                                        <td colspan="7" class="text-center">
-                                            Data Kosong
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td colspan="7" class="text-center">
+                                        Data Kosong
+                                    </td>
+                                </tr>
                                 <?php endif; ?>
                             </tbody>
                         </table>

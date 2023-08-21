@@ -81,7 +81,7 @@ class Admin_model extends CI_Model
         return $this->db->get('klaim k')->result_array();
     }
 
-    public function getRequestReimburse()
+    public function getRequest()
     {
         $this->db->join('klaim k', 'r.klaim_id = k.id_klaim');
         $this->db->join('jabatan j', 'r.jabatan_id = j.id_jabatan');

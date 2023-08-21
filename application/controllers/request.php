@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class RequestReimburse extends CI_Controller
+class Request extends CI_Controller
 {
     public function __construct()
     {
@@ -15,7 +15,7 @@ class RequestReimburse extends CI_Controller
     public function index()
     {
         $data['title']  = "Request Reimburse";
-        $data['spp']     = $this->admin->getRequestReimburse();
+        $data['request']     = $this->admin->getRequest();
         $this->template->load('templates/dashboard', 'request_reimburse/data', $data);
     }
 
@@ -29,6 +29,7 @@ class RequestReimburse extends CI_Controller
         $this->form_validation->set_rules('jabatan_id', 'jabatan', 'required|trim');
         $this->form_validation->set_rules('jenis_klaim_id', 'Jenis Klaim', 'required|trim');
         $this->form_validation->set_rules('amount', 'pelunasan', 'required|trim|numeric|greater_than[0]');
+        $this->form_validation->set_rules('description', 'Deskripsi', 'required|trim');
     }
 
     public function add()
@@ -40,7 +41,7 @@ class RequestReimburse extends CI_Controller
             $data['departement']    = $this->admin->get('departement');
             $data['jabatan']        = $this->admin->get('jabatan');
             $data['jenis_klaim']    = $this->admin->get('jenis_klaim');
-            $data['req']            = $this->admin->getRequestReimburse();
+            $data['req']            = $this->admin->getRequest();
 
             // Mengenerate ID Barang
             $kode_terakhir  = $this->admin->getMax('request_reimburse', 'no_acc');
@@ -49,17 +50,17 @@ class RequestReimburse extends CI_Controller
             $number         = str_pad($kode_tambah, 3, '0', STR_PAD_LEFT);
             $data['no_acc'] = 'ACC' . $number;
 
-            $this->template->load('templates/dashboard', 'request_reimburse/add', $data);
+            $this->template->load('templates/dashboard', 'request/add', $data);
         } else {
             $input  = $this->input->post(null, true);
             $insert = $this->admin->insert('request_reimburse', $input);
 
             if ($insert) {
                 set_pesan('data berhasil disimpan');
-                redirect('RequestReimburse');
+                redirect('request');
             } else {
                 set_pesan('gagal menyimpan data');
-                redirect('RequestReimburse/add');
+                redirect('request/add');
             }
         }
     }
