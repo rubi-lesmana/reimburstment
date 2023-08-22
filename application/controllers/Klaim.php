@@ -56,23 +56,31 @@ class Klaim extends CI_Controller
             $input              = $this->input->post(null, true);
             //konfigurasi upload
             $file_dokumen       = $_FILES['dokumen']['name'];
+            //$path               = 'D:\Project\htdocs\reimburstment\uploads';
             $config = [
-                'upload_path'   => 'uploads/',
+                'upload_path'   => './reimburstment/uploads/klaim/',
                 'allowed_types' => 'gif|jpg|png',
                 'file_name'     => $file_dokumen, 
             ];
             $this->load->library('upload', $config);
-            $dokumen = $this->upload->data('file_name');
-            $input_data = [
-                'id_klaim'          => $input['id_klaim'],
-                'tanggal'           => $input['tanggal'],
-                'nama'              => $input['nama'],
-                'departement_id'    => $input['departement_id'],
-                'jabatan_id'        => $input['jabatan_id'],
-                'jenis_klaim_id'    => $input['jenis_klaim_id'],
-                'dokumen'           => $dokumen,
-            ];
-            if ($this->admin->insert('klaim', $input_data)) {
+            if($this->upload->do_upload('file_name')){
+                $dokumen = $this->upload->data('file_name');
+                $input_data = [
+                    'id_klaim'          => $input['id_klaim'],
+                    'tanggal'           => $input['tanggal'],
+                    'nama'              => $input['nama'],
+                    'departement_id'    => $input['departement_id'],
+                    'jabatan_id'        => $input['jabatan_id'],
+                    'jenis_klaim_id'    => $input['jenis_klaim_id'],
+                    'dokumen'           => $dokumen,
+                ];
+                $insert = $this->admin->insert('klaim', $input_data);
+            }else{
+                $image_error = array('imageError' => $this->upload->display_errors());
+                $this->template->load('templates/dashboard', 'klaim/add', $image_error);
+            }
+            
+            if ($insert) {
                 set_pesan('data berhasil disimpan.');
                 redirect('klaim');
             } else {
@@ -129,11 +137,11 @@ class Klaim extends CI_Controller
     public function detail($getId)
     {
         $id = encode_php_tags($getId);
-        $data['title']  = "Detail Request Order";
+        $data['title']          = "Detail Request Order";
         $data['departement']    = $this->admin->get('departement');
         $data['jabatan']        = $this->admin->get('jabatan');
         $data['jenis_klaim']    = $this->admin->get('jenis_klaim');
-        $data['klaim']     = $this->admin->get('klaim', ['id_klaim' => $id]);
+        $data['klaim']          = $this->admin->get('klaim', ['id_klaim' => $id]);
         $this->template->load('templates/dashboard', 'klaim/detail', $data);
     }
 
@@ -161,7 +169,8 @@ class Klaim extends CI_Controller
         $data['divisi'] = $this->admin->get('divisi');
         $data['barang'] = $this->admin->get('barang');
         $data['ro']     = $this->admin->get('klaim', ['id_klaim' => $id]);
-        $sql = $this->db->query("SELECT a.`id_klaim`, a.`tanggal`,a.`divisi_id`,a.`barang_id`,a.`keterangan`,a.`quantity`,a.`status`, b.nama_divisi, c.nama_barang 
+        $sql = $this->db->query("
+        SELECT a.`id_klaim`, a.`tanggal`,a.`divisi_id`,a.`barang_id`,a.`keterangan`,a.`quantity`,a.`status`, b.nama_divisi, c.nama_barang 
         FROM `klaim` a 
         INNER JOIN divisi b ON a.`divisi_id`=b.id_divisi
         INNER JOIN barang c ON a.`barang_id`=c.id_barang WHERE id_klaim ='$id' ");

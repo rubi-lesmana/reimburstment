@@ -220,7 +220,7 @@
             <li class="nav-item">
                 <a class="nav-link text-primary" href="<?= base_url('request/add'); ?>">
                     <i class="fas fa-recycle"></i>
-                    <span>Process Klaim</span>
+                    <span>Request Reimburse</span>
                 </a>
             </li>
 
@@ -680,15 +680,8 @@
         $(document).on('click', '#select_klaim', function() {
             var klaim_id = $(this).data('id');
             var nama = $(this).data('nama');
-            var departement_id = $(this).data('departement_id');
-            var jabatan_id = $(this).data('jabatan_id');
-            var jenis_klaim_id = $(this).data('jenis_klaim_id');
-            // var total = parseInt(harga) * parseInt(jumlah);
             $('#klaim_id').val(klaim_id);
             $('#nama').val(nama);
-            $('#departement_id').val('departement_id');
-            $('#jabatan_id').val('jabatan_id');
-            $('#jenis_klaim_id').val('jenis_klaim_id');
             $('#klaim').modal('hide');
         });
     });

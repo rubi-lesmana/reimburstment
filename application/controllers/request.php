@@ -25,10 +25,7 @@ class Request extends CI_Controller
         $this->form_validation->set_rules('tanggal', 'Tanggal', 'required|trim');
         $this->form_validation->set_rules('klaim_id', 'ID Klaim', 'required|trim');
         $this->form_validation->set_rules('nama_karyawan', 'Nama Karyawan', 'required|trim');
-        $this->form_validation->set_rules('departement_id', 'Departement', 'required|trim');
-        $this->form_validation->set_rules('jabatan_id', 'jabatan', 'required|trim');
-        $this->form_validation->set_rules('jenis_klaim_id', 'Jenis Klaim', 'required|trim');
-        $this->form_validation->set_rules('amount', 'pelunasan', 'required|trim|numeric|greater_than[0]');
+        $this->form_validation->set_rules('amount', 'Amount', 'required|trim|numeric|greater_than[0]');
         $this->form_validation->set_rules('description', 'Deskripsi', 'required|trim');
     }
 
@@ -36,12 +33,9 @@ class Request extends CI_Controller
     {
         $this->_validasi();
         if ($this->form_validation->run() == false) {
-            $data['title']          = "Request Reimburse";
-            $data['klaim']          = $this->admin->get('klaim');
-            $data['departement']    = $this->admin->get('departement');
-            $data['jabatan']        = $this->admin->get('jabatan');
-            $data['jenis_klaim']    = $this->admin->get('jenis_klaim');
-            $data['req']            = $this->admin->getRequest();
+            $data['title']  = "Request Reimburse";
+            $data['klaim']  = $this->admin->get('klaim');
+            $data['req']    = $this->admin->getRequest();
 
             // Mengenerate ID Barang
             $kode_terakhir  = $this->admin->getMax('request_reimburse', 'no_acc');
