@@ -22,7 +22,7 @@ class Klaim extends CI_Controller
     public function histori()
     {
         $data['title']  = "Klaim Reimburstment";
-        $data['klaim']     = $this->admin->getKlaim();
+        $data['klaim']  = $this->admin->getKlaim();
         $this->template->load('templates/dashboard', 'klaim/histori', $data);
     }
 
@@ -63,8 +63,7 @@ class Klaim extends CI_Controller
                 'file_name'     => $file_dokumen, 
             ];
             $this->load->library('upload', $config);
-            if($this->upload->do_upload('file_name')){
-                $dokumen = $this->upload->data('file_name');
+            $dokumen = $this->upload->data('file_name');
                 $input_data = [
                     'id_klaim'          => $input['id_klaim'],
                     'tanggal'           => $input['tanggal'],
@@ -75,10 +74,22 @@ class Klaim extends CI_Controller
                     'dokumen'           => $dokumen,
                 ];
                 $insert = $this->admin->insert('klaim', $input_data);
-            }else{
-                $image_error = array('imageError' => $this->upload->display_errors());
-                $this->template->load('templates/dashboard', 'klaim/add', $image_error);
-            }
+            // if($this->upload->do_upload('file_name')){
+            //     $dokumen = $this->upload->data('file_name');
+            //     $input_data = [
+            //         'id_klaim'          => $input['id_klaim'],
+            //         'tanggal'           => $input['tanggal'],
+            //         'nama'              => $input['nama'],
+            //         'departement_id'    => $input['departement_id'],
+            //         'jabatan_id'        => $input['jabatan_id'],
+            //         'jenis_klaim_id'    => $input['jenis_klaim_id'],
+            //         'dokumen'           => $dokumen,
+            //     ];
+            //     $insert = $this->admin->insert('klaim', $input_data);
+            // }else{
+            //     $image_error = array('imageError' => $this->upload->display_errors());
+            //     $this->template->load('templates/dashboard', 'klaim/add', $image_error);
+            // }
             
             if ($insert) {
                 set_pesan('data berhasil disimpan.');

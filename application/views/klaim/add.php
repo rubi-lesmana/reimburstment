@@ -22,7 +22,7 @@
             </div>
             <div class="card-body pb-2">
                 <?= $this->session->flashdata('pesan'); ?>
-                <?= form_open_multipart(); ?>
+                <?= form_open_multipart('klaim/add'); ?>
                 <div class="row form-group">
                     <label class="col-md-4 text-md-right" for="username">ID Klaim</label>
                     <div class="col-md-6">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <label class="col-md-4 text-md-right" for="password">Tanggal</label>
+                    <label class="col-md-4 text-md-right" for="tanggal">Tanggal</label>
                     <div class="col-md-6">
                         <input value="<?= set_value('tanggal', date('Y-m-d')); ?>" name="tanggal" type="text"
                             class="form-control date" placeholder="Tanggal...">

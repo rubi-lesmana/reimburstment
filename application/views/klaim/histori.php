@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col">
                 <h4 class="h5 align-middle m-0 font-weight-bold text-primary">
-                    Data Klaim Reimburstment
+                    History Klaim Reimburstment
                 </h4>
             </div>
         </div>
@@ -22,7 +22,6 @@
                     <th>Jenis Klaim</th>
                     <th>Dokumen</th>
                     <th>Status</th>
-                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,7 +32,7 @@
                     INNER JOIN departement b ON a.`departement_id` = b.id_departement
                     INNER JOIN jabatan c ON a.`jabatan_id`= c.id_jabatan 
                     INNER JOIN jenis_klaim d ON a.jenis_klaim_id = d.id_jenis_klaim
-                    WHERE a.status = 0
+                    WHERE a.status = 1
                     ORDER BY a.id_klaim DESC
                 ");
                 $no = 1;
@@ -50,6 +49,13 @@
                     <td><?= $kl->nama_jenis_klaim; ?></td>
                     <td><?= $kl->dokumen; ?></td>
                     <td>
+                        <!-- <a href="<?= base_url('klaim/edit/') . $kl->id_klaim ?>"
+                            class="btn btn-primary btn-circle btn-sm"><i class="fa fa-edit"></i></a>
+                        <a onclick="return confirm('Yakin ingin hapus?')"
+                            href="<?= base_url('klaim/delete/') . $kl->id_klaim ?>"
+                            class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
+                        <a href="<?= base_url('klaim/cetak_klaim/') . $kl->id_klaim ?>"
+                            class="btn btn-success btn-circle btn-sm"><i class="fas fa-print"></i></a> -->
                         <?php
                             if ($kl->status == 0) {
                                 echo "<span  class='badge bg-warning text-white'>Waiting</span>";
@@ -57,16 +63,6 @@
                                 echo "<span  class='badge bg-danger text-white'>Approval</span>";
                             }
                         ?>
-                    </td>
-                    <td>
-                        <a href="<?= base_url('klaim/edit/') . $kl->id_klaim ?>"
-                            class="btn btn-primary btn-circle btn-sm"><i class="fa fa-edit"></i></a>
-                        <a onclick="return confirm('Yakin ingin hapus?')"
-                            href="<?= base_url('klaim/delete/') . $kl->id_klaim ?>"
-                            class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
-                        <a href="<?= base_url('klaim/cetak_klaim/') . $kl->id_klaim ?>"
-                            class="btn btn-success btn-circle btn-sm"><i class="fas fa-print"></i></a>
-
                     </td>
                 </tr>
                 <?php endforeach; ?>

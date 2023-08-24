@@ -59,7 +59,6 @@ class Request_reimburse extends CI_Controller
             $data['jenis_klaim']    = $this->admin->get('request_order');
             $data['req']            = $this->admin->getRequest();
 
-
             // Mengenerate ID Barang
             $kode_terakhir  = $this->admin->getMax('request_reimburse', 'no_acc');
             $kode_tambah    = substr($kode_terakhir, -3, 3);

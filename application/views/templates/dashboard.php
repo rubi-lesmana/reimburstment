@@ -155,7 +155,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-primary" href="<?= base_url('Klaim'); ?>">
+                <a class="nav-link text-primary" href="<?= base_url('Klaim/histori'); ?>">
                     <i class="fas fa-history"></i>
                     <span>Histori Klaim</span>
                 </a>
@@ -232,14 +232,14 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link text-primary pb-0" href="<?= base_url('request/list_spp'); ?>">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('request'); ?>">
                     <i class="fas fa-list-ul"></i>
                     <span>List Proses Klaim</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-primary" href="<?= base_url('request_reimburse/history'); ?>">
+                <a class="nav-link text-primary" href="<?= base_url('request/histor'); ?>">
                     <i class="fas fa-history"></i>
                     <span>Histori Klaim</span>
                 </a>
@@ -660,7 +660,7 @@
     <script>
     let satuan = $('#satuan');
     let stok = $('#stok');
-    let total = $('#total_stok')
+    let total = $('#total_stok');
 
     $(document).ready(function() {
         $(document).on('click', '#select', function() {
@@ -714,7 +714,7 @@
     // });
     </script>
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
     let hal = '<?= $this->uri->segment(1); ?>';
 
     let satuan = $('#satuan');
@@ -741,7 +741,7 @@
         let totalStok = parseInt(stok.val()) - parseInt(this.value);
         total.val(Number(totalStok));
     });
-    </script>
+    </script> -->
 
 
     <?php if ($this->uri->segment(1) == 'dashboard') : ?>

@@ -14,9 +14,9 @@ class Request extends CI_Controller
 
     public function index()
     {
-        $data['title']  = "Request Reimburse";
+        $data['title']       = "Request Reimburse";
         $data['request']     = $this->admin->getRequest();
-        $this->template->load('templates/dashboard', 'request_reimburse/data', $data);
+        $this->template->load('templates/dashboard', 'request/data', $data);
     }
 
     private function _validasi()
@@ -24,7 +24,7 @@ class Request extends CI_Controller
         $this->form_validation->set_rules('no_acc', 'No Surat', 'required|trim');
         $this->form_validation->set_rules('tanggal', 'Tanggal', 'required|trim');
         $this->form_validation->set_rules('klaim_id', 'ID Klaim', 'required|trim');
-        $this->form_validation->set_rules('nama_karyawan', 'Nama Karyawan', 'required|trim');
+        $this->form_validation->set_rules('nama', 'Nama Karyawan', 'required|trim');
         $this->form_validation->set_rules('amount', 'Amount', 'required|trim|numeric|greater_than[0]');
         $this->form_validation->set_rules('description', 'Deskripsi', 'required|trim');
     }
