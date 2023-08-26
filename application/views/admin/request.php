@@ -35,7 +35,6 @@
                     <th>Jenis Klaim</th>
                     <th>Amount</th>
                     <th>Status</th>
-                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,8 +49,7 @@
                     ON a.klaim_id = b.id_klaim 
                     AND b.departement_id = c.id_departement 
                     AND b.jabatan_id = d.id_jabatan 
-                    AND b.jenis_klaim_id = e.id_jenis_klaim
-                    WHERE a.status = 1"
+                    AND b.jenis_klaim_id = e.id_jenis_klaim"
                 );
                 $no = 1;
                 if ($request) :
@@ -75,15 +73,6 @@
                                     echo "Approval";
                                 }
                                 ?>
-                    </td>
-                    <td>
-                        <a href="<?= base_url('request/edit/') . $r->no_acc ?>"
-                            class="btn btn-primary btn-circle btn-sm"><i class="fa fa-edit"></i></a>
-                        <a onclick="return confirm('Yakin ingin hapus?')"
-                            href="<?= base_url('request/delete/') . $r->no_acc ?>"
-                            class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
-                        <a href="<?= base_url('request/detail/') . $r->no_acc ?>"
-                            class="btn btn-success btn-circle btn-sm"><i class="fas fa-ellipsis-v"></i></a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

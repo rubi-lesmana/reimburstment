@@ -91,7 +91,9 @@
 
                 <div class="row form-group">
                     <div class="col-md-2"></div>
-                    <div class="col-md-4 text-md-right"></div>
+                    <div class="col-md-4 text-md-right">
+                        <input value="0" name="status" id="status" type="hidden" class="form-control">
+                    </div>
                     <div class="col-md-2"></div>
                     <div class="col-md-4 text-md-right">
                         <button type="reset" class="btn btn-danger">Reset</button>
@@ -123,7 +125,7 @@
     </div>
 </div>
 
-<!-- Modal Cust -->
+<!-- Modal Klaim -->
 <div class="modal fade" id="klaim">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">

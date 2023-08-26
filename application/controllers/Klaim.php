@@ -56,24 +56,24 @@ class Klaim extends CI_Controller
             $input              = $this->input->post(null, true);
             //konfigurasi upload
             $file_dokumen       = $_FILES['dokumen']['name'];
-            //$path               = 'D:\Project\htdocs\reimburstment\uploads';
             $config = [
-                'upload_path'   => './reimburstment/uploads/klaim/',
+                'upload_path'   => './assets/img/',
                 'allowed_types' => 'gif|jpg|png',
+                'max_size'      => '2048',
                 'file_name'     => $file_dokumen, 
             ];
             $this->load->library('upload', $config);
             $dokumen = $this->upload->data('file_name');
-                $input_data = [
-                    'id_klaim'          => $input['id_klaim'],
-                    'tanggal'           => $input['tanggal'],
-                    'nama'              => $input['nama'],
-                    'departement_id'    => $input['departement_id'],
-                    'jabatan_id'        => $input['jabatan_id'],
-                    'jenis_klaim_id'    => $input['jenis_klaim_id'],
-                    'dokumen'           => $dokumen,
-                ];
-                $insert = $this->admin->insert('klaim', $input_data);
+            $input_data = [
+                'id_klaim'          => $input['id_klaim'],
+                'tanggal'           => $input['tanggal'],
+                'nama'              => $input['nama'],
+                'departement_id'    => $input['departement_id'],
+                'jabatan_id'        => $input['jabatan_id'],
+                'jenis_klaim_id'    => $input['jenis_klaim_id'],
+                'dokumen'           => $dokumen,
+            ];
+            $insert = $this->admin->insert('klaim', $input_data);
             // if($this->upload->do_upload('file_name')){
             //     $dokumen = $this->upload->data('file_name');
             //     $input_data = [

@@ -66,6 +66,12 @@ class Admin_model extends CI_Model
         return $this->db->get('departement')->result_array();
     }
 
+    public function getBank()
+    {
+        $this->db->order_by('id_bank');
+        return $this->db->get('bank')->result_array();
+    }
+
     public function getJenisKlaim()
     {
         $this->db->order_by('id_jenis_klaim');

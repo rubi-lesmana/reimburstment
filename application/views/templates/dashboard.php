@@ -77,9 +77,23 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-primary pb" href="<?= base_url('jabatan'); ?>">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('jabatan'); ?>">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Jabatan</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('JenisKlaim'); ?>">
+                    <i class="fas fa-comment-dollar"></i>
+                    <span>Jenis Klaim</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-primary pb" href="<?= base_url('bank'); ?>">
+                    <i class="fas fa-university"></i>
+                    <span>Bank</span>
                 </a>
             </li>
 
@@ -91,21 +105,21 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link text-primary pb-0" href="<?= base_url('JenisKlaim'); ?>">
-                    <i class="fas fa-comment-dollar"></i>
-                    <span>Jenis Klaim</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link text-primary pb-0" href="<?= base_url('reimburstment'); ?>">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('admin/klaim'); ?>">
                     <i class="fas fa-funnel-dollar"></i>
                     <span>Klaim Reimburse</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-primary pb" href="<?= base_url('reimburstment'); ?>">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('admin/request'); ?>">
+                    <i class="fas fa-recycle"></i>
+                    <span>Request Reimburse</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-primary pb" href="<?= base_url('admin/reimburstment'); ?>">
                     <!-- <i class="fas fa-fw fa-folder-open"></i> -->
                     <i class="fas fa-hand-holding-usd"></i>
                     <span>Reimburstment</span>
@@ -234,14 +248,14 @@
             <li class="nav-item">
                 <a class="nav-link text-primary pb-0" href="<?= base_url('request'); ?>">
                     <i class="fas fa-list-ul"></i>
-                    <span>List Proses Klaim</span>
+                    <span>Data Request Reimburse</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-primary" href="<?= base_url('request/histor'); ?>">
+                <a class="nav-link text-primary" href="<?= base_url('request/histori'); ?>">
                     <i class="fas fa-history"></i>
-                    <span>Histori Klaim</span>
+                    <span>Histori Request Reimburse</span>
                 </a>
             </li>
             <?php endif; ?>
