@@ -183,9 +183,9 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link text-primary pb-0" href="<?= base_url('reimburstment'); ?>">
-                    <i class="fas fa-funnel-dollar"></i>
-                    <span>Klaim Reimburse</span>
+                <a class="nav-link text-primary pb-0" href="<?= base_url('request'); ?>">
+                    <i class="fas fa-recycle"></i>
+                    <span>Request Reimburse</span>
                 </a>
             </li>
 
@@ -206,7 +206,7 @@
             <li class="nav-item">
                 <a class="nav-link text-primary pb-0" href="<?= base_url('reimburstment'); ?>">
                     <i class="fas fa-list-ul"></i>
-                    <span>List Klaim Reimburstment</span>
+                    <span>List Reimburstment</span>
                 </a>
             </li>
 
@@ -697,6 +697,20 @@
             $('#klaim_id').val(klaim_id);
             $('#nama').val(nama);
             $('#klaim').modal('hide');
+        });
+    });
+
+    $(document).ready(function() {
+        $(document).on('click', '#select_reimburse', function() {
+            var acc_no = $(this).data('id');
+            var klaim_id = $(this).data('klaim_id');
+            var nama = $(this).data('nama');
+            var amount = $(this).data('amount');
+            $('#acc_no').val(acc_no);
+            $('#klaim_id').val(klaim_id);
+            $('#nama').val(nama);
+            $('#amount').val(amount);
+            $('#reimburstment').modal('hide');
         });
     });
 

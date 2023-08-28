@@ -93,23 +93,13 @@ class Admin_model extends CI_Model
         $this->db->order_by('no_acc');
         return $this->db->get('request_reimburse r')->result_array();
     }
-    public function getCust()
-    {
-        $this->db->join('unit u', 'c.unit_id = u.id_unit');
-        $this->db->join('warna w', 'c.warna_id = w.id_warna');
-        $this->db->order_by('id_customer');
-        return $this->db->get('customer c')->result_array();
-    }
 
-
-    public function getSpp()
+    public function getReimburstment()
     {
-        $this->db->join('unit u', 's.unit_id = u.id_unit');
-        $this->db->join('leasing l', 's.leasing_id = l.id_leasing');
-        $this->db->join('leasing_number ln', 's.ln_id= ln.id_ln');
-        $this->db->join('customer c', 's.customer_id = c.id_customer');
-        $this->db->order_by('no_surat');
-        return $this->db->get('spp s')->result_array();
+        $this->db->join('request_reimburse req', 'r.acc_no = req.no_acc');
+        $this->db->join('bank b', 'r.bank_id = b.id_bank');
+        $this->db->order_by('id_reimburstment');
+        return $this->db->get('reimburstment r')->result_array();
     }
 
     public function getRequistion($limit = null, $id_req = null)
