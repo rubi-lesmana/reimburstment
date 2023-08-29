@@ -74,6 +74,7 @@ class Klaim extends CI_Controller
                 'dokumen'           => $dokumen,
             ];
             $insert = $this->admin->insert('klaim', $input_data);
+            //$insert = $this->admin->insert('klaim');
             // if($this->upload->do_upload('file_name')){
             //     $dokumen = $this->upload->data('file_name');
             //     $input_data = [

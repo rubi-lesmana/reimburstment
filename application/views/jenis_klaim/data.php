@@ -40,10 +40,10 @@
                     <td><?= $ls['id_jenis_klaim']; ?></td>
                     <td><?= $ls['nama_jenis_klaim']; ?></td>
                     <td>
-                        <a href="<?= base_url('jenis_klaim/edit/') . $ls['id_jenis_klaim'] ?>"
+                        <a href="<?= base_url('jenisKlaim/edit/') . $ls['id_jenis_klaim'] ?>"
                             class="btn btn-warning btn-circle btn-sm"><i class="fa fa-edit"></i></a>
                         <a onclick="return confirm('Yakin ingin hapus?')"
-                            href="<?= base_url('jenis_klaim/delete/') . $ls['id_jenis_klaim'] ?>"
+                            href="<?= base_url('jenisKlaim/delete/') . $ls['id_jenis_klaim'] ?>"
                             class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
