@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 29, 2023 at 01:47 PM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.7
+-- Waktu pembuatan: 30 Agu 2023 pada 11.44
+-- Versi server: 10.3.16-MariaDB
+-- Versi PHP: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bank`
+-- Struktur dari tabel `bank`
 --
 
 CREATE TABLE `bank` (
@@ -34,7 +34,7 @@ CREATE TABLE `bank` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `bank`
+-- Dumping data untuk tabel `bank`
 --
 
 INSERT INTO `bank` (`id_bank`, `nama_bank`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `bank` (`id_bank`, `nama_bank`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barang`
+-- Struktur dari tabel `barang`
 --
 
 CREATE TABLE `barang` (
@@ -57,7 +57,7 @@ CREATE TABLE `barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `barang`
+-- Dumping data untuk tabel `barang`
 --
 
 INSERT INTO `barang` (`id_barang`, `nama_barang`, `stok`, `satuan_id`, `jenis_id`) VALUES
@@ -73,7 +73,7 @@ INSERT INTO `barang` (`id_barang`, `nama_barang`, `stok`, `satuan_id`, `jenis_id
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barang_keluar`
+-- Struktur dari tabel `barang_keluar`
 --
 
 CREATE TABLE `barang_keluar` (
@@ -85,7 +85,7 @@ CREATE TABLE `barang_keluar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Triggers `barang_keluar`
+-- Trigger `barang_keluar`
 --
 DELIMITER $$
 CREATE TRIGGER `update_stok_keluar` BEFORE INSERT ON `barang_keluar` FOR EACH ROW UPDATE `barang` SET `barang`.`stok` = `barang`.`stok` - NEW.jumlah_keluar WHERE `barang`.`id_barang` = NEW.barang_id
@@ -95,7 +95,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barang_masuk`
+-- Struktur dari tabel `barang_masuk`
 --
 
 CREATE TABLE `barang_masuk` (
@@ -108,7 +108,7 @@ CREATE TABLE `barang_masuk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Triggers `barang_masuk`
+-- Trigger `barang_masuk`
 --
 DELIMITER $$
 CREATE TRIGGER `update_stok_masuk` BEFORE INSERT ON `barang_masuk` FOR EACH ROW UPDATE `barang` SET `barang`.`stok` = `barang`.`stok` + NEW.jumlah_masuk WHERE `barang`.`id_barang` = NEW.barang_id
@@ -118,7 +118,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cust`
+-- Struktur dari tabel `cust`
 --
 
 CREATE TABLE `cust` (
@@ -137,7 +137,7 @@ CREATE TABLE `cust` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer`
+-- Struktur dari tabel `customer`
 --
 
 CREATE TABLE `customer` (
@@ -154,7 +154,7 @@ CREATE TABLE `customer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `customer`
+-- Dumping data untuk tabel `customer`
 --
 
 INSERT INTO `customer` (`id_customer`, `nama_customer`, `alamat`, `no_telp`, `unit_id`, `warna_id`, `no_rangka`, `no_mesin`, `downpayment`, `status`) VALUES
@@ -165,7 +165,7 @@ INSERT INTO `customer` (`id_customer`, `nama_customer`, `alamat`, `no_telp`, `un
 -- --------------------------------------------------------
 
 --
--- Table structure for table `departement`
+-- Struktur dari tabel `departement`
 --
 
 CREATE TABLE `departement` (
@@ -174,7 +174,7 @@ CREATE TABLE `departement` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `departement`
+-- Dumping data untuk tabel `departement`
 --
 
 INSERT INTO `departement` (`id_departement`, `nama_departement`) VALUES
@@ -189,7 +189,7 @@ INSERT INTO `departement` (`id_departement`, `nama_departement`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `divisi`
+-- Struktur dari tabel `divisi`
 --
 
 CREATE TABLE `divisi` (
@@ -198,7 +198,7 @@ CREATE TABLE `divisi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `divisi`
+-- Dumping data untuk tabel `divisi`
 --
 
 INSERT INTO `divisi` (`id_divisi`, `nama_divisi`) VALUES
@@ -211,7 +211,7 @@ INSERT INTO `divisi` (`id_divisi`, `nama_divisi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jabatan`
+-- Struktur dari tabel `jabatan`
 --
 
 CREATE TABLE `jabatan` (
@@ -220,7 +220,7 @@ CREATE TABLE `jabatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `jabatan`
+-- Dumping data untuk tabel `jabatan`
 --
 
 INSERT INTO `jabatan` (`id_jabatan`, `nama_jabatan`) VALUES
@@ -231,7 +231,7 @@ INSERT INTO `jabatan` (`id_jabatan`, `nama_jabatan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis`
+-- Struktur dari tabel `jenis`
 --
 
 CREATE TABLE `jenis` (
@@ -240,7 +240,7 @@ CREATE TABLE `jenis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `jenis`
+-- Dumping data untuk tabel `jenis`
 --
 
 INSERT INTO `jenis` (`id_jenis`, `nama_jenis`) VALUES
@@ -255,7 +255,7 @@ INSERT INTO `jenis` (`id_jenis`, `nama_jenis`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis_klaim`
+-- Struktur dari tabel `jenis_klaim`
 --
 
 CREATE TABLE `jenis_klaim` (
@@ -264,7 +264,7 @@ CREATE TABLE `jenis_klaim` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `jenis_klaim`
+-- Dumping data untuk tabel `jenis_klaim`
 --
 
 INSERT INTO `jenis_klaim` (`id_jenis_klaim`, `nama_jenis_klaim`) VALUES
@@ -276,7 +276,7 @@ INSERT INTO `jenis_klaim` (`id_jenis_klaim`, `nama_jenis_klaim`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `klaim`
+-- Struktur dari tabel `klaim`
 --
 
 CREATE TABLE `klaim` (
@@ -286,27 +286,21 @@ CREATE TABLE `klaim` (
   `departement_id` char(7) NOT NULL,
   `jabatan_id` char(7) NOT NULL,
   `jenis_klaim_id` char(7) NOT NULL,
-  `dokumen` varchar(225) DEFAULT NULL,
+  `amount` int(11) DEFAULT NULL,
   `status` smallint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `klaim`
+-- Dumping data untuk tabel `klaim`
 --
 
-INSERT INTO `klaim` (`id_klaim`, `tanggal`, `nama`, `departement_id`, `jabatan_id`, `jenis_klaim_id`, `dokumen`, `status`) VALUES
-('KLM001', '2023-08-08', 'Rubi', 'DEPT005', 'J000003', 'JKL001', 'logo.png', 1),
-('KLM002', '2023-08-23', 'Rubi', 'DEPT001', 'J000002', 'JKL001', 'Frame 25.png', 1),
-('KLM003', '2023-08-23', 'Rubi', 'DEPT001', 'J000001', 'JKL001', 'Frame 24.png', 1),
-('KLM004', '2023-08-23', 'Sales', 'DEPT001', 'J000001', 'JKL001', 'Frame 26.png', 1),
-('KLM005', '2023-08-24', 'Test', 'DEPT001', 'J000001', 'JKL001', 'INTransHdr.png', 0),
-('KLM006', '2023-08-25', 'Rubi', 'DEPT001', 'J000001', 'JKL002', 'carbon.png', 1),
-('KLM007', '2023-08-29', 'Rubi', 'DEPT001', 'J000001', 'JKL002', 'Frame 27.png', 0);
+INSERT INTO `klaim` (`id_klaim`, `tanggal`, `nama`, `departement_id`, `jabatan_id`, `jenis_klaim_id`, `amount`, `status`) VALUES
+('KLM001', '2023-08-30', 'Rubi', 'DEPT003', 'J000002', 'JKL001', 3000000, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `leasing`
+-- Struktur dari tabel `leasing`
 --
 
 CREATE TABLE `leasing` (
@@ -316,7 +310,7 @@ CREATE TABLE `leasing` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `leasing`
+-- Dumping data untuk tabel `leasing`
 --
 
 INSERT INTO `leasing` (`id_leasing`, `nama_leasing`, `alamat`) VALUES
@@ -327,7 +321,7 @@ INSERT INTO `leasing` (`id_leasing`, `nama_leasing`, `alamat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `leasing_number`
+-- Struktur dari tabel `leasing_number`
 --
 
 CREATE TABLE `leasing_number` (
@@ -338,7 +332,7 @@ CREATE TABLE `leasing_number` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `leasing_number`
+-- Dumping data untuk tabel `leasing_number`
 --
 
 INSERT INTO `leasing_number` (`id_ln`, `leasing_id`, `unit_id`, `harga`) VALUES
@@ -349,7 +343,7 @@ INSERT INTO `leasing_number` (`id_ln`, `leasing_id`, `unit_id`, `harga`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `purchase_order`
+-- Struktur dari tabel `purchase_order`
 --
 
 CREATE TABLE `purchase_order` (
@@ -368,7 +362,7 @@ CREATE TABLE `purchase_order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `purchase_order`
+-- Dumping data untuk tabel `purchase_order`
 --
 
 INSERT INTO `purchase_order` (`id_po`, `ro_id`, `divisi_id`, `barang_id`, `quantity`, `keterangan`, `requistion_id`, `supplier_id`, `harga`, `total`, `tanggal`, `status`) VALUES
@@ -381,7 +375,7 @@ INSERT INTO `purchase_order` (`id_po`, `ro_id`, `divisi_id`, `barang_id`, `quant
 ('PO00010', 'RO00011', 1, 'B000001', 1, '', 6, 7, 3000000, 3000000, '2022-02-23', NULL);
 
 --
--- Triggers `purchase_order`
+-- Trigger `purchase_order`
 --
 DELIMITER $$
 CREATE TRIGGER `Update_RO` AFTER INSERT ON `purchase_order` FOR EACH ROW BEGIN
@@ -399,7 +393,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reimburstment`
+-- Struktur dari tabel `reimburstment`
 --
 
 CREATE TABLE `reimburstment` (
@@ -416,15 +410,14 @@ CREATE TABLE `reimburstment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `reimburstment`
+-- Dumping data untuk tabel `reimburstment`
 --
 
 INSERT INTO `reimburstment` (`id_reimburstment`, `tanggal`, `acc_no`, `description`, `klaim_id`, `nama`, `bank_id`, `no_rek`, `amount`, `status`) VALUES
-('RMBS001', '2023-08-28', 'ACC001', 'Bismillah', 'KLM001', 'Ruby', 'BANK001', '12345', 10000000, 0),
-('RMBS002', '2023-08-27', 'ACC002', 'Bismillah', 'KLM002', 'Rubi', 'BANK002', '12345', 333, 0);
+('RMBS001', '2023-08-30', 'ACC001', 'Bismillah', 'KLM001', 'Rubi', 'BANK001', '12345', 3000000, NULL);
 
 --
--- Triggers `reimburstment`
+-- Trigger `reimburstment`
 --
 DELIMITER $$
 CREATE TRIGGER `update_req_before_delete` BEFORE DELETE ON `reimburstment` FOR EACH ROW BEGIN
@@ -442,7 +435,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `request_order`
+-- Struktur dari tabel `request_order`
 --
 
 CREATE TABLE `request_order` (
@@ -456,7 +449,7 @@ CREATE TABLE `request_order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `request_order`
+-- Dumping data untuk tabel `request_order`
 --
 
 INSERT INTO `request_order` (`id_ro`, `divisi_id`, `barang_id`, `quantity`, `keterangan`, `tanggal`, `status`) VALUES
@@ -475,7 +468,7 @@ INSERT INTO `request_order` (`id_ro`, `divisi_id`, `barang_id`, `quantity`, `ket
 -- --------------------------------------------------------
 
 --
--- Table structure for table `request_reimburse`
+-- Struktur dari tabel `request_reimburse`
 --
 
 CREATE TABLE `request_reimburse` (
@@ -489,18 +482,14 @@ CREATE TABLE `request_reimburse` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `request_reimburse`
+-- Dumping data untuk tabel `request_reimburse`
 --
 
 INSERT INTO `request_reimburse` (`no_acc`, `tanggal`, `description`, `klaim_id`, `nama`, `amount`, `status`) VALUES
-('ACC001', '2023-08-24', 'Bismillah berhasil', 'KLM001', 'Ruby', 10000000, 1),
-('ACC002', '2023-08-25', 'Bismillah', 'KLM002', 'Rubi', 333, 1),
-('ACC003', '2023-08-24', 'Test', 'KLM003', 'Rubi', 900000, 0),
-('ACC004', '2023-08-29', 'Bismillah', 'KLM004', 'Sales', 9000000, 0),
-('ACC005', '2023-08-29', 'Bismillah', 'KLM006', 'Rubi', 3000000, 0);
+('ACC001', '2023-08-30', 'Bismillah', 'KLM001', 'Rubi', 3000000, 1);
 
 --
--- Triggers `request_reimburse`
+-- Trigger `request_reimburse`
 --
 DELIMITER $$
 CREATE TRIGGER `update_klaim` AFTER INSERT ON `request_reimburse` FOR EACH ROW BEGIN
@@ -518,7 +507,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `satuan`
+-- Struktur dari tabel `satuan`
 --
 
 CREATE TABLE `satuan` (
@@ -527,7 +516,7 @@ CREATE TABLE `satuan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `satuan`
+-- Dumping data untuk tabel `satuan`
 --
 
 INSERT INTO `satuan` (`id_satuan`, `nama_satuan`) VALUES
@@ -539,7 +528,7 @@ INSERT INTO `satuan` (`id_satuan`, `nama_satuan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `spp`
+-- Struktur dari tabel `spp`
 --
 
 CREATE TABLE `spp` (
@@ -557,7 +546,7 @@ CREATE TABLE `spp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `spp`
+-- Dumping data untuk tabel `spp`
 --
 
 INSERT INTO `spp` (`no_surat`, `customer_id`, `nama_customer`, `unit_id`, `downpayment`, `ln_id`, `leasing_id`, `harga`, `pelunasan`, `tanggal`, `status`) VALUES
@@ -567,7 +556,7 @@ INSERT INTO `spp` (`no_surat`, `customer_id`, `nama_customer`, `unit_id`, `downp
 -- --------------------------------------------------------
 
 --
--- Table structure for table `supplier`
+-- Struktur dari tabel `supplier`
 --
 
 CREATE TABLE `supplier` (
@@ -578,7 +567,7 @@ CREATE TABLE `supplier` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `supplier`
+-- Dumping data untuk tabel `supplier`
 --
 
 INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `no_telp`, `alamat`) VALUES
@@ -591,7 +580,7 @@ INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `no_telp`, `alamat`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_requistion`
+-- Struktur dari tabel `tb_requistion`
 --
 
 CREATE TABLE `tb_requistion` (
@@ -602,7 +591,7 @@ CREATE TABLE `tb_requistion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tb_requistion`
+-- Dumping data untuk tabel `tb_requistion`
 --
 
 INSERT INTO `tb_requistion` (`id_requistion`, `supplier_id`, `barang_id`, `harga`) VALUES
@@ -624,7 +613,7 @@ INSERT INTO `tb_requistion` (`id_requistion`, `supplier_id`, `barang_id`, `harga
 -- --------------------------------------------------------
 
 --
--- Table structure for table `unit`
+-- Struktur dari tabel `unit`
 --
 
 CREATE TABLE `unit` (
@@ -633,7 +622,7 @@ CREATE TABLE `unit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `unit`
+-- Dumping data untuk tabel `unit`
 --
 
 INSERT INTO `unit` (`id_unit`, `nama_unit`) VALUES
@@ -646,7 +635,7 @@ INSERT INTO `unit` (`id_unit`, `nama_unit`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -663,7 +652,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `username`, `email`, `no_telp`, `role`, `password`, `created_at`, `foto`, `is_active`) VALUES
@@ -677,13 +666,13 @@ INSERT INTO `user` (`id_user`, `nama`, `username`, `email`, `no_telp`, `role`, `
 --
 
 --
--- Indexes for table `bank`
+-- Indeks untuk tabel `bank`
 --
 ALTER TABLE `bank`
   ADD PRIMARY KEY (`id_bank`);
 
 --
--- Indexes for table `barang`
+-- Indeks untuk tabel `barang`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`),
@@ -691,7 +680,7 @@ ALTER TABLE `barang`
   ADD KEY `kategori_id` (`jenis_id`);
 
 --
--- Indexes for table `barang_keluar`
+-- Indeks untuk tabel `barang_keluar`
 --
 ALTER TABLE `barang_keluar`
   ADD PRIMARY KEY (`id_barang_keluar`),
@@ -699,7 +688,7 @@ ALTER TABLE `barang_keluar`
   ADD KEY `barang_id` (`barang_id`);
 
 --
--- Indexes for table `barang_masuk`
+-- Indeks untuk tabel `barang_masuk`
 --
 ALTER TABLE `barang_masuk`
   ADD PRIMARY KEY (`id_barang_masuk`),
@@ -708,7 +697,7 @@ ALTER TABLE `barang_masuk`
   ADD KEY `barang_id` (`barang_id`);
 
 --
--- Indexes for table `cust`
+-- Indeks untuk tabel `cust`
 --
 ALTER TABLE `cust`
   ADD PRIMARY KEY (`id_customer`),
@@ -716,7 +705,7 @@ ALTER TABLE `cust`
   ADD KEY `warna_id` (`warna_id`);
 
 --
--- Indexes for table `customer`
+-- Indeks untuk tabel `customer`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`id_customer`),
@@ -724,37 +713,37 @@ ALTER TABLE `customer`
   ADD KEY `warna_id` (`warna_id`);
 
 --
--- Indexes for table `departement`
+-- Indeks untuk tabel `departement`
 --
 ALTER TABLE `departement`
   ADD PRIMARY KEY (`id_departement`);
 
 --
--- Indexes for table `divisi`
+-- Indeks untuk tabel `divisi`
 --
 ALTER TABLE `divisi`
   ADD PRIMARY KEY (`id_divisi`);
 
 --
--- Indexes for table `jabatan`
+-- Indeks untuk tabel `jabatan`
 --
 ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id_jabatan`);
 
 --
--- Indexes for table `jenis`
+-- Indeks untuk tabel `jenis`
 --
 ALTER TABLE `jenis`
   ADD PRIMARY KEY (`id_jenis`);
 
 --
--- Indexes for table `jenis_klaim`
+-- Indeks untuk tabel `jenis_klaim`
 --
 ALTER TABLE `jenis_klaim`
   ADD PRIMARY KEY (`id_jenis_klaim`);
 
 --
--- Indexes for table `klaim`
+-- Indeks untuk tabel `klaim`
 --
 ALTER TABLE `klaim`
   ADD PRIMARY KEY (`id_klaim`),
@@ -763,13 +752,13 @@ ALTER TABLE `klaim`
   ADD KEY `jenis_klaim_id` (`jenis_klaim_id`);
 
 --
--- Indexes for table `leasing`
+-- Indeks untuk tabel `leasing`
 --
 ALTER TABLE `leasing`
   ADD PRIMARY KEY (`id_leasing`);
 
 --
--- Indexes for table `leasing_number`
+-- Indeks untuk tabel `leasing_number`
 --
 ALTER TABLE `leasing_number`
   ADD PRIMARY KEY (`id_ln`),
@@ -777,7 +766,7 @@ ALTER TABLE `leasing_number`
   ADD KEY `unit_id` (`unit_id`);
 
 --
--- Indexes for table `purchase_order`
+-- Indeks untuk tabel `purchase_order`
 --
 ALTER TABLE `purchase_order`
   ADD PRIMARY KEY (`id_po`),
@@ -785,7 +774,7 @@ ALTER TABLE `purchase_order`
   ADD KEY `ro_id` (`ro_id`);
 
 --
--- Indexes for table `reimburstment`
+-- Indeks untuk tabel `reimburstment`
 --
 ALTER TABLE `reimburstment`
   ADD PRIMARY KEY (`id_reimburstment`),
@@ -795,7 +784,7 @@ ALTER TABLE `reimburstment`
   ADD KEY `klaim_id` (`klaim_id`);
 
 --
--- Indexes for table `request_order`
+-- Indeks untuk tabel `request_order`
 --
 ALTER TABLE `request_order`
   ADD PRIMARY KEY (`id_ro`),
@@ -803,20 +792,20 @@ ALTER TABLE `request_order`
   ADD KEY `barang_id` (`barang_id`);
 
 --
--- Indexes for table `request_reimburse`
+-- Indeks untuk tabel `request_reimburse`
 --
 ALTER TABLE `request_reimburse`
   ADD PRIMARY KEY (`no_acc`),
   ADD KEY `ro_id` (`klaim_id`);
 
 --
--- Indexes for table `satuan`
+-- Indeks untuk tabel `satuan`
 --
 ALTER TABLE `satuan`
   ADD PRIMARY KEY (`id_satuan`);
 
 --
--- Indexes for table `spp`
+-- Indeks untuk tabel `spp`
 --
 ALTER TABLE `spp`
   ADD PRIMARY KEY (`no_surat`),
@@ -824,13 +813,13 @@ ALTER TABLE `spp`
   ADD KEY `ro_id` (`customer_id`);
 
 --
--- Indexes for table `supplier`
+-- Indeks untuk tabel `supplier`
 --
 ALTER TABLE `supplier`
   ADD PRIMARY KEY (`id_supplier`);
 
 --
--- Indexes for table `tb_requistion`
+-- Indeks untuk tabel `tb_requistion`
 --
 ALTER TABLE `tb_requistion`
   ADD PRIMARY KEY (`id_requistion`),
@@ -838,77 +827,77 @@ ALTER TABLE `tb_requistion`
   ADD KEY `barang_id` (`barang_id`);
 
 --
--- Indexes for table `unit`
+-- Indeks untuk tabel `unit`
 --
 ALTER TABLE `unit`
   ADD PRIMARY KEY (`id_unit`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `divisi`
+-- AUTO_INCREMENT untuk tabel `divisi`
 --
 ALTER TABLE `divisi`
   MODIFY `id_divisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `jenis`
+-- AUTO_INCREMENT untuk tabel `jenis`
 --
 ALTER TABLE `jenis`
   MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `satuan`
+-- AUTO_INCREMENT untuk tabel `satuan`
 --
 ALTER TABLE `satuan`
   MODIFY `id_satuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `supplier`
+-- AUTO_INCREMENT untuk tabel `supplier`
 --
 ALTER TABLE `supplier`
   MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `tb_requistion`
+-- AUTO_INCREMENT untuk tabel `tb_requistion`
 --
 ALTER TABLE `tb_requistion`
   MODIFY `id_requistion` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `barang`
+-- Ketidakleluasaan untuk tabel `barang`
 --
 ALTER TABLE `barang`
   ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`satuan_id`) REFERENCES `satuan` (`id_satuan`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `barang_ibfk_2` FOREIGN KEY (`jenis_id`) REFERENCES `jenis` (`id_jenis`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `barang_keluar`
+-- Ketidakleluasaan untuk tabel `barang_keluar`
 --
 ALTER TABLE `barang_keluar`
   ADD CONSTRAINT `barang_keluar_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `barang_keluar_ibfk_2` FOREIGN KEY (`barang_id`) REFERENCES `barang` (`id_barang`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `barang_masuk`
+-- Ketidakleluasaan untuk tabel `barang_masuk`
 --
 ALTER TABLE `barang_masuk`
   ADD CONSTRAINT `barang_masuk_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -916,7 +905,7 @@ ALTER TABLE `barang_masuk`
   ADD CONSTRAINT `barang_masuk_ibfk_3` FOREIGN KEY (`barang_id`) REFERENCES `barang` (`id_barang`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `klaim`
+-- Ketidakleluasaan untuk tabel `klaim`
 --
 ALTER TABLE `klaim`
   ADD CONSTRAINT `klaim_ibfk_1` FOREIGN KEY (`departement_id`) REFERENCES `departement` (`id_departement`),
@@ -924,47 +913,47 @@ ALTER TABLE `klaim`
   ADD CONSTRAINT `klaim_ibfk_3` FOREIGN KEY (`jenis_klaim_id`) REFERENCES `jenis_klaim` (`id_jenis_klaim`);
 
 --
--- Constraints for table `leasing_number`
+-- Ketidakleluasaan untuk tabel `leasing_number`
 --
 ALTER TABLE `leasing_number`
   ADD CONSTRAINT `leasing_number_ibfk_1` FOREIGN KEY (`leasing_id`) REFERENCES `leasing` (`id_leasing`),
   ADD CONSTRAINT `leasing_number_ibfk_2` FOREIGN KEY (`unit_id`) REFERENCES `unit` (`id_unit`);
 
 --
--- Constraints for table `purchase_order`
+-- Ketidakleluasaan untuk tabel `purchase_order`
 --
 ALTER TABLE `purchase_order`
   ADD CONSTRAINT `purchase_order_ibfk_1` FOREIGN KEY (`ro_id`) REFERENCES `request_order` (`id_ro`),
   ADD CONSTRAINT `purchase_order_ibfk_2` FOREIGN KEY (`requistion_id`) REFERENCES `tb_requistion` (`id_requistion`);
 
 --
--- Constraints for table `reimburstment`
+-- Ketidakleluasaan untuk tabel `reimburstment`
 --
 ALTER TABLE `reimburstment`
   ADD CONSTRAINT `reimburstment_ibfk_2` FOREIGN KEY (`bank_id`) REFERENCES `bank` (`id_bank`),
   ADD CONSTRAINT `reimburstment_ibfk_3` FOREIGN KEY (`acc_no`) REFERENCES `request_reimburse` (`no_acc`);
 
 --
--- Constraints for table `request_order`
+-- Ketidakleluasaan untuk tabel `request_order`
 --
 ALTER TABLE `request_order`
   ADD CONSTRAINT `request_order_ibfk_1` FOREIGN KEY (`barang_id`) REFERENCES `barang` (`id_barang`);
 
 --
--- Constraints for table `request_reimburse`
+-- Ketidakleluasaan untuk tabel `request_reimburse`
 --
 ALTER TABLE `request_reimburse`
   ADD CONSTRAINT `request_reimburse_ibfk_1` FOREIGN KEY (`klaim_id`) REFERENCES `klaim` (`id_klaim`);
 
 --
--- Constraints for table `spp`
+-- Ketidakleluasaan untuk tabel `spp`
 --
 ALTER TABLE `spp`
   ADD CONSTRAINT `spp_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id_customer`),
   ADD CONSTRAINT `spp_ibfk_2` FOREIGN KEY (`ln_id`) REFERENCES `leasing_number` (`id_ln`);
 
 --
--- Constraints for table `tb_requistion`
+-- Ketidakleluasaan untuk tabel `tb_requistion`
 --
 ALTER TABLE `tb_requistion`
   ADD CONSTRAINT `tb_requistion_ibfk_1` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`id_supplier`),
