@@ -18,6 +18,47 @@ class Request extends CI_Controller
         $data['request']     = $this->admin->getRequest();
         $this->template->load('templates/dashboard', 'request/data', $data);
     }
+
+    public function klaim()
+    {
+        $data['title']       = "Request Reimburse";
+        $data['klaim']     = $this->admin->getKlaim();
+        $this->template->load('templates/dashboard', 'request/klaim', $data);
+    }
+
+    private function _validasiKlaim()
+    {
+        $this->form_validation->set_rules('tanggal', 'Tanggal', 'required|trim');
+        $this->form_validation->set_rules('departement_id', 'Departement', 'required|trim');
+        $this->form_validation->set_rules('jabatan_id', 'Jabatan', 'required|trim');
+        $this->form_validation->set_rules('jenis_klaim_id', 'Jenis Klaim', 'required|trim');
+    }
+
+    public function approve($getId)
+    {
+        $id = encode_php_tags($getId);
+        $this->_validasiKlaim();
+
+        if ($this->form_validation->run() == false) {
+            $data['title']          = "Approve Klaim";
+            $data['departement']    = $this->admin->get('departement');
+            $data['jabatan']        = $this->admin->get('jabatan');
+            $data['jenis_klaim']    = $this->admin->get('jenis_klaim');
+            $data['klaim']          = $this->admin->get('klaim', ['id_klaim' => $id]);
+            $this->template->load('templates/dashboard', 'request/approve', $data);
+        } else {
+            $input = $this->input->post(null, true);
+            $update = $this->admin->update('klaim', 'id_klaim', $id, $input);
+
+            if ($update) {
+                set_pesan('Klaim berhasil di Approve');
+                redirect('request');
+            } else {
+                set_pesan('Klaim gagal di Approve');
+                redirect('request/approve/' . $id);
+            }
+        }
+    }
     
     public function histori()
     {

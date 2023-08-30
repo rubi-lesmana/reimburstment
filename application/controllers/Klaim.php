@@ -55,43 +55,25 @@ class Klaim extends CI_Controller
         } else {           
             $input              = $this->input->post(null, true);
             //konfigurasi upload
-            $file_dokumen       = $_FILES['dokumen']['name'];
-            $config = [
-                'upload_path'   => './assets/img/',
-                'allowed_types' => 'gif|jpg|png',
-                'max_size'      => '2048',
-                'file_name'     => $file_dokumen, 
-            ];
-            $this->load->library('upload', $config);
-            $dokumen = $this->upload->data('file_name');
-            $input_data = [
-                'id_klaim'          => $input['id_klaim'],
-                'tanggal'           => $input['tanggal'],
-                'nama'              => $input['nama'],
-                'departement_id'    => $input['departement_id'],
-                'jabatan_id'        => $input['jabatan_id'],
-                'jenis_klaim_id'    => $input['jenis_klaim_id'],
-                'dokumen'           => $dokumen,
-            ];
-            $insert = $this->admin->insert('klaim', $input_data);
-            //$insert = $this->admin->insert('klaim');
-            // if($this->upload->do_upload('file_name')){
-            //     $dokumen = $this->upload->data('file_name');
-            //     $input_data = [
-            //         'id_klaim'          => $input['id_klaim'],
-            //         'tanggal'           => $input['tanggal'],
-            //         'nama'              => $input['nama'],
-            //         'departement_id'    => $input['departement_id'],
-            //         'jabatan_id'        => $input['jabatan_id'],
-            //         'jenis_klaim_id'    => $input['jenis_klaim_id'],
-            //         'dokumen'           => $dokumen,
-            //     ];
-            //     $insert = $this->admin->insert('klaim', $input_data);
-            // }else{
-            //     $image_error = array('imageError' => $this->upload->display_errors());
-            //     $this->template->load('templates/dashboard', 'klaim/add', $image_error);
-            // }
-            
+            // $file_dokumen       = $_FILES['dokumen']['name'];
+            // $config = [
+            //     'upload_path'   => './assets/img/',
+            //     'allowed_types' => 'gif|jpg|png',
+            //     'max_size'      => '2048',
+            //     'file_name'     => $file_dokumen, 
+            // ];
+            // $this->load->library('upload', $config);
+            // $dokumen = $this->upload->data('file_name');
+            // $input_data = [
+            //     'id_klaim'          => $input['id_klaim'],
+            //     'tanggal'           => $input['tanggal'],
+            //     'nama'              => $input['nama'],
+            //     'departement_id'    => $input['departement_id'],
+            //     'jabatan_id'        => $input['jabatan_id'],
+            //     'jenis_klaim_id'    => $input['jenis_klaim_id'],
+            //     'dokumen'           => $dokumen,
+            // ];
+            $insert = $this->admin->insert('klaim', $input);            
             if ($insert) {
                 set_pesan('data berhasil disimpan.');
                 redirect('klaim');
@@ -116,25 +98,7 @@ class Klaim extends CI_Controller
             $this->template->load('templates/dashboard', 'klaim/edit', $data);
         } else {
             $input = $this->input->post(null, true);
-            //konfigurasi upload
-            $file_dokumen       = $_FILES['dokumen']['name'];
-            $config = [
-                'upload_path'   => './uploads/',
-                'allowed_types' => 'gif|jpg|png',
-                'file_name'     => $file_dokumen, 
-            ];
-            $this->load->library('upload', $config);
-            $dokumen = $this->upload->data('file_name');
-            $input_data = [
-                'id_klaim'          => $input['id_klaim'],
-                'tanggal'           => $input['tanggal'],
-                'nama'              => $input['nama'],
-                'departement_id'    => $input['departement_id'],
-                'jabatan_id'        => $input['jabatan_id'],
-                'jenis_klaim_id'    => $input['jenis_klaim_id'],
-                'dokumen'           => $dokumen,
-            ];
-            $update = $this->admin->update('klaim', 'id_klaim', $id, $input_data);
+            $update = $this->admin->update('klaim', 'id_klaim', $id, $input);
 
             if ($update) {
                 set_pesan('Klaim Reimburse berhasil di Perbaharui');

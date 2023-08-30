@@ -23,7 +23,6 @@
                     <th>Jenis Klaim</th>
                     <th>Amount</th>
                     <th>Status</th>
-                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -63,15 +62,6 @@
                                     echo "Approval";
                                 }
                                 ?>
-                    </td>
-                    <td>
-                        <a href="<?= base_url('request/edit/') . $r->no_acc ?>"
-                            class="btn btn-primary btn-circle btn-sm"><i class="fa fa-edit"></i></a>
-                        <a onclick="return confirm('Yakin ingin hapus?')"
-                            href="<?= base_url('request/delete/') . $r->no_acc ?>"
-                            class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
-                        <!-- <a href="<?= base_url('request/detail/') . $r->no_acc ?>"
-                            class="btn btn-success btn-circle btn-sm"><i class="fas fa-ellipsis-v"></i></a> -->
                     </td>
                 </tr>
                 <?php endforeach; ?>

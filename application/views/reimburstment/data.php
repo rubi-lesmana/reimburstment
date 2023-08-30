@@ -74,8 +74,8 @@
                         <a onclick="return confirm('Yakin ingin hapus?')"
                             href="<?= base_url('reimburstment/delete/') . $r->id_reimburstment ?>"
                             class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
-                        <a href="<?= base_url('reimburstment/detail/') . $r->id_reimburstment ?>"
-                            class="btn btn-success btn-circle btn-sm"><i class="fas fa-ellipsis-v"></i></a>
+                        <!-- <a href="<?= base_url('reimburstment/detail/') . $r->id_reimburstment ?>"
+                            class="btn btn-success btn-circle btn-sm"><i class="fas fa-ellipsis-v"></i></a> -->
                     </td>
                 </tr>
                 <?php endforeach; ?>

@@ -20,14 +20,14 @@
                     <th>Departement</th>
                     <th>Jabatan</th>
                     <th>Jenis Klaim</th>
-                    <th>Dokumen</th>
+                    <th>Amount</th>
                     <th>Status</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 $sqlin = $this->db->query("
-                    SELECT a.`id_klaim`, a.`tanggal`, a.nama, b.nama_departement, c.nama_jabatan, d.nama_jenis_klaim, a.dokumen, a.status 
+                    SELECT a.`id_klaim`, a.`tanggal`, a.nama, b.nama_departement, c.nama_jabatan, d.nama_jenis_klaim, a.amount, a.status 
                     FROM `klaim` a 
                     INNER JOIN departement b ON a.`departement_id` = b.id_departement
                     INNER JOIN jabatan c ON a.`jabatan_id`= c.id_jabatan 
@@ -47,7 +47,7 @@
                     <td><?= $kl->nama_departement; ?></td>
                     <td><?= $kl->nama_jabatan; ?></td>
                     <td><?= $kl->nama_jenis_klaim; ?></td>
-                    <td><?= $kl->dokumen; ?></td>
+                    <td><?= number_format($kl->amount, 0, '.', '.'); ?></td>
                     <td>
                         <!-- <a href="<?= base_url('klaim/edit/') . $kl->id_klaim ?>"
                             class="btn btn-primary btn-circle btn-sm"><i class="fa fa-edit"></i></a>

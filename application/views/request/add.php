@@ -144,13 +144,14 @@
                             <th>Deptartement</th>
                             <th>Jabatan</th>
                             <th>Jenis Klaim</th>
+                            <th>Amount</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $klaim = $this->db->query(
-                            "SELECT a.id_klaim, a.nama, a.departement_id, a.jabatan_id, a.jenis_klaim_id,
+                            "SELECT a.id_klaim, a.nama, a.departement_id, a.jabatan_id, a.jenis_klaim_id, a.amount,
                             b.nama_departement, c.nama_jabatan, d.nama_jenis_klaim
                             FROM klaim a
                             INNER JOIN departement b
@@ -159,19 +160,20 @@
                             ON a.departement_id  =  b.id_departement 
                             AND a.jabatan_id = c.id_jabatan
                             AND a.jenis_klaim_id = d.id_jenis_klaim
-                            WHERE a.status = 0"
+                            WHERE a.status = 2"
                         );
 
                         foreach ($klaim ->result() as $r) : ?>
                         <tr>
                             <td><?= $r->id_klaim; ?></td>
                             <td><?= $r->nama; ?></td>
-                            <td><?= $r->departement_id . ' | ' . $r->nama_departement; ?></td>
-                            <td><?= $r->jabatan_id . ' | ' . $r->nama_jabatan; ?></td>
-                            <td><?= $r->jenis_klaim_id . ' | ' . $r->nama_jenis_klaim; ?></td>
+                            <td><?= $r->nama_departement; ?></td>
+                            <td><?= $r->nama_jabatan; ?></td>
+                            <td><?= $r->nama_jenis_klaim; ?></td>
+                            <td><?= $r->amount; ?></td>
                             <td class="text-right">
                                 <button class="btn btn-sm btn-primary" id="select_klaim" data-id="<?= $r->id_klaim; ?>"
-                                    data-nama="<?= $r->nama; ?>">
+                                    data-nama="<?= $r->nama; ?>" data-amount="<?= $r->amount; ?>">
                                     <i class="fa fa-check"></i>Select
                                 </button>
                             </td>

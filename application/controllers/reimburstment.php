@@ -18,6 +18,13 @@ class Reimburstment extends CI_Controller
         $data['reimburstment']  = $this->admin->getReimburstment();
         $this->template->load('templates/dashboard', 'reimburstment/data', $data);
     }
+
+    public function request()
+    {
+        $data['title']          = "Reimburstment";
+        $data['request']  = $this->admin->getRequest();
+        $this->template->load('templates/dashboard', 'reimburstment/request', $data);
+    }
     
     public function histori()
     {

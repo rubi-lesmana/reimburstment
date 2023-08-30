@@ -183,7 +183,7 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link text-primary pb-0" href="<?= base_url('request'); ?>">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('reimburstment/request'); ?>">
                     <i class="fas fa-recycle"></i>
                     <span>Request Reimburse</span>
                 </a>
@@ -204,18 +204,12 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link text-primary pb-0" href="<?= base_url('reimburstment'); ?>">
+                <a class="nav-link text-primary pb" href="<?= base_url('reimburstment'); ?>">
                     <i class="fas fa-list-ul"></i>
                     <span>List Reimburstment</span>
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link text-primary" href="<?= base_url('reimburstment/histori'); ?>">
-                    <i class="fas fa-history"></i>
-                    <span>Histori Klaim Reimburstment</span>
-                </a>
-            </li>
             <?php endif; ?>
 
             <?php if (is_hrga()) : ?>
@@ -225,7 +219,7 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link text-primary pb-0" href="<?= base_url('Klaim'); ?>">
+                <a class="nav-link text-primary pb-0" href="<?= base_url('request/klaim'); ?>">
                     <i class="fas fa-list-alt"></i>
                     <span>Data Klaim</span>
                 </a>
@@ -694,8 +688,10 @@
         $(document).on('click', '#select_klaim', function() {
             var klaim_id = $(this).data('id');
             var nama = $(this).data('nama');
+            var amount = $(this).data('amount');
             $('#klaim_id').val(klaim_id);
             $('#nama').val(nama);
+            $('#amount').val(amount);
             $('#klaim').modal('hide');
         });
     });

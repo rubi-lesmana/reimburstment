@@ -98,11 +98,11 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <label class="col-md-4 text-md-right" for="dokumen">Dokumen</label>
+                    <label class="col-md-4 text-md-right" for="amount">Amount</label>
                     <div class="col-md-6">
-                        <input value="<?= set_value('dokumen', $klaim['dokumen']); ?>" name="dokumen" id="dokumen"
-                            type="file" class="form-control" placeholder="Dokumen">
-                        <?= form_error('dokumen', '<small class="text-danger">', '</small>'); ?>
+                        <input value="<?= set_value('amount', $klaim['amount']); ?>" name="amount" id="amount"
+                            type="number" class="form-control" placeholder="Amount">
+                        <?= form_error('amount', '<small class="text-danger">', '</small>'); ?>
                     </div>
                 </div>
                 <br>
