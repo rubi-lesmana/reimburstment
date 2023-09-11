@@ -28,6 +28,8 @@ class Admin extends CI_Controller
 
     public function reimburstment()
     {
-        
+        $data['title']          = "Reimburstment";
+        $data['reimburstment']  = $this->admin->getReimburstment();
+        $this->template->load('templates/dashboard', 'admin/reimburstment', $data);
     }
 }
